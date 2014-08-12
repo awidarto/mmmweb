@@ -111,7 +111,6 @@
 
 
 {{ HTML::style('css/autocompletes.css') }}
-{{ HTML::script('js/autocompletes.js') }}
 
 {{ HTML::script('js/autocompletes.js') }}
 

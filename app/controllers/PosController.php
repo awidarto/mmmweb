@@ -31,10 +31,10 @@ class PosController extends AdminController {
         $this->heads = array(
             //array('Photos',array('search'=>false,'sort'=>false)),
             array('Item',array('search'=>false,'sort'=>false)),
-            array('Unit Id',array('search'=>false,'sort'=>false)),
+            //array('Unit Id',array('search'=>false,'sort'=>false, 'attr'=>array('style'=>'min-width:100px;max-width:100px;') )),
             array('Qty',array('search'=>false,'sort'=>false ,'attr'=>array('class'=>''))),
-            array('Unit Price',array('search'=>false,'sort'=>false ,'attr'=>array('class'=>''))),
-            array('Total',array('search'=>false,'sort'=>false ,'attr'=>array('class'=>'')))
+            array('Unit Price',array('search'=>false,'sort'=>false ,'attr'=>array('class'=>'price'))),
+            array('Total',array('search'=>false,'sort'=>false ,'attr'=>array('class'=>'price')))
         );
 
         //print $this->model->where('docFormat','picture')->get()->toJSON();
@@ -53,6 +53,8 @@ class PosController extends AdminController {
         $this->additional_page_data = $add_data;
 
         $this->can_add = false;
+
+        $this->show_select = false;
 
         $this->place_action = 'none';
 
@@ -75,11 +77,13 @@ class PosController extends AdminController {
 
         $this->fields = array(
             array('SKU',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true,'callback'=>'itemDesc')),
-            array('unitId',array('kind'=>'text','query'=>'like','pos'=>'after','show'=>true)),
+            //array('unitId',array('kind'=>'text','query'=>'like','pos'=>'after','show'=>true)),
             array('quantity',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true)),
             array('unitPrice',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true, 'callback'=>'toIdr' )),
             array('unitTotal',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true, 'callback'=>'toIdr')),
         );
+
+        $this->show_select = false;
 
         $this->place_action = 'none';
 
@@ -109,7 +113,7 @@ class PosController extends AdminController {
         //array_unshift($fields, array('select',array('kind'=>false)));
         array_unshift($fields, array('seq',array('kind'=>false)));
         if($this->place_action == 'both' || $this->place_action == 'first'){
-            array_unshift($fields, array('action',array('kind'=>false)));
+            //array_unshift($fields, array('action',array('kind'=>false)));
         }
 
         $pagestart = Input::get('iDisplayStart');
@@ -322,12 +326,12 @@ class PosController extends AdminController {
                 $tdoc = $artemp[$doc->SKU];
                 $tdoc->quantity = $tdoc->quantity + $doc->quantity;
                 $tdoc->unitTotal = $tdoc->unitTotal + $doc->unitTotal;
-                $tdoc->unitId = $tdoc->unitId.'<br />'.$this->shortunit( array('unitId'=>$doc->unitId) ).'<i class="fa fa-times-circle del_unit" id="'.$doc->unitId.'" ></i>';
+                $tdoc->unitId = $tdoc->unitId.'<br />'.$this->shortunit( array('unitId'=>$doc->unitId) ).'<i class="icon-remove-sign del_unit" id="'.$doc->unitId.'" ></i>';
                 $artemp[$doc->SKU] = $tdoc;
             }else{
                 $doc->quantity = 1;
                 $doc->unitTotal = $doc->productDetail['priceRegular'];
-                $doc->unitId = $this->shortunit( array('unitId'=>$doc->unitId) ).' <i class="fa fa-times-circle del_unit" id="'.$doc->unitId.'" ></i>';
+                $doc->unitId = $this->shortunit( array('unitId'=>$doc->unitId) ).' <i class="icon-remove-sign del_unit" id="'.$doc->unitId.'" ></i>';
                 $artemp[$doc->SKU] = $doc;
             }
         }
@@ -353,9 +357,11 @@ class PosController extends AdminController {
 
             $row[] = $counter;
 
-            //$sel = Former::checkbox('sel_'.$doc['_id'])->check(false)->label(false)->id($doc['_id'])->class('selector')->__toString();
-            $sel = '<input type="checkbox" name="sel_'.$doc['_id'].'" id="'.$doc['_id'].'" value="'.$doc['_id'].'" class="selector" />';
-            $row[] = $sel;
+            if($this->show_select == true){
+                //$sel = Former::checkbox('sel_'.$doc['_id'])->check(false)->label(false)->id($doc['_id'])->class('selector')->__toString();
+                $sel = '<input type="checkbox" name="sel_'.$doc['_id'].'" id="'.$doc['_id'].'" value="'.$doc['_id'].'" class="selector" />';
+                $row[] = $sel;
+            }
 
             if($this->place_action == 'both' || $this->place_action == 'first'){
                 $row[] = $actions;
@@ -443,9 +449,9 @@ class PosController extends AdminController {
         $total_tax = $total_price * (10 / 100);
         $grand_total = $total_price + $total_tax;
 
-        $aadata[] = array('','','','','<h5 style="text-align:right;">Subtotal</h5>','<h5 style="text-align:right;">IDR</h5>','<h5 style="text-align:right;">'.Ks::idr($total_price).'</h5><input type="hidden" id="subtotal_price_value" value="'.$total_price.'">');
-        $aadata[] = array('','','','','<h5 style="text-align:right;">PPn 10%</h5>','<h5 style="text-align:right;">IDR</h5>','<h5 style="text-align:right;">'.Ks::idr($total_tax).'</h5><input type="hidden" id="total_tax_value" value="'.$total_tax.'">');
-        $aadata[] = array('','','','','<h1 style="text-align:right;">Total</h1>','<h1 style="text-align:right;">IDR</h1>','<h1>'.Ks::idr($grand_total).'</h1><input type="hidden" id="total_price_value" value="'.$grand_total.'">');
+        $aadata[] = array('','','<h5 style="text-align:right;">Subtotal</h5>','<h5 style="text-align:right;">IDR</h5>','<h5 style="text-align:right;">'.Ks::idr($total_price).'</h5><input type="hidden" id="subtotal_price_value" value="'.$total_price.'">');
+        $aadata[] = array('','','<h5 style="text-align:right;">PPn 10%</h5>','<h5 style="text-align:right;">IDR</h5>','<h5 style="text-align:right;">'.Ks::idr($total_tax).'</h5><input type="hidden" id="total_tax_value" value="'.$total_tax.'">');
+        $aadata[] = array('','','<h1 style="text-align:right;">Total</h1>','<h1 style="text-align:right;">IDR</h1>','<h1>'.Ks::idr($grand_total).'</h1><input type="hidden" id="total_price_value" value="'.$grand_total.'">');
 
         $sEcho = (int) Input::get('sEcho');
 

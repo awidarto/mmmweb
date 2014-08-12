@@ -22,3 +22,10 @@
   font-weight: 400;
   src: local('Roboto Regular'), local('Roboto-Regular'), url(../fonts/Roboto/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
+
+@font-face {
+  font-family: 'Kaushan Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kaushan Script'), local('KaushanScript-Regular'), url(../fonts/Kaushan_Script/qx1LSqts-NtiKcLw4N03ILDH3ri20rYH10B2w3wbVeU.woff) format('woff');
+}
