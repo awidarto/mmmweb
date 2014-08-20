@@ -10,7 +10,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        {{ Former::select('salutation')->options(Config::get('kickstart.salutation'))->label('Salutation')->class('span1') }}
+        {{ Former::select('salutation')->options(Config::get('kickstart.salutation'))->label('Salutation')->class('span2') }}
         {{ Former::text('firstname','First Name')->required() }}
         {{ Former::text('lastname','Last Name')->required() }}
         {{ Former::text('mobile','Mobile')->class('span3')->maxlength(15) }}

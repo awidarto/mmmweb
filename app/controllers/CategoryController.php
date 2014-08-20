@@ -8,10 +8,6 @@ class CategoryController extends AdminController {
 
         $this->controller_name = str_replace('Controller', '', get_class());
 
-        //$this->crumb = new Breadcrumb();
-        //$this->crumb->append('Home','left',true);
-        //$this->crumb->append(strtolower($this->controller_name));
-
         $this->model = new Category();
         //$this->model = DB::collection('documents');
         $this->title = $this->controller_name;
@@ -36,7 +32,9 @@ class CategoryController extends AdminController {
             array('Last Update',array('search'=>true,'sort'=>true,'date'=>true)),
         );
 
+        $this->title = 'Product Category';
         //print $this->model->where('docFormat','picture')->get()->toJSON();
+        $this->place_action = 'first';
 
         return parent::getIndex();
 
@@ -51,6 +49,8 @@ class CategoryController extends AdminController {
             array('createdDate',array('kind'=>'datetime','query'=>'like','pos'=>'both','show'=>true)),
             array('lastUpdate',array('kind'=>'datetime','query'=>'like','pos'=>'both','show'=>true)),
         );
+
+        $this->place_action = 'first';
 
         return parent::postIndex();
     }

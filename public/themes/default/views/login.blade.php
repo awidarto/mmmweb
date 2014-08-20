@@ -28,6 +28,10 @@
             <div class="clearfix"></div>
 
             <button type="submit" class="btn btn-primary span12">Login</button>
+
+            <div class="clearfix"></div>
+
+            <a href="{{ URL::to('signup') }}"> Don't have account ? Sign up here.</a>
         </fieldset>
 
         {{--

@@ -48,7 +48,7 @@ $(document).ready(function() {
                 },
                 function(data){
                     if(data.result == 'OK'){
-                        oTable.fnDraw();
+                        oTable.draw();
                     }
                     $('#scanResult').html(data.msg);
                     $('#barcode').val('');

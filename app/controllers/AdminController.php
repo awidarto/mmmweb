@@ -380,12 +380,16 @@ class AdminController extends Controller {
 
 		}
 
+        //$q['organization']['domain'] = Auth::user()->organization['subdomain'];
+
         if($this->additional_query){
             $q = array_merge( $q, $this->additional_query );
         }
+        if(isset(Auth::user()->organization['subdomain']) && Auth::user()->organization['subdomain'] != ''){
+            $q = array_merge($q,array('domain'=>Auth::user()->organization['subdomain'] ));
+        }
 
-		//print_r($q);
-
+        //print_r($q);
 
 		/* first column is always sequence number, so must be omitted */
 
@@ -556,6 +560,31 @@ class AdminController extends Controller {
 		return Response::json($result);
 	}
 
+    public function getView($id){
+        $controller_name = strtolower($this->controller_name);
+
+        $_id = new MongoId($id);
+
+        $population = $this->model->find($id)->toArray();
+
+        $population = $this->beforeUpdateForm($population);
+
+        foreach ($population as $key=>$val) {
+            if($val instanceof MongoDate){
+                $population[$key] = date('d-m-Y H:i:s',$val->sec);
+            }
+        }
+
+        $this->title = ($this->title == '')?Str::singular($this->controller_name):Str::singular($this->title);
+
+        //$this->crumb->add(strtolower($this->controller_name).'/edit/'.$id,$id,false);
+
+        return View::make(strtolower($this->controller_name).'.'.$this->view_object)
+                    ->with('back',$controller_name)
+                    ->with('formdata',$population)
+                    ->with('title',$this->title);
+    }
+
 	public function getAdd(){
 
 		$controller_name = strtolower($this->controller_name);
@@ -589,6 +618,9 @@ class AdminController extends Controller {
 		//print_r($data);
 
 		$data = $this->beforeValidateAdd($data);
+
+        $data['domain'] = Auth::user()->organization['subdomain'];
+        $data['apptype'] = Auth::user()->organization['apptype'];
 
 		$controller_name = strtolower($this->controller_name);
 
@@ -693,6 +725,9 @@ class AdminController extends Controller {
 
 			unset($data['csrf_token']);
 			unset($data['id']);
+
+            $data['domain'] = Auth::user()->organization['subdomain'];
+            $data['apptype'] = Auth::user()->organization['apptype'];
 
 			//print_r($data);
 			//exit();
@@ -803,23 +838,6 @@ class AdminController extends Controller {
 
         return $heads;
     }
-
-	public function get_view($id){
-		$_id = new MongoId($id);
-
-		$model = $this->model;
-
-		$obj = $model->where('_id',$_id)->get();
-
-		$obj = $this->beforeView($obj);
-
-		$this->crumb->add(strtolower($this->controller_name).'/view/'.$id,'View',false);
-		$this->crumb->add(strtolower($this->controller_name).'/view/'.$id,$id,false);
-
-		//return View::make(strtolower($this->controller_name).'.'.$this->view_object)
-		return View::make('view')
-			->with('obj',$obj);
-	}
 
     public function postDlxl()
     {

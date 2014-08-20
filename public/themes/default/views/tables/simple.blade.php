@@ -416,12 +416,6 @@ td.group{
 					"sSwfPath": "{{ URL::to('/')  }}/swf/copy_csv_xls_pdf.swf"
 				},
 
-				"fnRowCallback": function (nRow, aData, iDisplayIndex) {
-					console.log(aData);
-				    //nRow.setAttribute('id', aData.RowOrder);  //Initialize row id for every row
-				    nRow.setAttribute('id', aData[0]);  //Initialize row id for every row
-				},
-
 				"aoColumnDefs": [
 				    { "bSortable": false, "aTargets": [ {{ $disablesort }} ] }
 				 ],

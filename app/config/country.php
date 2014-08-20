@@ -4,7 +4,7 @@ return array(
 
 
     'countries' => array(
-        '-'                                         => 'Select Country',
+        ''                                         => 'Select Country',
         'Indonesia'                                 => 'Indonesia',
         'Thailand'                                  => 'Thailand',
         'Australia'                                 => 'Australia',

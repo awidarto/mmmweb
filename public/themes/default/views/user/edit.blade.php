@@ -11,7 +11,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        {{ Former::select('salutation')->options(Config::get('kickstart.salutation'))->label('Salutation')->class('span1') }}
+        {{ Former::select('salutation')->options(Config::get('kickstart.salutation'))->label('Salutation')->class('span2') }}
         {{ Former::text('firstname','First Name') }}
         {{ Former::text('lastname','Last Name') }}
         {{ Former::text('mobile','Mobile') }}
