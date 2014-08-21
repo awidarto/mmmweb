@@ -11,13 +11,46 @@
     select {
         margin-top:10px;
     }
+
+    #dom-check{
+        color:green;
+    }
+    #dom-cross{
+        color:red;
+    }
+
+    .redborder{
+        border: 2px solid red !important;
+    }
 </style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#subdomain').on('keyup',function(){
+            var subdomain = $('#subdomain').val();
+            $.post( '{{ URL::to('dcheck') }}',
+                {'subdomain': subdomain},
+                function(data){
+                    if(data.result == 'OK'){
+                        $('#subdomain').removeClass('redborder');
+                        $('#dom-cross').hide();
+                    }else{
+                        $('#subdomain').addClass('redborder');
+                        $('#dom-cross').show();
+                    }
+                },'json'
+            );
+        });
+    });
+
+</script>
 
 {{ Form::open(array('url' => 'organization','class'=>'form-signin')) }}
         <h2>Organization</h2>
         <fieldset>
-            @if (Session::get('loginError'))
-                <div class="alert alert-danger">{{ Session::get('loginError') }}</div>
+            @if (Session::get('signupError'))
+                <div class="alert alert-danger">{{ Session::get('signupError') }}</div>
                      <button type="button" class="close" data-dismiss="alert"></button>
             @endif
             @if(Auth::check())
@@ -29,9 +62,12 @@
             @endif
 
             {{ Former::hidden('user_id')->value($newuser) }}
-            <input class="input-large span12" name="name" id="name" type="text" placeholder="organization name" />
 
-            <input class="input-large span12" name="subdomain" id="subdomain" type="text" placeholder="web domain" />
+            {{ Former::text('name')->label('')->placeholder('organization name')->id('name')->class('input-large span12')}}
+
+            {{ Former::text('subdomain')->label('')->placeholder('web domain')->id('subdomain')->class('input-large span12')->autocomplete('off')}}
+
+             <div id="dom-cross" style="display:none;text-align:right;" ><i class="icon-remove"></i> domain taken</div>
 
             {{ Former::select('apptype')->options( Config::get('kickstart.app_types') )->label('')->id('apptype') }}
 
@@ -42,7 +78,7 @@
 
             <div class="clearfix"></div>
 
-            <button type="submit" class="btn btn-primary span12">Sign Up</button>
+            <button type="submit" class="btn btn-primary span12">Save Organization</button>
         </fieldset>
 
 {{ Form::close() }}

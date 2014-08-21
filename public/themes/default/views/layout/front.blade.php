@@ -20,7 +20,7 @@
     <link href="{{ URL::to('sm')}}/css/bootstrap-responsive.min.css" rel="stylesheet" />
 
     {{ HTML::style('css/typography.css') }}
-    <link href="{{ URL::to('sm')}}/css/style.min.css" rel="stylesheet" />
+    <link href="{{ URL::to('sm')}}/css/style.css" rel="stylesheet" />
     <link href="{{ URL::to('sm')}}/css/style-responsive.min.css" rel="stylesheet" />
     <link href="{{ URL::to('sm')}}/css/retina.css" rel="stylesheet" />
 

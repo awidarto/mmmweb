@@ -19,7 +19,7 @@
     <link href="{{ URL::to('sm')}}/css/bootstrap-responsive.min.css" rel="stylesheet" />
 
     {{ HTML::style('css/typography.css') }}
-    <link href="{{ URL::to('sm')}}/css/style.min.css" rel="stylesheet" />
+    <link href="{{ URL::to('sm')}}/css/style.css" rel="stylesheet" />
     <link href="{{ URL::to('sm')}}/css/style-responsive.min.css" rel="stylesheet" />
     <link href="{{ URL::to('sm')}}/css/retina.css" rel="stylesheet" />
 
@@ -35,6 +35,10 @@
     <!--[if IE 9]>
         <link id="ie9style" href="css/ie9.css" rel="stylesheet">
     <![endif]-->
+
+    {{ HTML::script('js/jquery-1.11.1.min.js')}}
+    <script src="{{ URL::to('sm')}}/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{{ URL::to('sm')}}/js/jquery-ui-1.10.3.custom.min.js"></script>
 
     <!-- start: Favicon and Touch Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
@@ -87,9 +91,6 @@
     </div><!--/.fluid-container-->
 
     <!-- start: JavaScript-->
-        <script src="{{ URL::to('sm')}}/js/jquery-1.11.1.min.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="{{ URL::to('sm')}}/js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/jquery.ui.touch-punch.js"></script>
         <script src="{{ URL::to('sm')}}/js/modernizr.js"></script>
         <script src="{{ URL::to('sm')}}/js/bootstrap.min.js"></script>

@@ -362,6 +362,8 @@ Route::post('login',function(){
                 // login the user
                 Auth::login($user);
 
+                $org = Organization::where('user_id', Auth::user()->_id)->first();
+
                 if(isset(Auth::user()->organization) && Auth::user()->organization['subdomain'] != '' ){
                     return Redirect::to('/');
                 }else{
@@ -467,11 +469,24 @@ Route::get('organization/{userid}',function($userid){
     return View::make('organization')->with('newuser',$userid);
 });
 
+Route::post('dcheck',function(){
+    $subdomain = Input::get('subdomain');
+
+    $check = Organization::where('subdomain',$subdomain)->first();
+
+    if($check){
+        return Response::json(array('result'=>'NOK'));
+    }else{
+        return Response::json(array('result'=>'OK'));
+    }
+
+});
+
 Route::post('organization',function(){
     // validate the info, create rules for the inputs
     $rules = array(
-        'name'    => 'required',
-        'country'    => 'required',
+        'name' => 'required',
+        'subdomain'  => 'required|unique:organizations',
         'apptype'=>'required',
         'employeenumber'=>'required',
         'country'=>'required'
@@ -485,8 +500,8 @@ Route::post('organization',function(){
 
         Event::fire('log.a',array('create organization','createorganization',Input::get('email'),'validation fail'));
 
-        Session::flash('signupError', 'validation error');
-        return Redirect::to('/');
+        Session::flash('signupError', $validator->messages());
+        return Redirect::to('organization/'.Input::get('user_id'))->withInput( Input::all() );
     } else {
 
         $data = Input::get();
@@ -508,6 +523,12 @@ Route::post('organization',function(){
             $member->organization = $data;
 
             $member->save();
+
+            $domain = new Domain();
+            foreach($data as $k=>$v){
+                $domain->$k = $v;
+            }
+            $domain->save();
 
             Event::fire('log.a',array('create organization','createorganization',Input::get('name'),'organization created'));
             Session::flash('signupSuccess', 'Thank you and welcome to '.Config::get('site.name').' ! Go ahead, sign in and start exploring!');

@@ -96,7 +96,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     {{ HTML::script('js/jquery-1.9.1.js')}}
     {{ HTML::script('js/jquery-ui-1.9.2.custom.min.js')}}
-    {{ HTML::script('bootplus/js/bootstrap.min.js')}}
+    {{ HTML::script('sm/js/bootstrap.min.js')}}
 
 
   </body>
