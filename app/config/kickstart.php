@@ -19,10 +19,10 @@ return array(
         ),
     'app_types'=>array(
             ''=>'Select Business Type',
-            'retail'=>'Retail ( General )',
-            'culinary'=>'Retail ( Culinary )',
-            'service'=>'Service Management',
-            'office'=>'Office Management',
+            //'retail'=>'Retail ( General )',
+            //'culinary'=>'Retail ( Culinary )',
+            //'service'=>'Service Management',
+            //'office'=>'Office Management',
             'building'=>'Building Management'
         ),
     'employee_number'=>array(
