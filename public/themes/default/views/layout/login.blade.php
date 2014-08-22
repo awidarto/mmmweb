@@ -36,10 +36,6 @@
         <link id="ie9style" href="css/ie9.css" rel="stylesheet">
     <![endif]-->
 
-    {{ HTML::script('js/jquery-1.11.1.min.js')}}
-    <script src="{{ URL::to('sm')}}/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery-ui-1.10.3.custom.min.js"></script>
-
     <!-- start: Favicon and Touch Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -47,6 +43,10 @@
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="ico/favicon.png" />
     <!-- end: Favicon and Touch Icons -->
+
+    {{ HTML::script('js/jquery-1.11.1.min.js')}}
+    <script src="{{ URL::to('sm')}}/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="{{ URL::to('sm')}}/js/jquery-ui-1.10.3.custom.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
