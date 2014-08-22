@@ -361,14 +361,15 @@ Route::post('login',function(){
                 //exit();
                 // login the user
                 Auth::login($user);
-
+                /*
                 $org = Organization::where('user_id', Auth::user()->_id)->first();
 
                 if(isset(Auth::user()->organization) && Auth::user()->organization['subdomain'] != '' ){
-                    return Redirect::to('/');
                 }else{
                     return Redirect::to('organization/'.Auth::user()->_id);
-                }
+                }*/
+
+                return Redirect::to('/');
 
 
             } else {
