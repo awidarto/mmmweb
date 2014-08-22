@@ -124,7 +124,6 @@
         <script src="{{ URL::to('sm')}}/js/retina.js"></script>
         <script src="{{ URL::to('sm')}}/js/jquery.placeholder.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/wizard.min.js"></script>
-        <script src="{{ URL::to('sm')}}/js/core.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/charts.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/custom.min.js"></script>
     <!-- end: JavaScript-->

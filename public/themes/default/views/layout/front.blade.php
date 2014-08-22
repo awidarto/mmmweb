@@ -69,6 +69,7 @@
     <!-- end: Favicon and Touch Icons -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
     {{ HTML::script('js/jquery-1.11.1.min.js')}}
     <script src="{{ URL::to('sm')}}/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="{{ URL::to('sm')}}/js/jquery-ui-1.10.3.custom.min.js"></script>
