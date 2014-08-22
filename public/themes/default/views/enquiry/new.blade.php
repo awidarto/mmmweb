@@ -10,7 +10,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         <div class="row-fluid form-vertical">
             <div class="span4">
@@ -37,7 +37,7 @@
             <div class="span4">
                 {{ Former::select('type')->options(Config::get('ia.type'))->label('Type')->required() }}
             </div>
-            <div class="span6">
+            <div class="col-md-6">
                 {{ Former::text('yearBuilt','Year Built')->class('span8')->maxlength(4)->required()  }}
             </div>
         </div>
@@ -76,8 +76,8 @@
             <div class="span4">
                 {{ Former::text('houseSize','House Size (SqFt)')->class('span12')->required() }}
             </div>
-            <div class="span6">
-                {{ Former::text('lotSize','Lot Size (SqFt)')->class('span6')->required() }}
+            <div class="col-md-6">
+                {{ Former::text('lotSize','Lot Size (SqFt)')->class('col-md-6')->required() }}
             </div>
         </div>
 
@@ -116,7 +116,7 @@
         {{ HTML::link($back,'Cancel',array('class'=>'btn'))}}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
 
         <div class="row-fluid form-vertical">
@@ -140,7 +140,7 @@
 
         <div class="row-fluid form-vertical">
             <div class="span4">
-                {{ Former::text('leaseTerms','Lease Terms')->append('months')->class('span6')->maxlength(2)->required() }}
+                {{ Former::text('leaseTerms','Lease Terms')->append('months')->class('col-md-6')->maxlength(2)->required() }}
             </div>
             <div class="span5">
                 {{ Former::text('leaseStartDate','Lease Start Date')->class('span12 datepicker')

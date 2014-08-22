@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('SKU','SKU') }}
         {{ Former::select('category','Category')->options(Prefs::ExtractProductCategory()) }}
@@ -42,7 +42,7 @@
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <div class="row-fluid form-vertical">
             <div class="span2" style="text-align:right;width:120px;">
                 Inventory

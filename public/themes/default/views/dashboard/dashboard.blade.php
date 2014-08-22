@@ -4,7 +4,7 @@
 
             <div class="row-fluid">
 
-                <div class="span3 smallstat box mobileHalf" ontablet="span6" ondesktop="span3">
+                <div class="span3 smallstat box mobileHalf" ontablet="col-md-6" ondesktop="span3">
                     <div class="boxchart-overlay blue">
                         <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
                     </div>
@@ -12,7 +12,7 @@
                     <span class="value">4 589</span>
                 </div>
 
-                <div class="span3 smallstat box mobileHalf" ontablet="span6" ondesktop="span3">
+                <div class="span3 smallstat box mobileHalf" ontablet="col-md-6" ondesktop="span3">
                     <div class="boxchart-overlay red">
                         <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
                     </div>
@@ -20,13 +20,13 @@
                     <span class="value">789</span>
                 </div>
 
-                <div class="span3 smallstat box mobileHalf noMargin" ontablet="span6" ondesktop="span3">
+                <div class="span3 smallstat box mobileHalf noMargin" ontablet="col-md-6" ondesktop="span3">
                     <i class="icon-download-alt green"></i>
                     <span class="title">Income</span>
                     <span class="value">$1 999,99</span>
                 </div>
 
-                <div class="span3 smallstat mobileHalf box" ontablet="span6" ondesktop="span3">
+                <div class="span3 smallstat mobileHalf box" ontablet="col-md-6" ondesktop="span3">
                     <i class="icon-money yellow"></i>
                     <span class="title">Account</span>
                     <span class="value">$19 999,99</span>
@@ -184,7 +184,7 @@
 
             <div class="row-fluid">
 
-                <div class="span6" ontablet="span12" ondesktop="span6">
+                <div class="col-md-6" ontablet="span12" ondesktop="col-md-6">
 
                     <div class="row-fluid">
                         <div class="span12 multi-stat-box box">
@@ -242,7 +242,7 @@
 
                 </div>
 
-                <div class="box blue span6 noMargin" ontablet="span12" ondesktop="span6">
+                <div class="box blue col-md-6 noMargin" ontablet="span12" ondesktop="col-md-6">
                     <div class="box-header">
                         <h2>Revenue</h2>
                     </div>
@@ -429,7 +429,7 @@
 
                     <div class="row-fluid">
 
-                        <div class="span6 smallchart blue box mobileHalf">
+                        <div class="col-md-6 smallchart blue box mobileHalf">
 
                             <div class="title">Account balance</div>
 
@@ -445,7 +445,7 @@
 
                         </div>
 
-                        <div class="span6 smallchart red box mobileHalf">
+                        <div class="col-md-6 smallchart red box mobileHalf">
 
                             <div class="title">Weekly revenue</div>
 

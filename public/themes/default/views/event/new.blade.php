@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>''))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('title','Event Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
         {{ Former::text('venue','Venue') }}
@@ -27,7 +27,7 @@
         {{ Former::textarea('description','Description')->class('editor') }}
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <?php
             $fupload = new Fupload();
         ?>

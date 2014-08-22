@@ -10,7 +10,7 @@
 {{ Former::hidden('id')->value($formdata['_id']) }}
 <div class="row">
 
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('songTitle','Song Title') }}
         {{ Former::text('artist','Artist') }}
@@ -190,7 +190,7 @@
         </div>
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         @include('partials.editortoolbar')
         {{ Former::textarea('lyric','Lyric') }}
 

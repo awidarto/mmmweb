@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>''))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('name','Outlet Name') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
         {{ Former::text('venue','Venue') }}
@@ -20,7 +20,7 @@
         {{ Former::text('longitude','Longitude') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::select('category')->options(Config::get('tm.outlet_category'))->label('Outlet Category') }}
         {{ Former::textarea('description','Description')->class('editor') }}
         {{ Former::text('tags','Tags')->class('tag_keyword') }}

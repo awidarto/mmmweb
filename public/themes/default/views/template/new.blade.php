@@ -8,13 +8,13 @@
 {{Former::open_for_files($submit,'POST',array('class'=>''))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('title','Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
         {{ Former::select('category')->options(Prefs::getCategory()->catToSelection('title','title'))->label('Category') }}
         {{ Former::textarea('body','Body')->class('editor')->name('body') }}
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
 

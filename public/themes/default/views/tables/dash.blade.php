@@ -45,13 +45,13 @@ th:first-child{
 </div>
 
 <div class="row-fluid">
-    <div class="span6 command-bar">
+    <div class="col-md-6 command-bar">
 
      </div>
 </div>
 
 <div class="row-fluid">
-   <div class="span6">
+   <div class="col-md-6">
 
       <table class="table table-condensed dataTable">
 
@@ -183,7 +183,7 @@ th:first-child{
       </table>
 
    </div>
-   <div class="span6">
+   <div class="col-md-6">
 
         @if(isset($can_add) && $can_add == true)
             <a href="{{ URL::to($addurl) }}" class="btn btn-primary">Add</a>

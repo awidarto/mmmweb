@@ -45,7 +45,7 @@ th:first-child{
 </div>
 
 <div class="row-fluid">
-    <div class="span6 command-bar">
+    <div class="col-md-6 command-bar">
 
         @if(isset($can_add) && $can_add == true)
             <a href="{{ URL::to($addurl) }}" class="btn btn-primary">Add</a>
@@ -54,7 +54,7 @@ th:first-child{
             <a class="btn" id="download-xls">Download Excel</a>
             <a class="btn" id="download-csv">Download CSV</a>
      </div>
-     <div class="span6 command-bar">
+     <div class="col-md-6 command-bar">
         @if(Auth::user()->role == 'admin' || Auth::user()->role == 'root')
             @if(isset($can_clear_att) && $can_clear_att == true)
                 <a class="btn pull-right" id="clear-attendance" >Clear Attendance</a>

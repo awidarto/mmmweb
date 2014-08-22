@@ -10,7 +10,7 @@
             <h3>Credit Card</h3>
             {{ Former::text('cc_amount','Amount')->id('cc-amount')->class('span12 amounts') }}
             {{ Former::text('cc_number','Card Number')->id('cc-number')->class('span12') }}
-            {{ Former::text('cc_expiry','Expiry Date')->id('cc-expiry')->class('span6')->help('MMYY') }}
+            {{ Former::text('cc_expiry','Expiry Date')->id('cc-expiry')->class('col-md-6')->help('MMYY') }}
         </div>
         <div class="span3">
             <h3>Debit Card</h3>

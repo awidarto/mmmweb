@@ -16,7 +16,7 @@ class AdminController extends Controller {
 
 	public $form;
 
-	public $form_framework = 'TwitterBootstrap';
+	public $form_framework = 'TwitterBootstrap3';
 
 	public $form_class = 'form-horizontal';
 
@@ -385,9 +385,11 @@ class AdminController extends Controller {
         if($this->additional_query){
             $q = array_merge( $q, $this->additional_query );
         }
+        /*
         if(isset(Auth::user()->organization['subdomain']) && Auth::user()->organization['subdomain'] != ''){
             $q = array_merge($q,array('domain'=>Auth::user()->organization['subdomain'] ));
         }
+        */
 
         //print_r($q);
 

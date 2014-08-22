@@ -9,14 +9,14 @@
 
 {{ Former::hidden('id')->value($formdata['_id']) }}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('title','Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
         {{ Former::select('category')->options(Prefs::getFAQCategory()->FAQcatToSelection('title','title'))->label('Category') }}
         {{ Former::textarea('body','Body')->class('editor')->name('body') }}
     </div>
 
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
 

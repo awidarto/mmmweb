@@ -103,7 +103,7 @@ div.payform h3{
 </div>
 
 <div class="row-fluid">
-    <div class="span6 command-bar">
+    <div class="col-md-6 command-bar">
 
      </div>
 </div>
@@ -244,10 +244,10 @@ div.payform h3{
             </div>
         </div>
       <div class="row-fluid">
-        <div class="span6">
+        <div class="col-md-6">
             {{ Former::button('Cancel')->id('btn-cancel')->class('btn btn-danger btn-block btn-large') }}
         </div>
-        <div class="span6">
+        <div class="col-md-6">
             {{ Former::button('Pay')->id('btn-pay')->class('btn btn-primary btn-block btn-large') }}
         </div>
       </div>

@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::file('inputfile','Select file ( .xls, .xlsx )') }}
 
         {{ Former::hidden( 'controller',$back ) }}
@@ -18,7 +18,7 @@
         {{ Former::text('firstdata','Data starting at row')->class('span2')->value(3) }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
     </div>
 </div>

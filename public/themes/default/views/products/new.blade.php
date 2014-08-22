@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('SKU','SKU') }}
         {{ Former::select('status')->options(array('inactive'=>'Inactive','active'=>'Active'))->label('Status') }}
@@ -60,7 +60,7 @@
         {{ Former::text('recommendedProducts','Recommended Products')->class('tag_recommended') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <div class="row-fluid form-vertical">
             <div class="span2" style="text-align:right;width:120px;">
                 Inventory

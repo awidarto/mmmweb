@@ -9,7 +9,7 @@
 
 {{ Former::hidden('id')->value($formdata['_id']) }}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('title','Event Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
         {{ Former::text('venue','Venue') }}
@@ -31,7 +31,7 @@
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <?php
             $fupload = new Fupload();
         ?>

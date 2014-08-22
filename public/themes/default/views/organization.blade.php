@@ -55,7 +55,7 @@
             @endif
             @if(Auth::check())
                 <p class="navbar-text pull-right">
-                    Hello {{ Auth::user()->fullname }}, you haven't joined any organization. Please create new one or join existing organization.
+                    Hello {{ Auth::user()->fullname }}, you haven't joined any organization.<br />Please create new one or join existing organization.
                 </p>
             @else
                 <p>Create new organization or join existing organization : </p>
@@ -63,22 +63,20 @@
 
             {{ Former::hidden('user_id')->value($newuser) }}
 
-            {{ Former::text('name')->label('')->placeholder('organization name')->id('name')->class('input-large span12')}}
+            {{ Former::text('name')->label('')->placeholder('organization name')->id('name')->class('input-large form-control mg-b-sm')}}
 
-            {{ Former::text('subdomain')->label('')->placeholder('web domain')->id('subdomain')->class('input-large span12')->autocomplete('off')}}
+            {{ Former::text('subdomain')->label('')->placeholder('web domain')->id('subdomain')->class('input-large form-control mg-b-sm')->autocomplete('off')}}
 
              <div id="dom-cross" style="display:none;text-align:right;" ><i class="icon-remove"></i> domain taken</div>
 
-            {{ Former::select('apptype')->options( Config::get('kickstart.app_types') )->label('')->id('apptype') }}
+            {{ Former::select('apptype')->options( Config::get('kickstart.app_types') )->label('')->id('apptype')->class('form-control selectpicker') }}
 
-            {{ Former::select('employeenumber')->options( Config::get('kickstart.employee_number') )->label('')->id('employeenumber') }}
+            {{ Former::select('employeenumber')->options( Config::get('kickstart.employee_number') )->label('')->id('employeenumber')->class('form-control selectpicker') }}
 
-            {{ Former::select('country')->options( Config::get('country.countries') )->label('')->id('country') }}
+            {{ Former::select('country')->options( Config::get('country.countries') )->label('')->id('country')->class('form-control selectpicker') }}
 
-
-            <div class="clearfix"></div>
-
-            <button type="submit" class="btn btn-primary span12">Save Organization</button>
+            <br/>
+            <button type="submit" class="btn btn-info btn-block">Save Organization</button>
         </fieldset>
 
 {{ Form::close() }}

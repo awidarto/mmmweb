@@ -9,12 +9,12 @@
 
 <div class="row">
 
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::file($input_name)->name($input_name)->label('Excel file ( .xls, .xlsx )')->accept('xls','xlsx') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
     </div>
 </div>

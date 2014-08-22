@@ -10,7 +10,7 @@
 {{ Former::hidden('id')->value($formdata['_id']) }}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('title','Campaign Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}
 
@@ -29,7 +29,7 @@
         {{ Former::textarea('description','Description') }}
         {{ Former::text('tags','Tags')->class('tag_keyword') }}
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <h6>Target</h6>
         {{ Former::select('contactGroup', 'Contact Group')
             ->options(Prefs::getContactGroup()->contactGroupToSelection('_id','title',false)) }}

@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::select('salutation')->options(Config::get('kickstart.salutation'))->label('Salutation')->class('span2') }}
         {{ Former::text('firstname','First Name') }}
@@ -30,7 +30,7 @@
 
         {{ Former::select('countryOfOrigin')->id('country')->options(Config::get('country.countries'))->label('Country of Origin') }}
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         {{ Former::text('email','Email') }}
 
         {{ Former::password('pass','Password') }}

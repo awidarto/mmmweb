@@ -12,7 +12,7 @@
 
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::select('state')->options(Config::get('country.us_states'))->label('States') }}
         {{ Former::text('number','Street Number')->class('span3')->maxlength(6) }}
@@ -26,20 +26,20 @@
         <div class="row-fluid lmargin">
             <div class="span3"></div>
             <div class="span3">
-                {{ Former::select('type')->options(Config::get('ia.type'))->label('Type')->class('span6') }}
+                {{ Former::select('type')->options(Config::get('ia.type'))->label('Type')->class('col-md-6') }}
             </div>
             <div class="span3">
-                {{ Former::text('yearBuilt','Year Built')->class('span6')->maxlength(4)  }}
+                {{ Former::text('yearBuilt','Year Built')->class('col-md-6')->maxlength(4)  }}
             </div>
         </div>
 
         <div class="row-fluid lmargin">
             <div class="span3"></div>
             <div class="span3">
-                {{ Former::text('FMV','FMV')->class('span6') }}
+                {{ Former::text('FMV','FMV')->class('col-md-6') }}
             </div>
             <div class="span3">
-                {{ Former::text('listingPrice','Listing Price')->class('span6') }}
+                {{ Former::text('listingPrice','Listing Price')->class('col-md-6') }}
             </div>
         </div>
 
@@ -59,20 +59,20 @@
         <div class="row-fluid lmargin">
             <div class="span3"></div>
             <div class="span3">
-                {{ Former::select('basement')->options(Config::get('ia.boolean'))->label('Basement')->class('span6') }}
+                {{ Former::select('basement')->options(Config::get('ia.boolean'))->label('Basement')->class('col-md-6') }}
             </div>
             <div class="span3">
-                {{ Former::select('pool')->options(Config::get('ia.boolean'))->label('Pool')->class('span6') }}
+                {{ Former::select('pool')->options(Config::get('ia.boolean'))->label('Pool')->class('col-md-6') }}
             </div>
         </div>
 
         <div class="row-fluid lmargin">
             <div class="span3"></div>
             <div class="span4">
-                {{ Former::text('houseSize','House Size (SqFt)')->class('span6') }}
+                {{ Former::text('houseSize','House Size (SqFt)')->class('col-md-6') }}
             </div>
             <div class="span4">
-                {{ Former::text('lotSize','Lot Size (SqFt)')->class('span6') }}
+                {{ Former::text('lotSize','Lot Size (SqFt)')->class('col-md-6') }}
             </div>
         </div>
 
@@ -101,7 +101,7 @@
             </fieldset>
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::select('propertyStatus')->options(Config::get('ia.publishing'))->label('Status') }}
 
@@ -118,13 +118,13 @@
         <div class="row-fluid lmargin">
             <div class="span3"></div>
             <div class="span2">
-                {{ Former::text('tax','Tax')->class('span6') }}
+                {{ Former::text('tax','Tax')->class('col-md-6') }}
             </div>
             <div class="span3">
-                {{ Former::text('insurance','Insurance')->class('span6') }}
+                {{ Former::text('insurance','Insurance')->class('col-md-6') }}
             </div>
             <div class="span3">
-                {{ Former::text('HOA','HOA')->class('span6') }}
+                {{ Former::text('HOA','HOA')->class('col-md-6') }}
             </div>
         </div>
 

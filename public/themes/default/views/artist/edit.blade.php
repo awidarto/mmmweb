@@ -9,7 +9,7 @@
 
 {{ Former::hidden('id')->value($formdata['_id']) }}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('brandName','Brand Name') }}
         {{ Former::text('shopCategory','Shop Category') }}
@@ -159,7 +159,7 @@
 
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::select('mainCategory','Main Category')->options(Config::get('se.main_categories')) }}
         {{ Former::text('productName','Product Name') }}

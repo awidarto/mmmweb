@@ -10,7 +10,7 @@
 
 {{ Former::hidden('id')->value($formdata['_id']) }}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('SKU','SKU') }}
         {{ Former::select('status')->options(array('inactive'=>'Inactive','active'=>'Active'))->label('Status') }}
@@ -73,7 +73,7 @@
         {{ Former::text('recommendedProducts')->class('tag_recommended') }}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
         <div class="row-fluid form-vertical">
             <div class="span2" style="text-align:right;width:120px;">
                 Inventory
@@ -117,10 +117,10 @@
                             <td>
                                 <input type="hidden" name="outlets[]"  value="{{ $o->_id }}">
                                 <input type="hidden" name="outletNames[]"  value="{{ $o->name }}">
-                                <input type="text" class="span6" id="{{ $o->_id }}" name="addQty[]" value="" />
+                                <input type="text" class="col-md-6" id="{{ $o->_id }}" name="addQty[]" value="" />
                             </td>
                             <td>
-                                <input type="text" class="span6" id="{{ $o->_id }}" name="adjustQty[]" value="" />
+                                <input type="text" class="col-md-6" id="{{ $o->_id }}" name="adjustQty[]" value="" />
                             </td>
                         </tr>
                     @endforeach

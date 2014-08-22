@@ -8,7 +8,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('company','Company Name')->required() }}
 
@@ -24,12 +24,12 @@
             {{ Former::select('state')->class('au')->options(Config::get('country.aus_states'))->label('State')->style('display:none;')->id('au_states') }}
         </div>
         <div class="outside">
-            {{ Former::text('state','State / Province')->class('outside span6')->id('other_state')->class('span3') }}
+            {{ Former::text('state','State / Province')->class('outside col-md-6')->id('other_state')->class('span3') }}
         </div>
 
         {{ Former::select('countryOfOrigin')->id('country')->options(Config::get('country.countries'))->label('Country of Origin')->required() }}
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
     </div>
 </div>

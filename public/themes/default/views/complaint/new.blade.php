@@ -10,7 +10,7 @@
 {{Former::open_for_files($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span6">
+    <div class="col-md-6">
 
         {{ Former::text('unit','Unit') }}
 
@@ -25,7 +25,7 @@
         {{ HTML::link($back,'Cancel',array('class'=>'btn'))}}
 
     </div>
-    <div class="span6">
+    <div class="col-md-6">
 
         <div class="row-fluid form-vertical">
             {{ Former::textarea('description','Complaint')->class('span10 editor')->rows(8)->required() }}

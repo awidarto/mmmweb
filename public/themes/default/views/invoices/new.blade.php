@@ -7,14 +7,14 @@
     <div class="box" style="padding:20px;">
         <div class="box-container">
           <div class="row-fluid">
-            <div class="span6">
+            <div class="col-md-6">
               <h1>
                 <a href="https://twitter.com/tahirtaous">
                 Logo here
                 </a>
               </h1>
             </div>
-            <div class="span6 text-right">
+            <div class="col-md-6 text-right">
               <h1>INVOICE</h1>
               <h1><small>Invoice #001</small></h1>
             </div>
