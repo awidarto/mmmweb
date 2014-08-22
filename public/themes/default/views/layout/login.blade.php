@@ -98,11 +98,11 @@
         <script src='{{ URL::to('sm')}}/js/fullcalendar.min.js'></script>
         <script src='{{ URL::to('sm')}}/js/jquery.dataTables.min.js'></script>
         <script src="{{ URL::to('sm')}}/js/excanvas.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery.flot.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery.flot.pie.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery.flot.stack.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery.flot.resize.min.js"></script>
-    <script src="{{ URL::to('sm')}}/js/jquery.flot.time.js"></script>
+        <script src="{{ URL::to('sm')}}/js/jquery.flot.js"></script>
+        <script src="{{ URL::to('sm')}}/js/jquery.flot.pie.js"></script>
+        <script src="{{ URL::to('sm')}}/js/jquery.flot.stack.js"></script>
+        <script src="{{ URL::to('sm')}}/js/jquery.flot.resize.min.js"></script>
+        <script src="{{ URL::to('sm')}}/js/jquery.flot.time.js"></script>
 
         <script src="{{ URL::to('sm')}}/js/jquery.chosen.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/jquery.uniform.min.js"></script>
@@ -119,7 +119,7 @@
         <script src="{{ URL::to('sm')}}/js/jquery.sparkline.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/counter.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/raphael.2.1.0.min.js"></script>
-    <script src="{{ URL::to('sm')}}/js/justgage.1.0.1.min.js"></script>
+        <script src="{{ URL::to('sm')}}/js/justgage.1.0.1.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/jquery.autosize.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/retina.js"></script>
         <script src="{{ URL::to('sm')}}/js/jquery.placeholder.min.js"></script>

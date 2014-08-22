@@ -214,6 +214,26 @@
     {{ HTML::script('js/blueimp-gallery.min.js') }}
     {{ HTML::script('js/jquery.blueimp-gallery.min.js') }}
 
+    {{ HTML::script('js/jquery-fileupload/vendor/jquery.ui.widget.js') }}
+
+    {{ HTML::script('js/js-load-image/load-image.min.js') }}
+
+    {{ HTML::script('js/jquery.slimscroll.min.js') }}
+
+    {{ HTML::script('js/js-canvas-to-blob/canvas-to-blob.min.js') }}
+
+    {{ HTML::script('js/jquery-fileupload/jquery.iframe-transport.js') }}
+
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload.js') }}
+
+    {{ HTML::script('js/tinycolor-0.9.15.min.js')}}
+    {{ HTML::script('js/pickacolor/pick-a-color-1.1.8.min.js') }}
+
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload-process.js') }}
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload-image.js') }}
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload-audio.js') }}
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload-video.js') }}
+    {{ HTML::script('js/jquery-fileupload/jquery.fileupload-validate.js') }}
 
         <script src="{{ URL::to('sm')}}/js/jquery.cookie.js"></script>
         <script src='{{ URL::to('sm')}}/js/fullcalendar.min.js'></script>
@@ -249,26 +269,6 @@
         <script src="{{ URL::to('sm')}}/js/charts.min.js"></script>
         <script src="{{ URL::to('sm')}}/js/custom.min.js"></script>
 
-        {{ HTML::script('js/jquery-fileupload/vendor/jquery.ui.widget.js') }}
-
-        {{ HTML::script('js/js-load-image/load-image.min.js') }}
-
-        {{ HTML::script('js/jquery.slimscroll.min.js') }}
-
-        {{ HTML::script('js/js-canvas-to-blob/canvas-to-blob.min.js') }}
-
-        {{ HTML::script('js/jquery-fileupload/jquery.iframe-transport.js') }}
-
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload.js') }}
-
-        {{ HTML::script('js/tinycolor-0.9.15.min.js')}}
-        {{ HTML::script('js/pickacolor/pick-a-color-1.1.8.min.js') }}
-
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload-process.js') }}
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload-image.js') }}
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload-audio.js') }}
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload-video.js') }}
-        {{ HTML::script('js/jquery-fileupload/jquery.fileupload-validate.js') }}
 
     <!-- end: JavaScript-->
 
