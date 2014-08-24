@@ -18,37 +18,37 @@
         {{ Former::text('series','Series') }}
         {{ Former::text('itemDescription','Description') }}
         {{ Former::text('itemGroup','Item Group')->help('for compound product only') }}
-        {{ Former::text('priceRegular','Regular Price')->class('span4') }}
-        {{ Former::text('priceDiscount','Discount Price')->class('span4') }}
-        {{ Former::text('discFromDate','Disc. From')->class('span7 offset-2 eventdate')
+        {{ Former::text('priceRegular','Regular Price')->class('col-md-4') }}
+        {{ Former::text('priceDiscount','Discount Price')->class('col-md-4') }}
+        {{ Former::text('discFromDate','Disc. From')->class('col-md-7 offset-2 eventdate')
             ->id('fromDate')
             //->data_format('dd-mm-yyyy')
             ->append('<i class="icon-th"></i>') }}
 
-        {{ Former::text('discToDate','Disc. Until')->class('span7 offset-2 eventdate')
+        {{ Former::text('discToDate','Disc. Until')->class('col-md-7 offset-2 eventdate')
             ->id('toDate')
             //->data_format('dd-mm-yyyy')
             ->append('<i class="icon-th"></i>') }}
 
         {{ Former::text('material','Material') }}
-        {{ Former::text('colour','Colour')->class('span4') }}
+        {{ Former::text('colour','Colour')->class('col-md-4') }}
 
         <div class="row-fluid form-vertical">
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('W','Width')->class('span12')}}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('H','Height')->class('span12') }}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('L','Length')->class('span12') }}
             </div>
         </div>
         <div class="row-fluid form-vertical">
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('D','Diameter')->class('span12')}}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('sizeDescription','Dimension Description') }}
             </div>
         </div>

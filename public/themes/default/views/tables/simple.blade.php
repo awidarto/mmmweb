@@ -59,12 +59,12 @@ td.group{
             <div class="col-md-6 command-bar">
 
                 @if(isset($can_add) && $can_add == true)
-                    <a href="{{ URL::to($addurl) }}" class="btn btn-primary">Add</a>
-                    <a href="{{ URL::to($importurl) }}" class="btn btn-primary">Import Excel</a>
+                    <a href="{{ URL::to($addurl) }}" class="btn btn-sm btn-primary">Add</a>
+                    <a href="{{ URL::to($importurl) }}" class="btn btn-sm btn-primary">Import Excel</a>
                 @endif
 
-                <a class="btn btn-info" id="download-xls">Download Excel</a>
-                <a class="btn btn-info" id="download-csv">Download CSV</a>
+                <a class="btn btn-info btn-sm" id="download-xls">Download Excel</a>
+                <a class="btn btn-info btn-sm" id="download-csv">Download CSV</a>
 
                 @if(isset($is_report) && $is_report == true)
                     {{ $report_action }}
@@ -140,12 +140,12 @@ td.group{
                                 @if(isset($in[1]['date']) && $in[1]['date'])
                                     <td>
                                         <div class="input-append date datepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                            <input class="span8 search_init dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                            <input class="col-md-8 search_init form-control input-sm dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                             <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
                                         {{--
                                         <div id="{{ $index }}" class="input-append datepickersearch">
-                                            <input id="{{ $index }}" name="search_{{$in[0]}}" data-format="dd-MM-yyyy" class="search_init dateinput" type="text" placeholder="{{$in[0]}}" ></input>
+                                            <input id="{{ $index }}" name="search_{{$in[0]}}" data-format="dd-MM-yyyy" class="search_init form-control input-sm dateinput" type="text" placeholder="{{$in[0]}}" ></input>
                                             <span class="add-on">
                                                 <i data-time-icon="icon-clock" data-date-icon="icon-calendar">
                                                 </i>
@@ -158,12 +158,12 @@ td.group{
                                 @elseif(isset($in[1]['datetime']) && $in[1]['datetime'])
                                     <td>
                                         <div class="input-append date datetimepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                            <input class="span8 search_init datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                            <input class="col-md-8 search_init form-control input-sm datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                             <span class="add-on"><i class="icon-th"></i></span>
                                         </div>
                                         {{--
                                         <div id="{{ $index }}" class="input-append datetimepickersearch">
-                                            <input id="{{ $index }}" name="search_{{$in[0]}}" data-format="dd-MM-yyyy hh:mm:ss" class="search_init datetimeinput" type="text" placeholder="{{$in[0]}}" ></input>
+                                            <input id="{{ $index }}" name="search_{{$in[0]}}" data-format="dd-MM-yyyy hh:mm:ss" class="search_init form-control input-sm datetimeinput" type="text" placeholder="{{$in[0]}}" ></input>
                                             <span class="add-on">
                                                 <i data-time-icon="icon-clock" data-date-icon="icon-calendar">
                                                 </i>
@@ -173,14 +173,14 @@ td.group{
                                     </td>
                                 @elseif(isset($in[1]['select']) && is_array($in[1]['select']))
                                     <td>
-                                        <input id="{{ $index }}" type="text" name="search_{{$in[0]}}" id="search_{{$in[0]}}" placeholder="{{$in[0]}}" value="" style="display:none;" class="search_init {{ (isset($in[1]['class']))?$in[1]['class']:'filter'}}" />
+                                        <input id="{{ $index }}" type="text" name="search_{{$in[0]}}" id="search_{{$in[0]}}" placeholder="{{$in[0]}}" value="" style="display:none;" class="search_init form-control input-sm {{ (isset($in[1]['class']))?$in[1]['class']:'filter'}}" />
                                         <div class="styled-select">
                                             {{ Form::select('select_'.$in[0],$in[1]['select'],null,array('class'=>'selector input-small','id'=>$index ))}}
                                         </div>
                                     </td>
                                 @else
                                     <td>
-                                        <input id="{{ $index }}" type="text" name="search_{{$in[0]}}" id="search_{{$in[0]}}" placeholder="{{$in[0]}}" value="" class="search_init {{ (isset($in[1]['class']))?$in[1]['class']:'filter'}}" />
+                                        <input id="{{ $index }}" type="text" name="search_{{$in[0]}}" id="search_{{$in[0]}}" placeholder="{{$in[0]}}" value="" class="search_init form-control input-sm {{ (isset($in[1]['class']))?$in[1]['class']:'filter'}}" />
                                     </td>
                                 @endif
                             @else
@@ -213,7 +213,7 @@ td.group{
 </section>
 
 
-<div id="print-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="print-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Print Barcode Tag</h3>
@@ -228,7 +228,7 @@ td.group{
 </div>
 
 
-<div id="prop-chg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="prop-chg-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Change Property Status</h3>
@@ -245,7 +245,7 @@ td.group{
 </div>
 
 
-<div id="chg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="chg-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Change Transaction Status</h3>
@@ -261,7 +261,7 @@ td.group{
   </div>
 </div>
 
-<div id="upload-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="upload-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Upload Pictures</span></h3>
@@ -285,7 +285,7 @@ td.group{
   </div>
 </div>
 
-<div id="upinv-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="upinv-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Update Inventory</span></h3>
@@ -600,7 +600,7 @@ td.group{
 
 			console.log(this);
 
-			if ( this.className == 'search_init' )
+			if ( this.className == 'search_init form-control input-sm' )
 			{
 				this.className = '';
 				this.value = '';
@@ -611,7 +611,7 @@ td.group{
 			console.log(this);
 			if ( this.value == '' )
 			{
-				this.className = 'search_init';
+				this.className = 'search_init form-control input-sm';
 				this.value = asInitVals[$('thead input').index(this)];
 			}
 		} );
@@ -745,6 +745,7 @@ td.group{
 				var options = {
 					carousel: false
 				};
+
 				blueimp.Gallery(links, options);
 				console.log(links);
 

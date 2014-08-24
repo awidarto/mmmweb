@@ -10,7 +10,7 @@
 {{ Former::hidden('id')->value($formdata['_id']) }}
 
 <div class="row-fluid">
-    <div class="span8">
+    <div class="col-md-8">
         <table id="mainTree" class="table">
             <colgroup>
             <col width="30px"></col>
@@ -29,7 +29,7 @@
             </tbody>
         </table>
     </div>
-    <div class="span4">
+    <div class="col-md-4">
 
         {{ Former::text('menuTitle','Name')->id('#menuTitle') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}

@@ -12,7 +12,7 @@
 <div class="row-fluid">
     <div class="col-md-6">
 
-        {{-- Former::text('propertyId','Property ID')->class('span4') --}}
+        {{-- Former::text('propertyId','Property ID')->class('col-md-4') --}}
 
         {{ Former::select('state')->options(Config::get('country.us_states'))->label('States') }}
         {{ Former::text('number','Street Number')->class('span3')->maxlength(6) }}
@@ -68,10 +68,10 @@
 
         <div class="row-fluid lmargin">
             <div class="span3"></div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('houseSize','House Size (SqFt)')->class('col-md-6') }}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('lotSize','Lot Size (SqFt)')->class('col-md-6') }}
             </div>
         </div>
@@ -80,7 +80,7 @@
         <?php Former::framework('TwitterBootstrap');?>
 
 
-        {{ Former::text('typeOfConstruction','Type of Construction')->class('span5') }}
+        {{ Former::text('typeOfConstruction','Type of Construction')->class('col-md-5') }}
 
         {{ Former::textarea('description','Property Description')->class('span10 editor')->rows(8) }}
 
@@ -110,7 +110,7 @@
         {{ Former::text('monthlyRental','Monthly Rental')->class('span3') }}
         {{ Former::select('section8')->options(Config::get('ia.boolean'))->label('Section 8')->class('span3') }}
         {{ Former::text('leaseTerms','Lease Terms')->append('months')->class('span2')->maxlength(2) }}
-        {{ Former::text('leaseStartDate','Lease Start Date')->class('span7 datepicker')
+        {{ Former::text('leaseStartDate','Lease Start Date')->class('col-md-7 datepicker')
             ->data_format('dd-mm-yyyy')
             ->append('<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>') }}
 
@@ -145,7 +145,7 @@
 </div>
 
 <div class="row-fluid pull-right">
-    <div class="span4">
+    <div class="col-md-4">
         {{ Form::submit('Save',array('name'=>'submit','class'=>'btn btn-primary'))}}&nbsp;&nbsp;
         {{ HTML::link($back,'Cancel',array('class'=>'btn'))}}
     </div>

@@ -20,7 +20,10 @@
 
     <!-- page styles -->
     <link rel="stylesheet" href="{{ URL::to('cameo') }}/vendor/bootstrap-select/bootstrap-select.css">
-    <link rel="stylesheet" href="{{ URL::to('cameo') }}/vendor/datatables/jquery.dataTables.css">
+    {{ HTML::style('datatables/css/dataTables.bootstrap.css')}}
+    {{ HTML::style('css/bootstrap-modal-bs3patch.css') }}
+    {{ HTML::style('css/bootstrap-modal.css') }}
+    {{ HTML::style('css/flick/jquery-ui-1.9.2.custom.min.css') }}
     @include('layout.css')
     <!-- /page styles -->
 
@@ -32,7 +35,12 @@
 
     <!-- load modernizer -->
     <script src="{{ URL::to('cameo') }}/vendor/modernizr.js"></script>
-    {{ HTML::script('js/jquery-2.1.1.min.js')}}
+
+    {{ HTML::script('js/jquery-1.9.1.js')}}
+    {{ HTML::script('js/jquery-ui-1.9.2.custom.min.js')}}
+
+    {{ HTML::script('js/blueimp-gallery.min.js') }}
+    {{ HTML::script('js/jquery.blueimp-gallery.min.js') }}
 
     <script type="text/javascript">
         var base = '{{ URL::to('/') }}/';
@@ -86,7 +94,7 @@
                 <footer>
                     <div class="about-app pd-md animated pulse">
                         <a href="#">
-                            <img src="img/about.png" alt="">
+                            <img src="{{ URL::to('cameo')}}/img/about.png" alt="">
                         </a>
                         <span>
                             <b>Cameo</b>&#32;is a responsive admin template powered by bootstrap 3.
@@ -126,7 +134,7 @@
 
     </div>
 
-    <script src="{{ URL::to('cameo') }}/min/main.min.js"></script>
+    <script src="{{ URL::to('cameo') }}/js/main.js"></script>
 
     <!-- page scripts -->
     <script src="{{ URL::to('cameo') }}/vendor/jquery.slimscroll.js"></script>

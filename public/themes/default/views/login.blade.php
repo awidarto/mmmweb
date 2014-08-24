@@ -28,7 +28,7 @@
             </div>
 
             <p class="center-block mg-t mg-b text-right">Dont have an account?
-                <a href="{{ URL::to('signup') }}/signup.html">Signup here.</a>
+                <a href="{{ URL::to('signup') }}">Signup here.</a>
             </p>
         </fieldset>
 

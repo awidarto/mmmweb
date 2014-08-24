@@ -16,11 +16,11 @@
 
         {{ Former::select('status')->options(array('inactive'=>'Inactive','active'=>'Active'))->label('Status') }}
 
-        {{ Former::text('fromDate','From')->class('span7 eventdate')
+        {{ Former::text('fromDate','From')->class('col-md-7 eventdate')
             ->id('fromDate')
             ->append('<i class="icon-th"></i>') }}
 
-        {{ Former::text('toDate','Until')->class('span7 eventdate')
+        {{ Former::text('toDate','Until')->class('col-md-7 eventdate')
             ->id('toDate')
             ->append('<i class="icon-th"></i>') }}
 
@@ -40,7 +40,7 @@
         {{ Former::select('sendOption', 'Trigger')
             ->options( Config::get('kickstart.send_options') ) }}
 
-        {{ Former::text('sendDate','Date')->class('span7 datepicker')
+        {{ Former::text('sendDate','Date')->class('col-md-7 datepicker')
             //->data_format('dd-mm-yyyy')
             ->help('use if option "At Specified Date" is selected')
             ->append('<i class="icon-th"></i>') }}

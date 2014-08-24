@@ -6,7 +6,7 @@
 <a class="btn" id="assign-product">Assign Product to Category</a>
 <a class="btn" id="assign-status">Set Status</a>
 
-<div id="assign-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="assign-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Assign Selected to</span></h3>
@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div id="status-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalStatus" aria-hidden="true">
+<div id="status-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalStatus" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalStatus">Set Selected Status To</span></h3>

@@ -128,7 +128,7 @@ th:first-child{
                             @if(isset($in[1]['date']) && $in[1]['date'])
                                 <td>
                                     <div class="input-append date datepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                        <input class="span8 search_init dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                        <input class="col-md-8 search_init dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                         <span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                     {{--
@@ -146,7 +146,7 @@ th:first-child{
                             @elseif(isset($in[1]['datetime']) && $in[1]['datetime'])
                                 <td>
                                     <div class="input-append date datetimepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                        <input class="span8 search_init datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                        <input class="col-md-8 search_init datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                         <span class="add-on"><i class="icon-th"></i></span>
                                     </div>
                                     {{--
@@ -201,7 +201,7 @@ th:first-child{
    </div>
 </div>
 
-<div id="print-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="print-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Print Barcode Tag</h3>
@@ -216,7 +216,7 @@ th:first-child{
 </div>
 
 
-<div id="prop-chg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="prop-chg-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Change Property Status</h3>
@@ -233,7 +233,7 @@ th:first-child{
 </div>
 
 
-<div id="chg-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="chg-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Change Transaction Status</h3>
@@ -249,7 +249,7 @@ th:first-child{
   </div>
 </div>
 
-<div id="upload-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="upload-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Upload Pictures</span></h3>

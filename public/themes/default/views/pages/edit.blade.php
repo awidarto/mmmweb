@@ -10,10 +10,10 @@
 {{ Former::hidden('id')->value($formdata['_id']) }}
 
 <div class="row-fluid">
-    <div class="span8">
+    <div class="col-md-8">
         {{ Former::textarea('body','Body')->name('body')->id('body')->style('min-height:600px;') }}
     </div>
-    <div class="span4">
+    <div class="col-md-4">
         {{ Former::select('status')->options(array('inactive'=>'Inactive','active'=>'Active'))->label('Status') }}
         {{ Former::text('title','Title') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}

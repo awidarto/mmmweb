@@ -1,7 +1,8 @@
 <ul>
     @if(Auth::check())
-        <li><a href="{{ URL::to('dashboard') }}" class="submenu {{ sa('dashboard') }}" ><i class="icon-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{ URL::to('calendar') }}" class="submenu {{ sa('calendar') }}" ><i class="icon-dashboard"></i> Calendar</a></li>
+        <li><a href="{{ URL::to('dashboard') }}" class="{{ sa('dashboard') }}" ><i class="icon-dashboard"></i> Dashboard</a></li>
+        <li><a href="{{ URL::to('calendar') }}" class="{{ sa('calendar') }}" ><i class="icon-dashboard"></i> Calendar</a></li>
+
         <li class="dropdown show-on-hover">
             <a href="#" data-toggle="dropdown">
                 <i class="fa fa-ellipsis-h"></i>
@@ -101,7 +102,7 @@
                 <i class="toggle-accordion"></i>
             </a>
             <ul>
-                <li><a href="{{ URL::to('user') }}" class="submenu {{ sa('user') }}" ><i class="icon-group"></i> Team</a></li>
+                <li><a href="{{ URL::to('user') }}" class="submenu {{ sa('user') }}" ><i class="icon-group"></i> Users</a></li>
                 <li><a href="{{ URL::to('departments') }}" class="submenu {{ sa('departments') }}" ><i class="icon-group"></i> Departments</a></li>
                 <li><a href="{{ URL::to('option') }}" class="submenu {{ sa('option') }}" ><i class="icon-wrench"></i> Options</a></li>
             </ul>

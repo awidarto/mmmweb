@@ -227,6 +227,14 @@ ul#relatedList li, ul#recommendedList li{
     content: "";
 }
 
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    font-size: 11px;
+}
+
 @media only screen and (max-width: 979px) and (min-width: 768px){
     .sidebar-nav ul {
         text-align: center;

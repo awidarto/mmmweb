@@ -1,12 +1,13 @@
 {{ Former::select('assigned', 'Show only product in category : ')
         ->options(Prefs::getOutlet()->OutletToSelection('name','name') )
+        ->class('form-control col-md-8')
         ->id('outlet-filter');
 }}&nbsp;&nbsp;
-<a class="btn" id="refresh_filter">Refresh</a><br />
-<a class="btn" id="print_barcodes"><i class="icon-print"></i> Print Selected Barcodes</a>
-<a class="btn" id="move_outlets">Move Selection's Outlets</a>
+<a class="btn btn-info" id="refresh_filter">Refresh</a><br />
+<a class="btn btn-info" id="print_barcodes"><i class="icon-print"></i> Print Selected Barcodes</a>
+<a class="btn btn-info" id="move_outlets">Move Selection's Outlets</a>
 
-<div id="assign-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="assign-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Move Selected to</span></h3>
@@ -21,7 +22,7 @@
   </div>
 </div>
 
-<div id="print-modal" class="modal hide fade large" tabindex="-1" role="dialog" aria-labelledby="myPrintModalLabel" aria-hidden="true">
+<div id="print-modal" class="modal fade large" tabindex="-1" role="dialog" aria-labelledby="myPrintModalLabel" aria-hidden="true">
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myPrintModalLabel">Print Selected Codes</span></h3>
@@ -88,11 +89,11 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#refresh_filter').on('click',function(){
-            oTable.fnDraw();
+            oTable.draw();
         });
 
         $('#outlet_filter').on('change',function(){
-            oTable.fnDraw();
+            oTable.draw();
         });
 
         $('#move_outlets').on('click',function(e){
@@ -225,7 +226,7 @@
                     },
                     function(data){
                         $('#assign-modal').modal('hide');
-                        oTable.fnDraw();
+                        oTable.draw();
                     }
                     ,'json');
 
@@ -257,7 +258,7 @@
                     prop_ids : ids
                 },
                 function(data){
-                    oTable.fnDraw();
+                    oTable.draw();
                 }
                 ,'json');
 

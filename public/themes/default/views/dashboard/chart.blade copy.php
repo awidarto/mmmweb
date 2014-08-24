@@ -69,7 +69,7 @@
 <h3>{{$title}}</h3>
 
 <div class="row-fluid">
-    <div class="span7">
+    <div class="col-md-7">
         <h1>VIP</h1>
         <ul class="tablelist">
             @for($i = 0;$i < Config::get('seater.vip_table_count');$i++)
@@ -112,7 +112,7 @@
         </ul>
 
     </div>
-    <div class="span4">
+    <div class="col-md-4">
         <div class="scannerbox">
             <img id="guest-photo" src="{{ URL::to('images/no-photo.jpg')}}">
             <h1 id="guest-name"></h1>

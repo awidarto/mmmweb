@@ -8,7 +8,7 @@
 {{Former::open_for_files_vertical($submit,'POST',array('class'=>'custom addAttendeeForm'))}}
 
 <div class="row-fluid">
-    <div class="span8">
+    <div class="col-md-8">
         <div class="dd" id="nestable_list">
             <?php
 
@@ -91,7 +91,7 @@
         </div>
 
     </div>
-    <div class="span4">
+    <div class="col-md-4">
 
         {{ Former::text('menuTitle','Name')->id('#menuTitle') }}
         {{ Former::text('slug','Permalink')->id('permalink') }}

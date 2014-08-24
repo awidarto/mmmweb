@@ -3,7 +3,7 @@
         <div class="span3">
             <h3>Buyer Info</h3>
             {{ Former::text('name','Name')->id('name')->class('span12 left') }}
-            {{ Former::select('gender','L/P')->id('gender')->class('span4')->options(array('L'=>'L','P'=>'P')) }}
+            {{ Former::select('gender','L/P')->id('gender')->class('col-md-4')->options(array('L'=>'L','P'=>'P')) }}
             {{ Former::text('address','Address')->id('address')->class('span12 left') }}
         </div>
         <div class="span3">
@@ -28,10 +28,10 @@
         </div>
     </div>
     <div class="row-fluid payform" style="border-top:thin solid #AAA;">
-        <div class="span8 hidden-phone" style="text-align:right;">
+        <div class="col-md-8 hidden-phone" style="text-align:right;">
             <h1>Total</h1>
         </div>
-        <div class="span4 pull-right" style="text-align:right;">
+        <div class="col-md-4 pull-right" style="text-align:right;">
             <h1 class="visible-phone pull-left" style="display:inline-block;" >Total</h1>
             <h2 id="payable-total">0</h2>
         </div>

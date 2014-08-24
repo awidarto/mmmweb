@@ -157,7 +157,7 @@
 
                 </div><!--/fluid-row-->
 
-        <div class="modal hide fade" id="myModal">
+        <div class="modal fade" id="myModal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3>Settings</h3>

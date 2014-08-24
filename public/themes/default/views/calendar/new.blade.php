@@ -14,11 +14,11 @@
         {{ Former::text('venue','Venue') }}
         {{ Former::text('location','Location') }}
 
-        {{ Former::text('fromDate','From')->class('span7 eventdate')
+        {{ Former::text('fromDate','From')->class('col-md-7 eventdate')
             ->id('fromDate')
             ->append('<i class="icon-th"></i>') }}
 
-        {{ Former::text('toDate','Until')->class('span7 eventdate')
+        {{ Former::text('toDate','Until')->class('col-md-7 eventdate')
             ->id('toDate')
             ->append('<i class="icon-th"></i>') }}
 
@@ -30,16 +30,16 @@
     <div class="col-md-6">
         @for($i = 1;$i < 6;$i++)
             <div class="row form-horizontal">
-                <div class="span4">
+                <div class="col-md-4">
                     {{ Former::text('code_'.$i,'Code '.$i)->id('code_'.$i)->class('span12')->maxlength('6') }}
 
                 </div>
-                <div class="span4">
+                <div class="col-md-4">
                     {{ Former::text('val_'.$i,'Value '.$i)->id('val_'.$i)->class('span12')->maxlength('6') }}
                 </div>
             </div>
         @endfor
-        {{ Former::text('expires','Expires')->class('span7 datepicker')
+        {{ Former::text('expires','Expires')->class('col-md-7 datepicker')
             //->data_format('dd-mm-yyyy')
             ->append('<i class="icon-th"></i>') }}
    </div>

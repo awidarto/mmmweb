@@ -28,8 +28,8 @@ var app = {
     }
 };
 
-! function ($) {
-    "use strict";
+//! function ($) {
+//    "use strict";
 
     function simulateLoad(el) {
         $(el).block({
@@ -45,8 +45,7 @@ var app = {
         });
     }
 
-    $(function () {
-
+    $(document).ready(function(){
 
         if ($.isFunction($.fn.wizard)) {
             $("#datepicker").datepicker();
@@ -195,7 +194,7 @@ var app = {
             if (subMenu.is("ul")) {
                 return false;
             }
-        
+
             return true;
         });
 
@@ -204,4 +203,4 @@ var app = {
 
     });
 
-}(window.jQuery);
+//}(window.jQuery);

@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="row-fluid">
-    <div class="span8">
+    <div class="col-md-8">
         <div id="eventcalendar">
 
         </div>
     </div>
-    <div class="span8">
+    <div class="col-md-8">
     </div>
 </div>
 

@@ -63,7 +63,7 @@
         <div class="span10" id="broc-content" >
             {{ HTML::image($prop['defaultpictures']['brchead'])}}
             <div class="row-fluid">
-                <div class="span4">
+                <div class="col-md-4">
                     <div class="sub">
                         {{ HTML::image($prop['defaultpictures']['brc1'])}}
                     </div>
@@ -74,7 +74,7 @@
                         {{ HTML::image($prop['defaultpictures']['brc3'])}}
                     </div>
                 </div>
-                <div class="span8">
+                <div class="col-md-8">
                     <table style="margin:0px;margin-top:10px;" >
                         <tbody>
                             <tr>

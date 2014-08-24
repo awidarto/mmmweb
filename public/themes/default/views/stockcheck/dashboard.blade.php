@@ -404,7 +404,7 @@
 
             <div class="row-fluid">
 
-                <div class="span7" ontablet="span12" ondesktop="span7">
+                <div class="col-md-7" ontablet="span12" ondesktop="col-md-7">
 
                     <div class="row-fluid">
 
@@ -466,7 +466,7 @@
                 </div>
 
 
-                <div class="box chat alt span5 noMargin" ontablet="span12" ondesktop="span5">
+                <div class="box chat alt col-md-5 noMargin" ontablet="span12" ondesktop="col-md-5">
 
                     <div class="contacts">
                         <ul class="list">
@@ -537,7 +537,7 @@
 
             <div class="row-fluid">
 
-                <div class="box span8" ontablet="span12" ondesktop="span8">
+                <div class="box col-md-8" ontablet="span12" ondesktop="col-md-8">
                     <div class="box-header">
                         <h2>tickets</h2>
                     </div>
@@ -546,7 +546,7 @@
                     </div>
                 </div>
 
-                <div class="box span4 noMargin" ontablet="span12" ondesktop="span4">
+                <div class="box col-md-4 noMargin" ontablet="span12" ondesktop="col-md-4">
                     <div class="box-header">
                         <h2><i class="icon-check"></i>To Do List</h2>
                         <div class="box-icon">

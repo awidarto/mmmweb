@@ -16,34 +16,34 @@
         {{ Former::text('series','Series') }}
         {{ Former::text('itemDescription','Description') }}
         {{ Former::text('itemGroup','Item Group')->help('for compound product only') }}
-        {{ Former::text('priceRegular','Regular Price')->class('span4') }}
+        {{ Former::text('priceRegular','Regular Price')->class('col-md-4') }}
         {{ Former::text('material','Material') }}
 
         <div class="row-fluid form-vertical">
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('colour','Colour')->class('span12') }}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('colourHex','')->class('pick-a-color') }}
             </div>
         </div>
 
         <div class="row-fluid form-vertical">
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('W','Width')->class('span12')}}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('H','Height')->class('span12') }}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('L','Length')->class('span12') }}
             </div>
         </div>
         <div class="row-fluid form-vertical">
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('D','Diameter')->class('span12')}}
             </div>
-            <div class="span4">
+            <div class="col-md-4">
                 {{ Former::text('sizeDescription','Dimension Description') }}
             </div>
         </div>

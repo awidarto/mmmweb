@@ -326,7 +326,7 @@ Route::get('media',function(){
 });
 
 Route::get('login',function(){
-    return View::make('login');
+    return View::make('login')->with('title','Sign In');
 });
 
 Route::post('oldlogin',function(){
@@ -451,7 +451,7 @@ Route::get('logout',function(){
 });
 
 Route::get('signup',function(){
-    return View::make('register');
+    return View::make('register')->with('title','Sign Up');
 });
 
 Route::post('signup',function(){
@@ -520,7 +520,7 @@ Route::post('signup',function(){
 });
 
 Route::get('organization/{userid}',function($userid){
-    return View::make('organization')->with('newuser',$userid);
+    return View::make('organization')->with('newuser',$userid)->with('title','Organization');
 });
 
 Route::post('dcheck',function(){

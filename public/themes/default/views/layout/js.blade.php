@@ -1,3 +1,5 @@
+    {{ HTML::script('bootstrap311/js/bootstrap.js') }}
+
     {{ HTML::script('js/bootstrap-modalmanager.js') }}
     {{ HTML::script('js/bootstrap-modal.js') }}
 
@@ -5,7 +7,7 @@
     {{ HTML::script('js/jquery.collagePlus.min.js')}}
     {{ HTML::script('js/jquery.collageCaption.js')}}
     {{ HTML::script('datatables/js/jquery.datatables.min.js')}}
-    {{ HTML::script('datatables/js/datatables.bootstrap.js')}}
+    {{ HTML::script('datatables/js/dataTables.bootstrap.js')}}
     {{ HTML::script('js/jquery.dataTables.rowReordering.js') }}
     {{ HTML::script('js/jquery.dataTables.rowGrouping.js') }}
 
@@ -20,9 +22,6 @@
     {{ HTML::script('js/accounting.min.js')}}
 
     {{ HTML::script('js/app.js') }}
-
-    {{ HTML::script('js/blueimp-gallery.min.js') }}
-    {{ HTML::script('js/jquery.blueimp-gallery.min.js') }}
 
     {{ HTML::script('js/jquery-fileupload/vendor/jquery.ui.widget.js') }}
 
@@ -44,3 +43,4 @@
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-audio.js') }}
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-video.js') }}
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-validate.js') }}
+

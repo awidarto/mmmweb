@@ -27,7 +27,7 @@
                                 <li class="list-group-item">
                                     <a href="#">
                                         <span class="pull-left mg-t-xs mg-r-md">
-                                            <img src="img/face4.jpg" class="avatar avatar-sm img-circle" alt="">
+                                            <img src="{{ URL::to('cameo')}}/img/face4.jpg" class="avatar avatar-sm img-circle" alt="">
                                         </span>
                                         <div class="m-body show pd-t-xs">
                                             <span>Dean Winchester</span>
@@ -57,7 +57,7 @@
                                 <li class="list-group-item">
                                     <a href="#">
                                         <span class="pull-left mg-t-xs mg-r-md">
-                                            <img src="img/face3.jpg" class="avatar avatar-sm img-circle" alt="">
+                                            <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle" alt="">
                                         </span>
                                         <div class="m-body show pd-t-xs">
                                             <span>Application</span>

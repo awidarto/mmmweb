@@ -29,9 +29,12 @@
 
         $('#subdomain').on('keyup',function(){
             var subdomain = $('#subdomain').val();
+            $('#dom-cross').hide();
+            $('#dom-check').show();
             $.post( '{{ URL::to('dcheck') }}',
                 {'subdomain': subdomain},
                 function(data){
+                    $('#dom-check').hide();
                     if(data.result == 'OK'){
                         $('#subdomain').removeClass('redborder');
                         $('#dom-cross').hide();
@@ -47,7 +50,6 @@
 </script>
 
 {{ Form::open(array('url' => 'organization','class'=>'form-signin')) }}
-        <h2>Organization</h2>
         <fieldset>
             @if (Session::get('signupError'))
                 <div class="alert alert-danger">{{ Session::get('signupError') }}</div>
@@ -67,6 +69,7 @@
 
             {{ Former::text('subdomain')->label('')->placeholder('web domain')->id('subdomain')->class('input-large form-control mg-b-sm')->autocomplete('off')}}
 
+             <div id="dom-check" style="display:none;text-align:right;" ><i class="icon-remove"></i> checking...</div>
              <div id="dom-cross" style="display:none;text-align:right;" ><i class="icon-remove"></i> domain taken</div>
 
             {{ Former::select('apptype')->options( Config::get('kickstart.app_types') )->label('')->id('apptype')->class('form-control selectpicker') }}

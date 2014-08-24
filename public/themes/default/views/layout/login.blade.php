@@ -19,6 +19,7 @@
     <!-- /core styles -->
 
     <!-- page styles -->
+    @include('layout.css')
     <!-- /page styles -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,7 +38,7 @@
     <div class="app-user">
         <div class="user-container">
             <section class="panel panel-default">
-                <header class="panel-heading">Sign in</header>
+                <header class="panel-heading">{{ $title }}</header>
                 <div class="bg-white user pd-lg">
                     @yield('content')
             </section>

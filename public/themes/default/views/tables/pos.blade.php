@@ -109,7 +109,7 @@ div.payform h3{
 </div>
 
 <div class="row-fluid">
-   <div class="span7">
+   <div class="col-md-7">
         <div class="box">
             <div class="box-content">
                   <table class="table table-condensed dataTable">
@@ -171,7 +171,7 @@ div.payform h3{
                                         @if(isset($in[1]['date']) && $in[1]['date'])
                                             <td>
                                                 <div class="input-append date datepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                                    <input class="span8 search_init dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                                    <input class="col-md-8 search_init dateinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                                     <span class="add-on"><i class="icon-th"></i></span>
                                                 </div>
                                                 {{--
@@ -189,7 +189,7 @@ div.payform h3{
                                         @elseif(isset($in[1]['datetime']) && $in[1]['datetime'])
                                             <td>
                                                 <div class="input-append date datetimepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
-                                                    <input class="span8 search_init datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
+                                                    <input class="col-md-8 search_init datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
                                                     <span class="add-on"><i class="icon-th"></i></span>
                                                 </div>
                                                 {{--
@@ -252,7 +252,7 @@ div.payform h3{
         </div>
       </div>
    </div>
-   <div class="span5">
+   <div class="col-md-5">
 
         @if(isset($can_add) && $can_add == true)
             <a href="{{ URL::to($addurl) }}" class="btn btn-primary">Add</a>

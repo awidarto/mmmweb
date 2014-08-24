@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span5">
+            <div class="col-md-5">
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4>From: <a href="#">Your Name</a></h4>
@@ -34,7 +34,7 @@
                 </div>
               </div>
             </div>
-            <div class="span5 offset2 text-right">
+            <div class="col-md-5 offset2 text-right">
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4>To : <a href="#">Client Name</a></h4>
@@ -113,7 +113,7 @@
             </div>
           </div>
           <div class="row-fluid">
-            <div class="span5">
+            <div class="col-md-5">
               <div class="panel panel-info">
                 <div class="panel-heading">
                   <h4>Bank details</h4>
@@ -127,8 +127,8 @@
                 </div>
               </div>
             </div>
-            <div class="span7">
-              <div class="span7">
+            <div class="col-md-7">
+              <div class="col-md-7">
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <h4>Contact Details</h4>
