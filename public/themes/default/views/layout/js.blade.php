@@ -6,7 +6,7 @@
     {{ HTML::script('js/jquery.removeWhitespace.min.js')}}
     {{ HTML::script('js/jquery.collagePlus.min.js')}}
     {{ HTML::script('js/jquery.collageCaption.js')}}
-    {{ HTML::script('datatables/js/jquery.datatables.min.js')}}
+    {{ HTML::script('datatables/js/jquery.dataTables.min.js')}}
     {{ HTML::script('datatables/js/dataTables.bootstrap.js')}}
     {{ HTML::script('js/jquery.dataTables.rowReordering.js') }}
     {{ HTML::script('js/jquery.dataTables.rowGrouping.js') }}
