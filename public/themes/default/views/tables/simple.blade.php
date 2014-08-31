@@ -159,7 +159,7 @@ td.group{
                                     <td>
                                         <div class="input-append date datetimepickersearch" id="{{ $index }}" data-date="" data-date-format="dd-mm-yyyy">
                                             <input class="col-md-8 search_init form-control input-sm datetimeinput" size="16" type="text" value="" placeholder="{{$in[0]}}" >
-                                            <span class="add-on"><i class="icon-th"></i></span>
+                                            <span class="add-on"><i class="fa fa-th"></i></span>
                                         </div>
                                         {{--
                                         <div id="{{ $index }}" class="input-append datetimepickersearch">
@@ -175,7 +175,7 @@ td.group{
                                     <td>
                                         <input id="{{ $index }}" type="text" name="search_{{$in[0]}}" id="search_{{$in[0]}}" placeholder="{{$in[0]}}" value="" style="display:none;" class="search_init form-control input-sm {{ (isset($in[1]['class']))?$in[1]['class']:'filter'}}" />
                                         <div class="styled-select">
-                                            {{ Form::select('select_'.$in[0],$in[1]['select'],null,array('class'=>'selector input-small','id'=>$index ))}}
+                                            {{ Form::select('select_'.$in[0],$in[1]['select'],null,array('class'=>'selector form-control input-small','id'=>$index ))}}
                                         </div>
                                     </td>
                                 @else

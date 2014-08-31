@@ -47,6 +47,8 @@ var app = {
 
     $(document).ready(function(){
 
+        app.initialize();
+
         if ($.isFunction($.fn.wizard)) {
             $("#datepicker").datepicker();
         }
@@ -80,7 +82,7 @@ var app = {
 
         $(document).on("click", ".view-options label", function (e) {
             e.preventDefault();
-
+            console.log('option label');
             if ($(this).data("view") === "grid") {
                 $(".switcher").addClass("view-grid").removeClass("view-list");
             } else if ($(this).data("view") === "list") {
@@ -90,12 +92,14 @@ var app = {
 
         $(document).on("click", ".toggle-chat", function (e) {
             e.preventDefault();
+            console.log('chat');
 
             $(".chat-sidebar").toggleClass("active");
         });
 
         $(document).on("click", ".toggle-sidebar ", function (e) {
             e.preventDefault();
+            console.log('sidebar');
 
             if ($(".app").hasClass("small-sidebar")) {
                 app.openMenuState();
@@ -108,10 +112,12 @@ var app = {
 
         $(document).on("click", ".dropdown-menu .settings", function (e) {
             e.stopPropagation();
+            console.log('drop setting');
         });
 
         $(document).on("click", ".toggle-active", function (e) {
             e.preventDefault();
+            console.log('toggle active');
 
             $(this).toggleClass("active");
         });
@@ -121,6 +127,7 @@ var app = {
             e.stopPropagation();
 
             $(this).toggleClass("active");
+            console.log('help');
 
             if ($(".about-app").hasClass("open")) {
                 $(".about-app").removeClass("pulse").addClass("bounceOut");
@@ -138,6 +145,8 @@ var app = {
             e.preventDefault();
             e.stopPropagation();
 
+            console.log('colapsible');
+
             var el = $(this).parents(".panel").children(".panel-body");
 
             if ($(this).hasClass("fa-chevron-down")) {
@@ -153,6 +162,8 @@ var app = {
             e.preventDefault();
             e.stopPropagation();
 
+            console.log('panel remove');
+
             $(this).parents(".panel").addClass("animated fadeOutRight").attr("id", "obsolete");
             setTimeout(function () {
                 $("#obsolete").remove();
@@ -162,6 +173,7 @@ var app = {
         $(document).on("click", ".panel-refresh", function (e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('pane refresh');
 
             var elm = $(this).parents(".panel");
             simulateLoad(elm);
@@ -171,10 +183,12 @@ var app = {
         });
 
         $(document).on("click", ".collapsible .main-navigation > ul > li > a", function (e) {
-            e.preventDefault();
+            //e.preventDefault();
 
             var subMenu = $(this).next(),
                 parent = $(this).closest("li");
+
+            console.log('main nav collapsible');
 
             $(".collapsible li").removeClass("collapse-open");
 
@@ -192,14 +206,12 @@ var app = {
             }
 
             if (subMenu.is("ul")) {
+                console.log('main nav collapsible ul');
                 return false;
             }
 
             return true;
         });
-
-
-        app.initialize();
 
     });
 
