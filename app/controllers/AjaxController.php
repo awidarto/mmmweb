@@ -111,6 +111,82 @@ class AjaxController extends BaseController {
         return Response::json($tree);
     }
 
+    public function postShare()
+    {
+        $data = Input::get();
+
+        $defaults = array();
+
+        $files = array();
+
+        if( isset($data['file_id']) && count($data['file_id'])){
+
+            $data['defaultpic'] = (isset($data['defaultpic']))?$data['defaultpic']:$data['file_id'][0];
+            $data['brchead'] = (isset($data['brchead']))?$data['brchead']:$data['file_id'][0];
+            $data['brc1'] = (isset($data['brc1']))?$data['brc1']:$data['file_id'][0];
+            $data['brc2'] = (isset($data['brc2']))?$data['brc2']:$data['file_id'][0];
+            $data['brc3'] = (isset($data['brc3']))?$data['brc3']:$data['file_id'][0];
+
+            for($i = 0 ; $i < count($data['thumbnail_url']);$i++ ){
+
+                if($data['defaultpic'] == $data['file_id'][$i]){
+                    $defaults['thumbnail_url'] = $data['thumbnail_url'][$i];
+                    $defaults['large_url'] = $data['large_url'][$i];
+                    $defaults['medium_url'] = $data['medium_url'][$i];
+                    $defaults['full_url'] = $data['full_url'][$i];
+                }
+
+                $files[$data['file_id'][$i]]['thumbnail_url'] = $data['thumbnail_url'][$i];
+                $files[$data['file_id'][$i]]['large_url'] = $data['large_url'][$i];
+                $files[$data['file_id'][$i]]['medium_url'] = $data['medium_url'][$i];
+                $files[$data['file_id'][$i]]['full_url'] = $data['full_url'][$i];
+
+                $files[$data['file_id'][$i]]['delete_type'] = $data['delete_type'][$i];
+                $files[$data['file_id'][$i]]['delete_url'] = $data['delete_url'][$i];
+                $files[$data['file_id'][$i]]['filename'] = $data['filename'][$i];
+                $files[$data['file_id'][$i]]['filesize'] = $data['filesize'][$i];
+                $files[$data['file_id'][$i]]['temp_dir'] = $data['temp_dir'][$i];
+                $files[$data['file_id'][$i]]['filetype'] = $data['filetype'][$i];
+                $files[$data['file_id'][$i]]['fileurl'] = $data['fileurl'][$i];
+                $files[$data['file_id'][$i]]['file_id'] = $data['file_id'][$i];
+                $files[$data['file_id'][$i]]['caption'] = $data['caption'][$i];
+            }
+        }else{
+            $data['thumbnail_url'] = array();
+            $data['large_url'] = array();
+            $data['medium_url'] = array();
+            $data['full_url'] = array();
+            $data['delete_type'] = array();
+            $data['delete_url'] = array();
+            $data['filename'] = array();
+            $data['filesize'] = array();
+            $data['temp_dir'] = array();
+            $data['filetype'] = array();
+            $data['fileurl'] = array();
+            $data['file_id'] = array();
+            $data['caption'] = array();
+
+            $data['defaultpic'] = '';
+        }
+
+        $data['defaultpictures'] = $defaults;
+        $data['files'] = $files;
+
+
+        $data['ownerId'] = Auth::user()->_id;
+        $data['ownerName'] = Auth::user()->fullname;
+        $data['ownerEmail'] = Auth::user()->_id;
+
+        $data['createdDate'] = new MongoDate();
+        $data['lastUpdate'] = new MongoDate();
+
+        if( Media::insert($data) ){
+            return Response::json(array('result'=>'OK'));
+        }else{
+            return Response::json(array('result'=>'NOK'));
+        }
+    }
+
     public function postScan()
     {
         $in = Input::get();

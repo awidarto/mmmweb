@@ -16,12 +16,20 @@
                         </span>
                     </div>
                     <div class="input-group" id="upload-media" style="display:none">
-                        <?php
-                            $fupload = new Fupload();
-                        ?>
+                        <form id="up-media">
+                            <input type="hidden" value="" name="mediatype" id="media-type" >
+                            <div id="uploader">
+                                <?php
+                                    $fupload = new Fupload();
+                                ?>
 
-                        {{ $fupload->id('imageupload')->title('Select Images')->label('Upload Images')->make() }}
-
+                                {{ $fupload->id('mediaupload')->title('Select Media')->label('Upload Media')->make() }}
+                            </div>
+                        </form>
+                        <div class="clearfix">
+                            <button class="btn btn-primary pull-right" id="do-upload" ><b class="fa fa-share"></b> Share</button>
+                            <button class="btn btn-danger pull-right" id="cancel-share"><b class="fa fa-times-circle-o"></b> Cancel</button>
+                        </div>
                     </div>
 
                 </div>
@@ -203,11 +211,39 @@
             $(document).ready(function(){
                 $('#up-music').on('click',function(){
                     $('#upload-media').show();
+                    $('#media-type').val('music');
+                    $('#mediaupload_uploadedform ul').html('');
+                    $('#mediaupload_files ul').html('');
                 });
 
                 $('#up-movie').on('click',function(){
                     $('#upload-media').show();
+                    $('#media-type').val('movie');
+                    $('#mediaupload_uploadedform ul').html('');
+                    $('#mediaupload_files ul').html('');
                 });
+
+                $('#cancel-share').on('click',function(){
+                    $('#upload-media').hide();
+                });
+
+                $('#do-upload').on('click',function(){
+                    //console.log($('#up-media').serializeArray());
+                    var formdata = $('#up-media').serializeArray();
+                    $.post('{{ URL::to('ajax/share') }}',
+                        formdata,
+                        function(d){
+                            if(d.result == 'OK'){
+                                $('#upload-media').hide();
+                            }else{
+                                alert('failed to upload media');
+                            }
+
+                        },'json');
+
+                });
+
+
             });
         </script>
 

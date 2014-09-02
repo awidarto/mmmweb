@@ -8,27 +8,12 @@ var thumb = '<table class="table" id="par_'+ file.file_id +'" >' +
     '    </tr>' +
     '    <tr>' +
     '        <td colspan="2">' +
-    '            <label for="defaultpic"><input type="radio" name="defaultpic" value="' + file.file_id + '" > Default</label>' +
+    '            <label for="defaultpic"><input type="radio" name="defaultpic" value="' + file.file_id + '" > Cover</label>' +
     '        </td>' +
     '    </tr>' +
     '    <tr>' +
     '        <td colspan="2">' +
-    '            <input type="radio" name="brchead" value="' + file.file_id + '" > Head' +
-    '        </td>' +
-    '    </tr>' +
-    '    <tr>' +
-    '        <td colspan="2">' +
-    '            <input type="radio" name="brc1" value="' + file.file_id + '" > Pic 1' +
-    '        </td>' +
-    '    </tr>' +
-    '    <tr>' +
-    '        <td colspan="2">' +
-    '            <input type="radio" name="brc2" value="' + file.file_id + '" > Pic 2' +
-    '        </td>' +
-    '    </tr>' +
-    '    <tr>' +
-    '        <td colspan="2">' +
-    '            <input type="radio" name="brc3" value="' + file.file_id + '" > Pic 3' +
+    '            <input type="radio" name="brchead" value="' + file.file_id + '" > Main' +
     '        </td>' +
     '    </tr>' +
     '    <tr>' +

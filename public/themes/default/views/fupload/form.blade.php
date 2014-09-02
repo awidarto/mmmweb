@@ -1,6 +1,5 @@
 {{ HTML::script('js/zeroclipboard/ZeroClipboard.js') }}
 <div class="control-group">
-    <label class="control-label" for="userfile">{{ $label }}</label>
     <div class="controls">
         <span class="btn btn-success fileinput-button">
             <i class="icon-plus icon-white"></i>
@@ -233,6 +232,14 @@
                         $upl .= '<input type="hidden" name="medium_url[]" value="' . $formdata['medium_url'][$u] . '">';
                         $upl .= '<input type="hidden" name="full_url[]" value="' . $formdata['full_url'][$u] . '">';
                         */
+                        if(isset($formdata['is_image'])){
+                            $upl .= '<input type="hidden" name="is_image[]" value="' . $formdata['is_image'][$u] . '">';
+                            $upl .= '<input type="hidden" name="is_audio[]" value="' . $formdata['is_audio'][$u] . '">';
+                            $upl .= '<input type="hidden" name="is_video[]" value="' . $formdata['is_video'][$u] . '">';
+                            $upl .= '<input type="hidden" name="is_pdf[]" value="' . $formdata['is_pdf'][$u] . '">';
+                            $upl .= '<input type="hidden" name="is_doc[]" value="' . $formdata['is_doc'][$u] . '">';
+                        }
+
                         $upl .= '<input type="hidden" name="filetype[]" value="' . $formdata['filetype'][$u] . '">';
                         $upl .= '<input type="hidden" name="fileurl[]" value="' . $formdata['fileurl'][$u] . '">';
                         $upl .= '<input type="hidden" name="file_id[]" value="' . $formdata['file_id'][$u] . '">';
@@ -275,6 +282,12 @@
                         $upl .= '<input type="hidden" name="medium_url[]" value="' . $allin['medium_url'][$u] . '">';
                         $upl .= '<input type="hidden" name="full_url[]" value="' . $allin['full_url'][$u] . '">';
                         */
+                        $upl .= '<input type="hidden" name="is_image[]" value="' . $allin['is_image'][$u] . '">';
+                        $upl .= '<input type="hidden" name="is_audio[]" value="' . $allin['is_audio'][$u] . '">';
+                        $upl .= '<input type="hidden" name="is_video[]" value="' . $allin['is_video'][$u] . '">';
+                        $upl .= '<input type="hidden" name="is_pdf[]" value="' . $allin['is_pdf'][$u] . '">';
+                        $upl .= '<input type="hidden" name="is_doc[]" value="' . $allin['is_doc'][$u] . '">';
+
                         $upl .= '<input type="hidden" name="filetype[]" value="' . $allin['filetype'][$u] . '">';
                         $upl .= '<input type="hidden" name="fileurl[]" value="' . $allin['fileurl'][$u] . '">';
                         $upl .= '<input type="hidden" name="file_id[]" value="' . $allin['file_id'][$u] . '">';
@@ -358,6 +371,12 @@ $(document).ready(function(){
                 @foreach(Config::get('picture.sizes') as $k=>$s )
                     upl += '<input type="hidden" name="{{ $k }}_url[]" value="' + file.{{ $k }}_url + '">';
                 @endforeach
+
+                upl += '<input type="hidden" name="is_image[]" value="' + file.is_image + '">';
+                upl += '<input type="hidden" name="is_audio[]" value="' + file.is_audio + '">';
+                upl += '<input type="hidden" name="is_video[]" value="' + file.is_video + '">';
+                upl += '<input type="hidden" name="is_pdf[]" value="' + file.is_pdf + '">';
+                upl += '<input type="hidden" name="is_doc[]" value="' + file.is_doc + '">';
 
                 {{--
 

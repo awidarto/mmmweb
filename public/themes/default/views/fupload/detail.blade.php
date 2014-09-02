@@ -9,27 +9,12 @@
     </tr>
     <tr>
         <td colspan="2">
-            <label for="defaultpic"><input type="radio" name="defaultpic" value="%s" %s > Default</label>
+            <label for="defaultpic"><input type="radio" name="defaultpic" value="%s" %s > Cover</label>
         </td>
     </tr>
     <tr>
         <td colspan="2">
-            <input type="radio" name="brchead" value="%s" %s > Head
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="radio" name="brc1" value="%s" %s > Slider 1
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="radio" name="brc2" value="%s" %s > Slider 2
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="radio" name="brc3" value="%s" %s > Slider 3
+            <input type="radio" name="brchead" value="%s" %s > Main
         </td>
     </tr>
     <tr>
