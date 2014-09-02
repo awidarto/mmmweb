@@ -104,7 +104,7 @@
 
     </div>
     <div class="col-md-6">
-        {{ Former::textarea('lyric','Lyric') }}
+        {{ Former::textarea('lyric','Lyric')->class('editor') }}
     </div>
 </div>
 

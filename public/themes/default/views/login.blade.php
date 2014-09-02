@@ -18,13 +18,13 @@
             <input class="input-large form-control mg-b-sm" name="password" id="password" type="password" placeholder="password" />
 
             <label class="checkbox pull-left">
-                <input type="checkbox" value="remember-me">Remember me
+                <input type="checkbox" value="remember-me" >Remember me
             </label>
 
-            <button class="btn btn-info btn-block" type="submit">Sign in</button>
+            <button class="btn btn-danger btn-block" type="submit">Sign in</button>
 
             <div class="text-right mg-b-sm mg-t-sm">
-                <a href="{{ URL::to('cameo') }}/#">Forgot password?</a>
+                <a href="{{ URL::to('forgot') }}">Forgot password?</a>
             </div>
 
             <p class="center-block mg-t mg-b text-right">Dont have an account?

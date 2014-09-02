@@ -28,6 +28,16 @@
         <script src="{{ URL::to('cameo') }}/https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style type="text/css">
+        body {
+            background: url({{ URL::to('/')}}/images/getah2.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
     <!-- load modernizer -->
     <script src="{{ URL::to('cameo') }}/vendor/modernizr.js"></script>
     <script src="{{ URL::to('cameo') }}/min/main.min.js"></script>
@@ -38,7 +48,7 @@
     <div class="app-user">
         <div class="user-container">
             <section class="panel panel-default">
-                <header class="panel-heading">{{ $title }}</header>
+                <header class="panel-heading bg-red" >{{ $title }}</header>
                 <div class="bg-white user pd-lg">
                     @yield('content')
             </section>

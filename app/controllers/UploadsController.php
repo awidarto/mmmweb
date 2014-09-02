@@ -1,6 +1,6 @@
 <?php
 
-class MusicController extends AdminController {
+class UploadsController extends AdminController {
 
     public function __construct()
     {
@@ -23,19 +23,16 @@ class MusicController extends AdminController {
     {
 
         $this->heads = array(
-            array('Media Title',array('search'=>true,'sort'=>true)),
+            array('Title',array('search'=>true,'sort'=>true)),
             array('Artist',array('search'=>true,'sort'=>true)),
-            array('Albums',array('search'=>true,'sort'=>true)),
             array('Genre',array('search'=>true,'sort'=>true)),
-            array('Tags',array('search'=>true,'sort'=>true)),
-            array('Owner',array('search'=>true,'sort'=>true)),
             array('Tags',array('search'=>true,'sort'=>true)),
             array('Last Update',array('search'=>true,'sort'=>true,'date'=>true)),
         );
 
         $this->place_action = 'first';
 
-        $this->title = 'Music';
+        $this->title = 'My Uploads';
 
         $this->can_add = true;
 
@@ -294,7 +291,7 @@ class MusicController extends AdminController {
     {
         $change = '<span class="propchg act" data-status="'.$data['status'].'" rel="'.$data['_id'].'" id="'.$data['_id'].'" ><i class="icon-edit"></i> Change Status</span>';
         $delete = '<span class="del" id="'.$data['_id'].'" ><i class="icon-trash"></i>Delete</span>';
-        $edit = '<a href="'.URL::to('music/edit/'.$data['_id']).'"><i class="icon-edit"></i>Update</a>';
+        $edit = '<a href="'.URL::to('uploads/edit/'.$data['_id']).'"><i class="icon-edit"></i>Update</a>';
 
         $actions = $edit.'</br />'.$change.'<br />'.$delete;
         return $actions;

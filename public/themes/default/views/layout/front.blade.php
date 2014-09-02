@@ -12,6 +12,8 @@
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="{{ URL::to('cameo') }}/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ URL::to('/') }}/bootstrap-material-design/css-compiled/material.css">
+    <link rel="stylesheet" href="{{ URL::to('/') }}/bootstrap-material-design/css-compiled/ripples.css">
     <!-- /bootstrap -->
 
     <!-- core styles -->
@@ -52,98 +54,48 @@
 
 <body>
     <div class="app">
-        <!-- top header -->
-        <header class="header header-fixed navbar bg-white">
+        <div class="container box-shadow">
+            @include('partials.topnav')
+            <section class="layout">
+                <!-- main content -->
+                <section class="main-content">
 
-            <div class="brand bg-success">
-                <a href="{{ URL::to('cameo') }}/#" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
+                    <header class="header header-fixed navbar bg-white bd-l">
+                        <p class="navbar-text">Blank Template
+                            <i>
+                                <small>(Perfect place to get started)</small>
+                            </i>
+                        </p>
+                    </header>
 
-                <a href="{{ URL::to('/') }}" class="navbar-brand text-white">
-                    <i class="fa fa-microphone mg-r-xs"></i>
-                    <span>BizBozz -
-                        <b>{{ Auth::user()->organization['apptype'] }}</b>
-                    </span>
-                </a>
-            </div>
+                    <!-- content wrapper -->
+                    <div class="content-wrap">
+                        <div class="row">
+                            <div class="col-md-3">
 
-            <form class="navbar-form navbar-left hidden-xs" role="search">
-                <div class="form-group">
-                    <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                    <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
-                </div>
-            </form>
+                                @include('partials.sideprofile')
 
-            @include('partials.identity')
-        </header>
-        <!-- /top header -->
-
-        <section class="layout">
-            <!-- sidebar menu -->
-            <aside class="sidebar collapsible canvas-left bg-dark">
-                <div class="scroll-menu">
-                    <!-- main navigation -->
-                    <nav class="main-navigation slimscroll" data-height="auto" data-size="4px" data-color="#ddd" data-distance="0">
-					    @include('appmenus.'.Auth::user()->organization['apptype'])
-                    </nav>
-
-                </div>
-
-                <!-- footer -->
-                <footer>
-                    <div class="about-app pd-md animated pulse">
-                        <a href="#">
-                            <img src="{{ URL::to('cameo')}}/img/about.png" alt="">
-                        </a>
-                        <span>
-                            <b>Cameo</b>&#32;is a responsive admin template powered by bootstrap 3.
-                            <a href="#">
-                                <b>Find out more</b>
-                            </a>
-                        </span>
+                            </div>
+                            <div class="col-md-5">
+                                @yield('content')
+                            </div>
+                        </div>
                     </div>
+                    <!-- /content wrapper -->
 
-                    <div class="footer-toolbar pull-left">
-                        <a href="#" class="pull-left help">
-                            <i class="fa fa-question-circle"></i>
-                        </a>
-
-                        <a href="#" class="toggle-sidebar pull-right hidden-xs">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                    </div>
-                </footer>
-                <!-- /footer -->
-            </aside>
-            <!-- /sidebar menu -->
-
-            <!-- main content -->
-            <section class="main-content">
-
-                <!-- content wrapper -->
-                <div class="content-wrap">
-                    @yield('content')
-                </div>
-                <!-- /content wrapper -->
+                </section>
+                <!-- /main content -->
 
             </section>
-            <!-- /main content -->
 
-        </section>
-
+        </div>
     </div>
-
     <script src="{{ URL::to('cameo') }}/js/main.js"></script>
 
     <!-- page scripts -->
-    <script src="{{ URL::to('cameo') }}/vendor/jquery.slimscroll.js"></script>
 
     @include('layout.js')
     <!-- /page scripts -->
-
-
-
 
 </body>
 <!-- /body -->

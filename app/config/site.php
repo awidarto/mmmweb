@@ -1,6 +1,6 @@
 <?php
 
 return array(
-    'design'=>'Developed by CGI',
-    'name'=>'BizBozz'
+    'design'=>'Developed by KickstartLab',
+    'name'=>'MuMoMu'
     );

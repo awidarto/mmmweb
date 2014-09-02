@@ -68,6 +68,7 @@ Route::controller('inprop', 'InpropController');
 
 Route::controller('templates', 'TemplatesController');
 
+Route::controller('uploads', 'UploadsController');
 Route::controller('music', 'MusicController');
 Route::controller('video', 'VideoController');
 Route::controller('event', 'EventController');
@@ -85,7 +86,7 @@ Route::controller('home', 'HomeController');
 Route::controller('homeslide', 'HomeslideController');
 
 //Route::get('/', 'ProductsController@getIndex');
-Route::get('/', 'DashboardController@getIndex');
+Route::get('/', 'FeedController@getIndex');
 
 
 Route::get('content/pages', 'PagesController@getIndex');
@@ -324,6 +325,41 @@ Route::get('media',function(){
     print $media->toJson();
 
 });
+
+Route::get('forgot',function(){
+    return View::make('forgot')->with('title','Reset Password');
+});
+
+Route::post('forgot',function(){
+
+    $rules = array(
+        'email'    => 'required|email',
+    );
+
+    // run the validation rules on the inputs from the form
+    $validator = Validator::make(Input::all(), $rules);
+
+    // if the validator fails, redirect back to the form
+    if ($validator->fails()) {
+
+        Event::fire('log.a',array('reset password','resetpass',Input::get('email'),'validation fail'));
+
+        Session::flash('signupError', $validator->messages() );
+        return Redirect::to('forgot');
+    } else {
+
+    }
+
+});
+
+Route::get('resetpass/{key}',function($key){
+    return View::make('reset')->with('title','Reset Password')->with('key',$key);
+});
+
+Route::post('resetpass/{key}',function($key){
+
+});
+
 
 Route::get('login',function(){
     return View::make('login')->with('title','Sign In');

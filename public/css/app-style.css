@@ -5,3 +5,33 @@ table.dataTable {
     max-width: none !important;
     font-size: 11px;
 }
+
+.header .avatar {
+    width: 30px;
+    height: auto;
+}
+
+.bg-success,
+.bg-success footer {
+    background-color: #96281B;
+    color: #c0efd5;
+}
+
+.bg-success .nav>li:hover>a,
+.bg-success .nav>li:focus>a,
+.bg-success .nav>li:active>a,
+.bg-success .nav>li.active>a,
+.bg-success .nav>li>a:hover,
+.bg-success .nav>li>a:focus {
+    background-color: #f26522;
+}
+
+.panel-default>.panel-heading {
+    color: #FFF;
+    background-color: maroon;
+    border-color: maroon;
+}
+
+.panel-default {
+    border-color: maroon;
+}

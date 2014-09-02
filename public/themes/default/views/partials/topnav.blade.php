@@ -1,53 +1,75 @@
-<script type="text/javascript">
-    $(document).ready(function(){
+            <!-- top header -->
+            <header class="header header-fixed navbar bg-success">
 
-    });
+                <a href="#" class="fa fa-bars navbar-toggle off-left visible-xs" data-toggle="collapse" data-target="#hor-menu"></a>
 
-</script>
-<style type="text/css">
-    b.icon-caret-down{
-        margin-left: 8px;
-    }
+                <div class="brand bg-success width-auto">
+                    <a href="index-2.html" class="navbar-brand text-white">
+                        <i class="fa fa-microphone mg-r-xs"></i>
+                        <span>MuMoMu</b>
+                        </span>
+                    </a>
+                </div>
 
-    .nav-tabs.nav-stacked>li>ul>li>a {
-        padding: 10px 25px;
-    }
+                <div class="collapse navbar-collapse pull-left no-padding" id="hor-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown show-on-hover">
+                            <a href="#" data-toggle="dropdown">
+                                <span>My Media</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ URL::to('music') }}" class="{{ sa('music') }}" >
+                                        <span>My Music</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ URL::to('video') }}" class="{{ sa('video') }}" >
+                                        <span>My Movies</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ URL::to('playlist') }}" class="{{ sa('playlist') }}" >
+                                        <span>My Playlists</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown show-on-hover">
+                            <a href="#" data-toggle="dropdown">
+                                <span>My Store</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ URL::to('uploads') }}" class="{{ sa('uploads') }}" >
+                                        <span>My Uploads</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ URL::to('sales') }}" class="{{ sa('sales') }}" >
+                                        <span>Cash Box</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
-    .nav-tabs.nav-stacked>li>ul>li>ul>li>a {
-        padding: 10px 28px;
-    }
+                <form class="navbar-form navbar-left hidden-xs" role="search">
+                    <div class="form-group">
+                        <button class="btn text-white no-border no-margin bg-none" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
+                    </div>
+                </form>
 
-    .nav-tabs.nav-stacked>li>ul>li>ul>li>a{
-        color: #fff;
-        border: 0;
-        background: transparent;
-        -webkit-border-radius: 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-        text-decoration: none;
-        display: block;
-    }
-
-    .box{
-        overflow-x: auto !important;
-        background-color: white;
-    }
-
-    .box-content{
-        display:block !important;
-    }
-
-    #sidebar-left .label {
-        -webkit-border-radius: 2px 0 0 2px;
-        -moz-border-radius: 2px 0 0 2px;
-        border-radius: 2px 0 0 2px;
-        position: absolute;
-        right: 0;
-        background: transparent;
-        color: white;
-    }
-</style>
-
-@if( isset(Auth::user()->organization['apptype']) && Auth::user()->organization['apptype'] != '')
-    @include('appmenus.'.Auth::user()->organization['apptype'])
-@endif
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                    <li class="quickmenu mg-r-md">
+                        @include('partials.identity')
+                    </li>
+                </ul>
+            </header>
+            <!-- /top header -->

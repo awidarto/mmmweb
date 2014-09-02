@@ -23,6 +23,11 @@
             <div class="clearfix"></div>
 
             <button class="btn btn-info btn-block" type="submit">Sign up</button>
+
+            <p class="center-block mg-t mg-b text-right">
+                <a href="{{ URL::to('/') }}/#">Back to home</a>
+            </p>
+
         </fieldset>
 
 {{ Form::close() }}
