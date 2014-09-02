@@ -5,9 +5,7 @@
 
                 <div class="brand bg-success width-auto">
                     <a href="index-2.html" class="navbar-brand text-white">
-                        <i class="fa fa-microphone mg-r-xs"></i>
-                        <span>MuMoMu</b>
-                        </span>
+                        <img src="{{ URL::to('images')}}/mmm-logo.png" alt="mmm-logo" style="margin-top:4px;" />
                     </a>
                 </div>
 
