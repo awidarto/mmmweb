@@ -1,5 +1,13 @@
     {{ HTML::script('bootstrap311/js/bootstrap.js') }}
 
+    <script src="{{ URL::to('cameo') }}/vendor/slider/bootstrap-slider.js"></script>
+    <script src="{{ URL::to('cameo') }}/vendor/audioplayer/audioplayer.js"></script>
+    <script src="{{ URL::to('cameo') }}/vendor/video-js/video.js"></script>
+    <script src="{{ URL::to('cameo') }}/vendor/switchery/switchery.js"></script>
+    <script src="{{ URL::to('cameo') }}/vendor/jquery.blockUI.js"></script>
+    <script src="{{ URL::to('cameo') }}/vendor/skycons.js"></script>
+
+
     {{ HTML::script('js/bootstrap-modalmanager.js') }}
     {{ HTML::script('js/bootstrap-modal.js') }}
 

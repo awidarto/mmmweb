@@ -21,6 +21,10 @@
     <!-- /core styles -->
 
     <!-- page styles -->
+    <link rel="stylesheet" href="{{ URL::to('cameo')}}/vendor/slider/slider.css">
+    <link rel="stylesheet" href="{{ URL::to('cameo')}}/vendor/video-js/video-js.css">
+    <link rel="stylesheet" href="{{ URL::to('cameo')}}/vendor/audioplayer/audioplayer.css">
+
     <link rel="stylesheet" href="{{ URL::to('cameo') }}/vendor/bootstrap-select/bootstrap-select.css">
     {{ HTML::style('datatables/css/dataTables.bootstrap.css')}}
     {{ HTML::style('css/bootstrap-modal-bs3patch.css') }}

@@ -1,6 +1,8 @@
 @extends('layout.front')
 
 @section('content')
+
+
     <div id="do-what">
         <section class="panel no-border overflow-hidden widget-social">
             <div class="panel-body bg-white">
@@ -13,25 +15,33 @@
                             <i class="fa fa-comment-o"></i>
                         </span>
                     </div>
+                    <div class="input-group" id="upload-media" style="display:none">
+                        <?php
+                            $fupload = new Fupload();
+                        ?>
+
+                        {{ $fupload->id('imageupload')->title('Select Images')->label('Upload Images')->make() }}
+
+                    </div>
 
                 </div>
             </div>
             <div class="panel-footer no-padding no-border">
                 <div class="row no-margin">
                     <div class="col-xs-4 bg-primary pd-md text-center">
-                        <a href="#">
+                        <a href="#" id="up-music">
                             <span class="fa fa-cloud-upload mg-b-xs show"></span>
                             Music
                         </a>
                     </div>
                     <div class="col-xs-4 bg-warning pd-md text-center">
-                        <a href="#">
+                        <a href="#" id="up-movie">
                             <span class="fa fa-cloud-upload mg-b-xs show"></span>
                             Movie
                         </a>
                     </div>
                     <div class="col-xs-4 bg-info pd-md text-center">
-                        <a href="#">
+                        <a href="#" id="up-playlist">
                             <span class="fa fa-cloud-upload mg-b-xs show"></span>
                             Playlist
                         </a>
@@ -98,7 +108,23 @@
                 <h5 class="text-white pd"><b class="fa fa-music"></b> fast Car - Tracy Chapman
                 </h5>
             </div>
+
+            <div class="panel-body no-padding">
+                <div class="audio-player">
+                    <div class="audio-title">
+                        <h6 class="no-margin">The paper kites - Bloom</h6>
+                        <small>Woodland (2011)</small>
+                    </div>
+                    <audio preload="auto" controls>
+                        <source src="{{ URL::to('cameo')}}/data/adg3com_bustedchump.mp3">
+                            <source src="http://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg">
+                                <source src="http://www.nch.com.au/acm/11k16bitpcm.wav">
+                    </audio>
+                </div>
+            </div>
+
             <div class="panel-body bg-white">
+
                 <a href="#" class="pull-left mg-r-md">
                     <img src="{{ URL::to('cameo')}}/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
                 </a>
@@ -147,7 +173,14 @@
                 <small>shared a movie with Matt Stone.</small>
             </div>
             <div class="panel-body no-padding">
-                <div class="imgpost-heading"></div>
+                    <video class="video-js" controls preload="auto" width="640" height="264" poster="img/trailer.png" data-setup="{}">
+                        <source src="{{ URL::to('cameo')}}/video/bigbuckbunny.mp4" type="{{ URL::to('cameo')}}/video/mp4">
+                            <source src="{{ URL::to('cameo')}}/video/bigbuckbunny.webm" type="video/webm">
+                                <track kind="captions" src="data/captions.vtt" srclang="en" label="English">
+                                    <!-- Tracks need an ending tag thanks to IE9 -->
+                                    <track kind="subtitles" src="data/captions.vtt" srclang="en" label="English">
+                                        <!-- Tracks need an ending tag thanks to IE9 -->
+                    </video>
                 <div class="pd-md">
                     <div class="clearfix mg-t-md">
                         <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle pull-left mg-r-md" alt="">
@@ -164,6 +197,18 @@
             </div>
         </section>
 
-    </div>
+    </div><!-- end feed -->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#up-music').on('click',function(){
+                    $('#upload-media').show();
+                });
+
+                $('#up-movie').on('click',function(){
+                    $('#upload-media').show();
+                });
+            });
+        </script>
 
 @stop
