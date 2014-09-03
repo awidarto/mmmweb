@@ -43,6 +43,11 @@ class AjaxController extends BaseController {
 
     }
 
+    public function postFeed()
+    {
+        //$media = Media::where()->orderBy('createdDate')->
+    }
+
     public function getMenu()
     {
         $tree = '[

@@ -537,8 +537,9 @@ Route::post('signup',function(){
 
             $newuser = Member::where('activation', $activation)->first()->toArray();
 
-            Session::flash('signupSuccess', 'Thank you and welcome to '.Config::get('site.name').' ! Now you may create new organization or join existing one.');
-            return Redirect::to('organization/'.$newuser['_id']);
+            Session::flash('signupSuccess', 'Thank you and welcome to '.Config::get('site.name').' !');
+            //return Redirect::to('organization/'.$newuser['_id']);
+            return Redirect::to('/');
 
         }else{
 
