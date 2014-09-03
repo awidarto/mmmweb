@@ -43,9 +43,16 @@ class AjaxController extends BaseController {
 
     }
 
-    public function postFeed()
+    public function postFeed($page = 0)
     {
-        //$media = Media::where()->orderBy('createdDate')->
+        $media = Media::orderBy('createdDate','desc')->take(10)->skip($page * 10)->get()->toArray();
+
+        $stream = '';
+        foreach($media as $m){
+            $stream .= View::make('mediaview.'.$m['mediatype'])->with($m)->render();
+        }
+
+        return Response::make($stream);
     }
 
     public function getMenu()

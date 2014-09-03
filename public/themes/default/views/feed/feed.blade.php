@@ -59,6 +59,7 @@
         </section>
     </div>
     <div id="feed">
+        {{--
 
         <!-- shared playlist -->
         <section class="panel no-border bg-success">
@@ -205,10 +206,15 @@
             </div>
         </section>
 
+        --}}
+
     </div><!-- end feed -->
 
         <script type="text/javascript">
             $(document).ready(function(){
+
+                loadStream();
+
                 $('#up-music').on('click',function(){
                     $('#upload-media').show();
                     $('#media-type').val('music');
@@ -235,6 +241,7 @@
                         function(d){
                             if(d.result == 'OK'){
                                 $('#upload-media').hide();
+                                loadStream();
                             }else{
                                 alert('failed to upload media');
                             }
@@ -242,6 +249,21 @@
                         },'json');
 
                 });
+
+                function loadStream(){
+                    $.post(
+                            '{{ URL::to('ajax/feed') }}',
+                            {},
+                            function(html){
+                                $('#feed').html(html);
+                                $('audio').audioPlayer();
+                                $('.video-js').each(function(e){
+                                    videojs(this, {}, function() {});
+                                });
+
+                            },'html'
+                        );
+                }
 
 
             });
