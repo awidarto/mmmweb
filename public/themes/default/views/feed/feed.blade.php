@@ -2,271 +2,308 @@
 
 @section('content')
 
+<!-- User Profile Content -->
+<div class="row">
+    <!-- First Column -->
+    <div class="col-md-6 col-lg-7">
+        <!-- Updates Block -->
+        <div class="block">
+            <!-- Updates Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title="Privacy Settings"><i class="fa fa-cog"></i></a>
+                </div>
+                <h2><strong>Share</strong> something..</h2>
+            </div>
+            <!-- END Updates Title -->
 
-    <div id="do-what">
-        <section class="panel no-border overflow-hidden widget-social">
-            <div class="panel-body bg-white">
-                <div class="clearfix mg-t-md">
-                    <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle pull-left mg-r-md" alt="">
+            <!-- Update Status Form -->
+            <form action="page_ready_user_profile.html" method="post" class="block-content-full block-content-mini-padding" onsubmit="return false;">
+                <textarea id="default-textarea" name="default-textarea" rows="2" class="form-control push-bit" placeholder="What are you thinking?"></textarea>
+                <div class="clearfix">
+                    <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-pencil"></i> Post</button>
+                    <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Add Location"><i class="fa fa-location-arrow"></i></a>
+                    <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Add Voice"><i class="fa fa-microphone"></i></a>
+                    <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Add Photo"><i class="fa fa-camera"></i></a>
+                    <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom" title="Add File"><i class="fa fa-file"></i></a>
+                </div>
+            </form>
+            <!-- END Update Status Form -->
+        </div>
+        <!-- END Updates Block -->
 
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Share something">
-                        <span class="input-group-addon">
-                            <i class="fa fa-comment-o"></i>
-                        </span>
-                    </div>
-                    <div class="input-group" id="upload-media" style="display:none">
-                        <form id="up-media">
-                            <input type="hidden" value="" name="mediatype" id="media-type" >
-                            <div id="uploader">
-                                <?php
-                                    $fupload = new Fupload();
-                                ?>
+        <!-- Newsfeed Block -->
+        <div class="block">
+            <!-- Newsfeed Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="label label-danger animation-pulse">Live Feed</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title="Customize Feed"><i class="fa fa-pencil"></i></a>
+                </div>
+                <h2><strong>Newsfeed</strong></h2>
+            </div>
+            <!-- END Newsfeed Title -->
 
-                                {{ $fupload->id('mediaupload')->title('Select Media')->label('Upload Media')->make() }}
+            <!-- Newsfeed Content -->
+            <div class="block-content-full">
+                <!-- You can remove the class .media-feed-hover if you don't want each event to be highlighted on mouse hover -->
+                <ul class="media-list media-feed media-feed-hover">
+                    <!-- Photos Uploaded -->
+                    <!-- Example effect of the following update showing up in Newsfeed (initialized in js/pages/readyProfile.js) -->
+                    <li id="newsfeed-update-example" class="media display-none">
+                        <a href="page_ready_user_profile.html" class="pull-left">
+                            <img src="img/placeholders/avatars/avatar8.jpg" alt="Avatar" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <p class="push-bit">
+                                <span class="text-muted pull-right">
+                                    <small>just now</small>
+                                    <span class="text-success" data-toggle="tooltip" title="From Mobile"><i class="fa fa-mobile"></i></span>
+                                </span>
+                                <strong><a href="page_ready_user_profile.html">User</a> uploaded 2 new photos.</strong>
+                            </p>
+                            <div class="row push">
+                                <div class="col-sm-6 col-md-4">
+                                    <a href="img/placeholders/photos/photo13.jpg" data-toggle="lightbox-image">
+                                        <img src="img/placeholders/photos/photo13.jpg" alt="image">
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <a href="img/placeholders/photos/photo23.jpg" data-toggle="lightbox-image">
+                                        <img src="img/placeholders/photos/photo23.jpg" alt="image">
+                                    </a>
+                                </div>
                             </div>
-                        </form>
-                        <div class="clearfix">
-                            <button class="btn btn-primary pull-right" id="do-upload" ><b class="fa fa-share"></b> Share</button>
-                            <button class="btn btn-danger pull-right" id="cancel-share"><b class="fa fa-times-circle-o"></b> Cancel</button>
+                            <p>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-comments-o"></i> Comment</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-share-square-o"></i> Share</a>
+                            </p>
                         </div>
-                    </div>
+                    </li>
+                    <!-- END Photos Uploaded -->
 
-                </div>
+                    <!-- Story Published -->
+                    <li class="media">
+                        <a href="page_ready_user_profile.html" class="pull-left">
+                            <img src="img/placeholders/avatars/avatar8.jpg" alt="Avatar" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <p class="push-bit">
+                                <span class="text-muted pull-right">
+                                    <small>45 min now</small>
+                                    <span class="text-danger" data-toggle="tooltip" title="From Web"><i class="fa fa-globe"></i></span>
+                                </span>
+                                <strong><a href="page_ready_user_profile.html">Explorer</a> published a new story.</strong>
+                            </p>
+                            <h5><a href="page_ready_article.html"><strong>The Mountain Trip</strong> &bull; Once in a lifetime experience</a></h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti..</p>
+                            <p>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up"></i> You Like it</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-share-square-o"></i> Share</a>
+                            </p>
+
+                            <!-- Comments -->
+                            <ul class="media-list push">
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="img/placeholders/avatars/avatar16.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="page_ready_user_profile.html"><strong>User</strong></a>
+                                        <span class="text-muted"><small><em>29 min ago</em></small></span>
+                                        <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="page_ready_user_profile.html"><strong>User</strong></a>
+                                        <span class="text-muted"><small><em>18 min ago</em></small></span>
+                                        <p>In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <form action="page_ready_user_profile.html" method="post" onsubmit="return false;">
+                                            <textarea id="profile-newsfeed-comment1" name="profile-newsfeed-comment1" class="form-control" rows="2" placeholder="Your comment.."></textarea>
+                                            <button type="submit" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Post Comment</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- END Comments -->
+                        </div>
+                    </li>
+                    <!-- END Story Published -->
+
+                    <!-- Check in -->
+                    <li class="media">
+                        <a href="page_ready_user_profile.html" class="pull-left">
+                            <img src="img/placeholders/avatars/avatar8.jpg" alt="Avatar" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <p class="push-bit">
+                                <span class="text-muted pull-right">
+                                    <small>1 hour ago</small>
+                                    <span class="text-success" data-toggle="tooltip" title="From Mobile"><i class="fa fa-mobile"></i></span>
+                                </span>
+                                <strong><a href="page_ready_user_profile.html">Adventurer</a> checked in at <a href="javascript:void(0)">Cafe-Bar</a>.</strong>
+                            </p>
+                            <div id="gmap-checkin" class="gmap push"></div>
+                            <p>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-comments-o"></i> Comment</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-share-square-o"></i> Share</a>
+                            </p>
+                        </div>
+                    </li>
+                    <!-- END Check in -->
+
+                    <!-- Status Updated -->
+                    <li class="media">
+                        <a href="page_ready_user_profile.html" class="pull-left">
+                            <img src="img/placeholders/avatars/avatar7.jpg" alt="Avatar" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <p class="push-bit">
+                                <span class="text-muted pull-right">
+                                    <small>5 hours ago</small>
+                                    <span class="text-info" data-toggle="tooltip" title="From Custom App"><i class="fa fa-wrench"></i></span>
+                                </span>
+                                <strong><a href="page_ready_user_profile.html">User</a> updated status.</strong>
+                            </p>
+                            <p>Hey there! First post from the new application!</p>
+                            <p>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-thumbs-o-up"></i> Like</a>
+                                <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-share-square-o"></i> Share</a>
+                            </p>
+                            <!-- Comments -->
+                            <ul class="media-list push">
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="img/placeholders/avatars/avatar5.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="page_ready_user_profile.html"><strong>User</strong></a>
+                                        <span class="text-muted"><small><em>1 hour ago</em></small></span>
+                                        <p>Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum.</p>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <form action="page_ready_user_profile.html" method="post" onsubmit="return false;">
+                                            <textarea id="profile-newsfeed-comment" name="profile-newsfeed-comment" class="form-control" rows="2" placeholder="Your comment.."></textarea>
+                                            <button type="submit" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Post Comment</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- END Comments -->
+                        </div>
+                    </li>
+                    <li class="media text-center">
+                        <a href="javascript:void(0)" class="btn btn-xs btn-default push">View more..</a>
+                    </li>
+                    <!-- END Status Updated -->
+                </ul>
             </div>
-            <div class="panel-footer no-padding no-border">
-                <div class="row no-margin">
-                    <div class="col-xs-4 bg-primary pd-md text-center">
-                        <a href="#" id="up-music">
-                            <span class="fa fa-cloud-upload mg-b-xs show"></span>
-                            Music
-                        </a>
-                    </div>
-                    <div class="col-xs-4 bg-warning pd-md text-center">
-                        <a href="#" id="up-movie">
-                            <span class="fa fa-cloud-upload mg-b-xs show"></span>
-                            Movie
-                        </a>
-                    </div>
-                    <div class="col-xs-4 bg-info pd-md text-center">
-                        <a href="#" id="up-playlist">
-                            <span class="fa fa-cloud-upload mg-b-xs show"></span>
-                            Playlist
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <!-- END Newsfeed Content -->
+        </div>
+        <!-- END Newsfeed Block -->
     </div>
-    <div id="feed">
-        {{--
+    <!-- END First Column -->
 
-        <!-- shared playlist -->
-        <section class="panel no-border bg-success">
-            <div class="panel-heading no-border">
-                <small class="pull-right text-white">
-                    <a class="fa fa-chevron-down panel-collapsible pd-r-xs" href="#"></a>
-                    <a class="fa fa-refresh panel-refresh pd-r-xs" href="#"></a>
-                    <a class="fa fa-times panel-remove" href="#"></a>
-                </small>
-                <h5 class="text-white pd"><b class="fa fa-list"></b> Dangdut Progressive 1
-                </h5>
+    <!-- Second Column -->
+    <div class="col-md-6 col-lg-5">
+
+        <!-- Friends Block -->
+        <div class="block">
+            <!-- Friends Title -->
+            <div class="block-title">
+                <h2><strong>Friends</strong> <small>&bull; <a href="javascript:void(0)">450</a></small></h2>
             </div>
-            <div class="panel-body bg-white">
-                <a href="#" class="pull-left mg-r-md">
-                    <img src="{{ URL::to('cameo')}}/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
-                </a>
-                <div>{{ Auth::user()->fullname }}
-                    <small class="pull-right">12 mins ago</small>
-                </div>
-                <small>San Francisco, CA</small>
-                <p class="mg-t-sm">
-                    The whole of science is nothing more than a refinement of everyday thinking.
-                </p>
-                <div class="text-muted">
-                    <a href="#" class="muted mg-r-md">
-                        <i class="fa fa-comment-o  mg-r-xs"></i>3523
-                    </a>
-                    <a href="#" class="text-white">
-                        <i class="fa fa-heart text-danger mg-r-xs"></i>12K
+            <!-- END Friends Title -->
+
+            <!-- Friends Content -->
+            <div class="row text-center">
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar11.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
                     </a>
                 </div>
-                <div class="clearfix mg-t-md">
-                    <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle pull-left mg-r-md" alt="">
-
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Write a comment">
-                        <span class="input-group-addon">
-                            <i class="fa fa-comments"></i>
-                        </span>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- shared music -->
-
-        <section class="panel no-border bg-success">
-            <div class="panel-heading no-border">
-                <small class="pull-right text-white">
-                    <a class="fa fa-chevron-down panel-collapsible pd-r-xs" href="#"></a>
-                    <a class="fa fa-refresh panel-refresh pd-r-xs" href="#"></a>
-                    <a class="fa fa-times panel-remove" href="#"></a>
-                </small>
-                <h5 class="text-white pd"><b class="fa fa-music"></b> fast Car - Tracy Chapman
-                </h5>
-            </div>
-
-            <div class="panel-body no-padding">
-                <div class="audio-player">
-                    <div class="audio-title">
-                        <h6 class="no-margin">The paper kites - Bloom</h6>
-                        <small>Woodland (2011)</small>
-                    </div>
-                    <audio preload="auto" controls>
-                        <source src="{{ URL::to('cameo')}}/data/adg3com_bustedchump.mp3">
-                            <source src="http://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg">
-                                <source src="http://www.nch.com.au/acm/11k16bitpcm.wav">
-                    </audio>
-                </div>
-            </div>
-
-            <div class="panel-body bg-white">
-
-                <a href="#" class="pull-left mg-r-md">
-                    <img src="{{ URL::to('cameo')}}/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
-                </a>
-                <div>{{ Auth::user()->fullname }}
-                    <small class="pull-right">12 mins ago</small>
-                </div>
-                <small>San Francisco, CA</small>
-                <p class="mg-t-sm">
-                    The whole of science is nothing more than a refinement of everyday thinking.
-                </p>
-                <div class="text-muted">
-                    <a href="#" class="muted mg-r-md">
-                        <i class="fa fa-comment-o  mg-r-xs"></i>3523
-                    </a>
-                    <a href="#" class="text-white">
-                        <i class="fa fa-heart text-danger mg-r-xs"></i>12K
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar1.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
                     </a>
                 </div>
-                <div class="clearfix mg-t-md">
-                    <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle pull-left mg-r-md" alt="">
-
-                    <div class="input-group ">
-                        <input type="text" class="form-control" placeholder="Write a comment">
-                        <span class="input-group-addon">
-                            <i class="fa fa-comments"></i>
-                        </span>
-                    </div>
-
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar1.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar13.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar5.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar11.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar14.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar3.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar2.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar4.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar12.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-lg-2 block-section">
+                    <a href="javascript:void(0)">
+                        <img src="img/placeholders/avatars/avatar15.jpg" alt="image" class="img-circle" data-toggle="tooltip" title="Username">
+                    </a>
                 </div>
             </div>
-        </section>
+            <!-- END Friends Content -->
+        </div>
+        <!-- END Friends Block -->
 
-        <!-- shared movie -->
-        <section class="panel no-border">
-            <div class="panel-heading no-border">
-                <a href="#" class="pull-left mg-r-md">
-                    <img src="{{ URL::to('cameo')}}/img/avatar.jpg" class="avatar avatar-sm img-circle" alt="">
-                </a>
-                <div>Gary Stone
-                    <small class="pull-right">
-                        <a class="fa fa-chevron-down panel-collapsible pd-r-xs" href="#"></a>
-                        <a class="fa fa-refresh panel-refresh pd-r-xs" href="#"></a>
-                        <a class="fa fa-times panel-remove" href="#"></a>
-                    </small>
-                </div>
-                <small>shared a movie with Matt Stone.</small>
-            </div>
-            <div class="panel-body no-padding">
-                    <video class="video-js" controls preload="auto" width="640" height="264" poster="img/trailer.png" data-setup="{}">
-                        <source src="{{ URL::to('cameo')}}/video/bigbuckbunny.mp4" type="{{ URL::to('cameo')}}/video/mp4">
-                            <source src="{{ URL::to('cameo')}}/video/bigbuckbunny.webm" type="video/webm">
-                                <track kind="captions" src="data/captions.vtt" srclang="en" label="English">
-                                    <!-- Tracks need an ending tag thanks to IE9 -->
-                                    <track kind="subtitles" src="data/captions.vtt" srclang="en" label="English">
-                                        <!-- Tracks need an ending tag thanks to IE9 -->
-                    </video>
-                <div class="pd-md">
-                    <div class="clearfix mg-t-md">
-                        <img src="{{ URL::to('cameo')}}/img/face3.jpg" class="avatar avatar-sm img-circle pull-left mg-r-md" alt="">
+    </div>
+    <!-- END Second Column -->
+</div>
+<!-- END User Profile Content -->
 
-                        <div class="input-group ">
-                            <input type="text" class="form-control" placeholder="Write a comment">
-                            <span class="input-group-addon">
-                                <i class="fa fa-comments"></i>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        --}}
-
-    </div><!-- end feed -->
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-
-                loadStream();
-
-                $('#up-music').on('click',function(){
-                    $('#upload-media').show();
-                    $('#media-type').val('music');
-                    $('#mediaupload_uploadedform ul').html('');
-                    $('#mediaupload_files ul').html('');
-                });
-
-                $('#up-movie').on('click',function(){
-                    $('#upload-media').show();
-                    $('#media-type').val('movie');
-                    $('#mediaupload_uploadedform ul').html('');
-                    $('#mediaupload_files ul').html('');
-                });
-
-                $('#cancel-share').on('click',function(){
-                    $('#upload-media').hide();
-                });
-
-                $('#do-upload').on('click',function(){
-                    //console.log($('#up-media').serializeArray());
-                    var formdata = $('#up-media').serializeArray();
-                    $.post('{{ URL::to('ajax/share') }}',
-                        formdata,
-                        function(d){
-                            if(d.result == 'OK'){
-                                $('#upload-media').hide();
-                                loadStream();
-                            }else{
-                                alert('failed to upload media');
-                            }
-
-                        },'json');
-
-                });
-
-                function loadStream(){
-                    $.post(
-                            '{{ URL::to('ajax/feed') }}',
-                            {},
-                            function(html){
-                                $('#feed').html(html);
-                                $('audio').audioPlayer();
-                                $('.video-js').each(function(e){
-                                    videojs(this, {}, function() {});
-                                });
-
-                            },'html'
-                        );
-                }
-
-
-            });
-        </script>
 
 @stop

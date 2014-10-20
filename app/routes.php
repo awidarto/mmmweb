@@ -365,68 +365,6 @@ Route::get('login',function(){
     return View::make('login')->with('title','Sign In');
 });
 
-Route::post('oldlogin',function(){
-
-    // validate the info, create rules for the inputs
-    $rules = array(
-        'email'    => 'required|email',
-        'password' => 'required|alphaNum|min:3'
-    );
-
-    // run the validation rules on the inputs from the form
-    $validator = Validator::make(Input::all(), $rules);
-
-    // if the validator fails, redirect back to the form
-    if ($validator->fails()) {
-        return Redirect::to('login')->withErrors($validator);
-    } else {
-
-        $userfield = Config::get('kickstart.user_field');
-        $passwordfield = Config::get('kickstart.password_field');
-
-        // find the user
-        $user = User::where($userfield, '=', Input::get('email'))->first();
-
-
-        // check if user exists
-        if ($user) {
-            // check if password is correct
-            if (Hash::check(Input::get('password'), $user->{$passwordfield} )) {
-
-                //print $user->{$passwordfield};
-                //exit();
-                // login the user
-                Auth::login($user);
-                /*
-                $org = Organization::where('user_id', Auth::user()->_id)->first();
-
-                if(isset(Auth::user()->organization) && Auth::user()->organization['subdomain'] != '' ){
-                }else{
-                    return Redirect::to('organization/'.Auth::user()->_id);
-                }*/
-
-                return Redirect::to('/');
-
-
-            } else {
-                // validation not successful
-                // send back to form with errors
-                // send back to form with old input, but not the password
-                return Redirect::to('login')
-                    ->withErrors($validator)
-                    ->withInput(Input::except('password'));
-            }
-
-        } else {
-            // user does not exist in database
-            // return them to login with message
-            Session::flash('loginError', 'This user does not exist.');
-            return Redirect::to('login');
-        }
-
-    }
-
-});
 
 Route::post('login',function(){
 
@@ -555,6 +493,11 @@ Route::post('signup',function(){
 
     return View::make('pages.createaccount');
 });
+
+Route::get('profile',function(){
+    return View::make('profile');
+});
+
 
 Route::get('organization/{userid}',function($userid){
     return View::make('organization')->with('newuser',$userid)->with('title','Organization');

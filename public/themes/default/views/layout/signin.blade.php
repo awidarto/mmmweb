@@ -1,103 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-    <meta charset="utf-8">
-    <title>Sign in</title>
-    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
 
-    <!-- Le styles -->
-    {{ HTML::style('css/typography.css') }}
+        <title>Sign In</title>
 
-    {{ HTML::style('bootstrap232/css/bootstrap.css') }}
+        <meta name="description" content="MuMoMu">
+        <meta name="author" content="">
+        <meta name="robots" content="noindex, nofollow">
 
-    {{ HTML::style('bootstrap232/css/bootstrap-responsive.css') }}
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
-    {{ HTML::style('aflat/css/aflat.css') }}
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
+        <!-- END Icons -->
 
-    {{ HTML::style('aflat/css/aflat-responsive.css') }}
+        <!-- Stylesheets -->
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="{{ URL::to('proui') }}/css/bootstrap.min.css">
 
-    {{ HTML::style('bootplus/css/font-awesome.min.css') }}
+        <!-- Related styles of various icon packs and plugins -->
+        <link rel="stylesheet" href="{{ URL::to('proui') }}/css/plugins.css">
 
-    <style type="text/css">
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #E5E5E5;
-    }
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="{{ URL::to('proui') }}/css/main.css">
 
-    .form-signin {
-        border: 1px solid #D8D8D8;
-        border-bottom-width: 2px;
-        border-top-width: 0;
-        background-color: #FFF;
-        max-width: 350px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #F5F5F5;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-            border-radius: 3px;
-    }
-    .form-signin .form-signin-heading {
-     font-size: 24px;
-     font-weight: 300;
-    }
+        <!-- Include a specific file here from {{ URL::to('proui') }}/css/themes/ folder to alter the default theme of the template -->
 
-    .form-signin .form-signin-heading,
-    .form-signin .checkbox {
-        margin-bottom: 10px;
-    }
-    .form-signin input[type="text"],
-    .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-    }
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="{{ URL::to('proui') }}/css/themes.css">
+        <!-- END Stylesheets -->
 
-    </style>
+        <!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
+        <script src="{{ URL::to('proui') }}/js/vendor/modernizr-2.7.1-respond-1.4.2.min.js"></script>
 
-    {{ HTML::style('bootplus/css/bootplus-responsive.min.css') }}
-    {{ HTML::style('bootplus/css/font-awesome.min.css') }}
+        <style type="text/css">
+            body {
+                background: url({{ URL::to('/')}}/images/getah2.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-        <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
+    </head>
+    <body>
+        <!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>{{ Config::get('site.name')}}</strong><br>
+                            <small>Welcome to {{ Config::get('site.name')}}</small>
+                        </h1>
+                        <!-- END Title -->
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
+                        <!-- Key Features -->
+                        <!-- END Key Features -->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-</head>
+                        <!-- Footer -->
+                        <footer class="text-muted push-top-bottom">
+                            <small><span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 2.2</a></small>
+                        </footer>
+                        <!-- END Footer -->
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>{{ $title }}</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
 
-<body>
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            @yield('content')
+                        </div>
+                        <!-- END Login Block -->
+                    </div>
+                    <!-- END Login Container -->
 
-    <div class="container">
+                </div>
+            </div>
+        </div>
+        <!-- END Login Alternative Row -->
 
-        @yield('content')
+        <!-- Modal Terms -->
+        <div id="modal-terms" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Terms &amp; Conditions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Title</h4>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4>Title</h4>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4>Title</h4>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Modal Terms -->
 
-    </div> <!-- /container -->
+        <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-1.11.1.min.js"%3E%3C/script%3E'));</script>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/jquery-1.9.1.js')}}
-    {{ HTML::script('js/jquery-ui-1.9.2.custom.min.js')}}
-    {{ HTML::script('sm/js/bootstrap.min.js')}}
+        <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+        <script src="{{ URL::to('proui') }}/js/vendor/bootstrap.min.js"></script>
 
-
-  </body>
+        <!-- Load and execute javascript code used only in this page -->
+    </body>
 </html>
