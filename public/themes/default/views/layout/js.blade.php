@@ -1,50 +1,14 @@
-    {{ HTML::script('bootstrap311/js/bootstrap.js') }}
-
-    <script src="{{ URL::to('cameo') }}/vendor/slider/bootstrap-slider.js"></script>
-    <script src="{{ URL::to('cameo') }}/vendor/audioplayer/audioplayer.js"></script>
-    <script src="{{ URL::to('cameo') }}/vendor/video-js/video.js"></script>
-    <script src="{{ URL::to('cameo') }}/vendor/switchery/switchery.js"></script>
-    <script src="{{ URL::to('cameo') }}/vendor/jquery.blockUI.js"></script>
-    <script src="{{ URL::to('cameo') }}/vendor/skycons.js"></script>
-
-
-    {{ HTML::script('js/bootstrap-modalmanager.js') }}
-    {{ HTML::script('js/bootstrap-modal.js') }}
-
-    {{ HTML::script('js/jquery.removeWhitespace.min.js')}}
-    {{ HTML::script('js/jquery.collagePlus.min.js')}}
-    {{ HTML::script('js/jquery.collageCaption.js')}}
-    {{ HTML::script('datatables/js/jquery.dataTables.min.js')}}
-    {{ HTML::script('datatables/js/dataTables.bootstrap.js')}}
-    {{ HTML::script('js/jquery.dataTables.rowReordering.js') }}
-    {{ HTML::script('js/jquery.dataTables.rowGrouping.js') }}
-
-    {{ HTML::script('js/jquery.tagsinput.js') }}
-
-    {{-- HTML::script('js/bootstrap-timepicker.js') --}}
-    {{ HTML::script('js/sm-datepicker/bootstrap-datetimepicker.min.js') }}
-
-    {{ HTML::script('js/moment.min.js') }}
-    {{ HTML::script('js/daterangepicker.js') }}
-
-    {{ HTML::script('js/accounting.min.js')}}
-
-    {{ HTML::script('js/app.js') }}
+    {{ HTML::script('js/jquery.form.js') }}
 
     {{ HTML::script('js/jquery-fileupload/vendor/jquery.ui.widget.js') }}
 
     {{ HTML::script('js/js-load-image/load-image.min.js') }}
-
-    {{ HTML::script('js/jquery.slimscroll.min.js') }}
 
     {{ HTML::script('js/js-canvas-to-blob/canvas-to-blob.min.js') }}
 
     {{ HTML::script('js/jquery-fileupload/jquery.iframe-transport.js') }}
 
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload.js') }}
-
-    {{ HTML::script('js/tinycolor-0.9.15.min.js')}}
-    {{ HTML::script('js/pickacolor/pick-a-color-1.1.8.min.js') }}
 
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-process.js') }}
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-image.js') }}

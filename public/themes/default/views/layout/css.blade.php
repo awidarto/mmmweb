@@ -1,4 +1,4 @@
-    {{ HTML::style('css/jquery.tagsinput.css') }}
+    {{-- HTML::style('css/jquery.tagsinput.css') --}}
 
     {{ HTML::style('css/jquery-fileupload/css/jquery.fileupload-ui.css') }}
 

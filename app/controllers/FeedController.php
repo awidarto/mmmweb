@@ -12,7 +12,7 @@ class FeedController extends AdminController {
         //$this->crumb->append('Home','left',true);
         //$this->crumb->append(strtolower($this->controller_name));
 
-        $this->model = new Stockunitlog();
+        $this->model = new Media();
         //$this->model = DB::collection('documents');
 
     }
@@ -27,8 +27,41 @@ class FeedController extends AdminController {
 
     public function getIndex()
     {
+        Former::framework($this->form_framework);
 
         return View::make('feed.feed');
+    }
+
+    public function getFeed($last = 0)
+    {
+        $media = Media::orderBy('createdDate','desc')->get();
+
+        $hout = '';
+
+        foreach($media->toArray() as $m){
+
+            $dm = $m['defaultmedia'];
+            switch($m['mediatype']){
+                case 'video':
+                    $m['thumbnail'] = View::make('media.video')->with('type',$dm['filetype'])
+                        ->with('source',$dm['fileurl'])->render();
+                    $mc = View::make('mediadisplay.video')->with('m',$m)->render();
+                    $hout .= '<li>'.$mc.'</li>';
+                    break;
+                case 'music':
+                    $m['thumbnail'] = View::make('media.audio')->with('title',$dm['filename'])
+                        ->with('artist','-')->with('source',$dm['fileurl'])->render();
+                    $mc = View::make('mediadisplay.music')->with('m',$m)->render();
+                    $hout .= '<li>'.$mc.'</li>';
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        return $hout;
+
     }
 
     public function postIndex()

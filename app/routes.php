@@ -69,6 +69,7 @@ Route::controller('inprop', 'InpropController');
 Route::controller('templates', 'TemplatesController');
 
 Route::controller('uploads', 'UploadsController');
+Route::controller('media', 'MediaController');
 Route::controller('music', 'MusicController');
 Route::controller('video', 'VideoController');
 Route::controller('event', 'EventController');
@@ -84,6 +85,8 @@ Route::controller('ajax', 'AjaxController');
 
 Route::controller('home', 'HomeController');
 Route::controller('homeslide', 'HomeslideController');
+
+Route::controller('feed','FeedController');
 
 //Route::get('/', 'ProductsController@getIndex');
 Route::get('/', 'FeedController@getIndex');

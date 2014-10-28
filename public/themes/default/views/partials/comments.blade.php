@@ -2,7 +2,7 @@
 <ul class="media-list push">
     <li class="media">
         <a href="page_ready_user_profile.html" class="pull-left">
-            <img src="img/placeholders/avatars/avatar16.jpg" alt="Avatar" class="img-circle">
+            <img src="{{ URL::to('proui') }}/img/placeholders/avatars/avatar16.jpg" alt="Avatar" class="img-circle">
         </a>
         <div class="media-body">
             <a href="page_ready_user_profile.html"><strong>User</strong></a>
@@ -12,7 +12,7 @@
     </li>
     <li class="media">
         <a href="page_ready_user_profile.html" class="pull-left">
-            <img src="img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
+            <img src="{{ URL::to('proui') }}/img/placeholders/avatars/avatar2.jpg" alt="Avatar" class="img-circle">
         </a>
         <div class="media-body">
             <a href="page_ready_user_profile.html"><strong>User</strong></a>
@@ -22,7 +22,7 @@
     </li>
     <li class="media">
         <a href="page_ready_user_profile.html" class="pull-left">
-            <img src="img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+            <img src="{{ URL::to('proui') }}/img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
         </a>
         <div class="media-body">
             <form action="page_ready_user_profile.html" method="post" onsubmit="return false;">

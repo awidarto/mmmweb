@@ -18,7 +18,7 @@
 
 
         <div id="{{ $element_id }}_files" class="files">
-            <ul style="margin-left:0px">
+            <ul style="margin-left:-25px">
                 <?php
 
                     $allin = Input::old();
@@ -35,8 +35,11 @@
                     if( !is_null($formdata) && isset($formdata['files']) && $showold == false ){
 
                         /* external detail template */
-
-                        $thumb = View::make('fupload.detail')->render();
+                        if($prefix == ''){
+                            $thumb = View::make($prefix.'.detail')->render();
+                        }else{
+                            $thumb = View::make('fupload.detail')->render();
+                        }
 
                         // display previously saved data
                         //for($t = 0; $t < count($filename);$t++){
@@ -122,7 +125,11 @@
                         $thumb .= '</li>';
                         */
 
-                        $thumb = View::make('fupload.detail')->render();
+                        if($prefix == ''){
+                            $thumb = View::make($prefix.'.detail')->render();
+                        }else{
+                            $thumb = View::make('fupload.detail')->render();
+                        }
 
 
                         for($t = 0; $t < count($filename);$t++){
@@ -356,48 +363,67 @@ $(document).ready(function(){
                 '0%'
             );
 
-            $.each(data.result.files, function (index, file) {
+            if(data.result.status == 'OK'){
 
-                {{ View::make('fupload.jsdetail') }}
+                $.each(data.result.files, function (index, file) {
 
-                $(thumb).prependTo('#{{ $element_id }}_files ul');
+                    @if($prefix == '')
+                        {{ View::make('fupload.jsdetail') }}
+                    @else
+                        {{ View::make($prefix.'.jsdetail') }}
+                    @endif
 
-                var upl = '<li id="fdel_' + file.file_id +'" ><input type="hidden" name="delete_type[]" value="' + file.delete_type + '">';
-                upl += '<input type="hidden" name="delete_url[]" value="' + file.delete_url + '">';
-                upl += '<input type="hidden" name="filename[]" value="' + file.name  + '">';
-                upl += '<input type="hidden" name="filesize[]" value="' + file.size  + '">';
-                upl += '<input type="hidden" name="temp_dir[]" value="' + file.temp_dir  + '">';
+                    @if($singlefile == true)
+                        $('#{{ $element_id }}_files ul').html(thumb);
+                    @else
+                        $(thumb).prependTo('#{{ $element_id }}_files ul');
+                    @endif
 
-                @foreach(Config::get('picture.sizes') as $k=>$s )
-                    upl += '<input type="hidden" name="{{ $k }}_url[]" value="' + file.{{ $k }}_url + '">';
-                @endforeach
+                    var upl = '<li id="fdel_' + file.file_id +'" ><input type="hidden" name="delete_type[]" value="' + file.delete_type + '">';
+                    upl += '<input type="hidden" name="role[]" value="' + data.result.role + '">';
+                    upl += '<input type="hidden" name="delete_url[]" value="' + file.delete_url + '">';
+                    upl += '<input type="hidden" name="filename[]" value="' + file.name  + '">';
+                    upl += '<input type="hidden" name="filesize[]" value="' + file.size  + '">';
+                    upl += '<input type="hidden" name="temp_dir[]" value="' + file.temp_dir  + '">';
 
-                upl += '<input type="hidden" name="is_image[]" value="' + file.is_image + '">';
-                upl += '<input type="hidden" name="is_audio[]" value="' + file.is_audio + '">';
-                upl += '<input type="hidden" name="is_video[]" value="' + file.is_video + '">';
-                upl += '<input type="hidden" name="is_pdf[]" value="' + file.is_pdf + '">';
-                upl += '<input type="hidden" name="is_doc[]" value="' + file.is_doc + '">';
+                    @foreach(Config::get('picture.sizes') as $k=>$s )
+                        upl += '<input type="hidden" name="{{ $k }}_url[]" value="' + file.{{ $k }}_url + '">';
+                    @endforeach
 
-                {{--
+                    upl += '<input type="hidden" name="is_image[]" value="' + file.is_image + '">';
+                    upl += '<input type="hidden" name="is_audio[]" value="' + file.is_audio + '">';
+                    upl += '<input type="hidden" name="is_video[]" value="' + file.is_video + '">';
+                    upl += '<input type="hidden" name="is_pdf[]" value="' + file.is_pdf + '">';
+                    upl += '<input type="hidden" name="is_doc[]" value="' + file.is_doc + '">';
 
-                upl += '<input type="hidden" name="thumbnail_url[]" value="' + file.thumbnail_url + '">';
-                upl += '<input type="hidden" name="large_url[]" value="' + file.large_url + '">';
-                upl += '<input type="hidden" name="medium_url[]" value="' + file.medium_url + '">';
-                upl += '<input type="hidden" name="full_url[]" value="' + file.full_url + '">';
+                    {{--
 
-                --}}
+                    upl += '<input type="hidden" name="thumbnail_url[]" value="' + file.thumbnail_url + '">';
+                    upl += '<input type="hidden" name="large_url[]" value="' + file.large_url + '">';
+                    upl += '<input type="hidden" name="medium_url[]" value="' + file.medium_url + '">';
+                    upl += '<input type="hidden" name="full_url[]" value="' + file.full_url + '">';
 
-                upl += '<input type="hidden" name="filetype[]" value="' + file.type + '">';
-                upl += '<input type="hidden" name="fileurl[]" value="' + file.url + '">';
-                upl += '<input type="hidden" name="file_id[]" value="' + file.file_id + '"></li>';
+                    --}}
 
-                $(upl).prependTo('#{{ $element_id }}_uploadedform ul');
+                    upl += '<input type="hidden" name="filetype[]" value="' + file.type + '">';
+                    upl += '<input type="hidden" name="fileurl[]" value="' + file.url + '">';
+                    upl += '<input type="hidden" name="file_id[]" value="' + file.file_id + '"></li>';
 
-                clip = new ZeroClipboard($('.file_copy').each(function(){ }),{
-                    moviePath: '{{ URL::to('js/zeroclipboard')}}/ZeroClipboard.swf'
+                    @if($singlefile == true)
+                        $('#{{ $element_id }}_uploadedform ul').html(upl);
+                    @else
+                        $(upl).prependTo('#{{ $element_id }}_uploadedform ul');
+                    @endif
+                    clip = new ZeroClipboard($('.file_copy').each(function(){ }),{
+                        moviePath: '{{ URL::to('js/zeroclipboard')}}/ZeroClipboard.swf'
+                    });
+
                 });
-
-            });
+                $('audio').audioPlayer();
+                //videojs(document.getElementsByClassName('video-js')[0], {}, function(){});
+            }else{
+                alert(data.result.message)
+            }
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);

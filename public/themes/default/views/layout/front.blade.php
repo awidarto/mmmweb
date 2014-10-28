@@ -40,10 +40,22 @@
         <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
         <link rel="stylesheet" href="{{  URL::to('proui') }}/css/themes.css">
         <link rel="stylesheet" href="{{  URL::to('proui') }}/css/themes/fire.css">
+        <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/audioplayer/audioplayer.css">
+        <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/video-js/video-js.css">
         <!-- END Stylesheets -->
+        @include('layout.css')
 
         <!-- Modernizr (browser feature detection library) & Respond.js (Enable responsive CSS code on browsers that don't support it, eg IE8) -->
         <script src="{{ URL::to('proui') }}/js/vendor/modernizr-2.7.1-respond-1.4.2.min.js"></script>
+
+        <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        {{ HTML::script('js/jquery-1.11.1.min.js')}}
+        {{ HTML::script('js/jquery-ui-1.9.2.custom.min.js')}}
+
+        <script type="text/javascript">
+            var base = '{{ URL::to('/') }}/';
+        </script>
+
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -296,10 +308,9 @@
                                 <div class="sidebar-user-name">{{ Auth::user()->fullname }}</div>
                                 <div class="sidebar-user-links">
                                     <a href="{{ URL::to('profile') }}" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
-                                    <a href="page_ready_inbox.html" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
                                     <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
                                     <a href="#modal-user-settings" data-toggle="modal" class="enable-tooltip" data-placement="bottom" title="Settings"><i class="gi gi-cogwheel"></i></a>
-                                    <a href="login.html" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
+                                    <a href="{{ URL::to('logout')}}" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                                 </div>
                             </div>
                             <!-- END User Info -->
@@ -311,22 +322,19 @@
                                     <a href="{{ URL::to('/') }}"><i class="gi gi-home sidebar-nav-icon"></i>Home</a>
                                 </li>
                                 <li class="sidebar-header">
-                                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
                                     <span class="sidebar-header-title">My MuMoMu</span>
                                 </li>
                                 <li>
-                                    <a href="page_widgets_stats.html"><i class="gi gi-charts sidebar-nav-icon"></i>Statistics</a>
+                                    <a href="{{ URL::to('media/mymedia') }}"><i class="gi gi-film sidebar-nav-icon"></i>Media</a>
                                 </li>
                                 <li>
-                                    <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i>Social</a>
-                                </li>
-                                <li>
-                                    <a href="page_widgets_media.html"><i class="gi gi-film sidebar-nav-icon"></i>Media</a>
+                                    <a href="{{ URL::to('media/mystat') }}"><i class="gi gi-charts sidebar-nav-icon"></i>Statistics</a>
                                 </li>
                             </ul>
                             <!-- END Sidebar Navigation -->
 
                             <!-- Sidebar Notifications -->
+                            {{--
                             <div class="sidebar-header">
                                 <span class="sidebar-header-options clearfix">
                                     <a href="javascript:void(0)" data-toggle="tooltip" title="Refresh"><i class="gi gi-refresh"></i></a>
@@ -351,6 +359,7 @@
                                     <i class="fa fa-bug fa-fw"></i> <a href="javascript:void(0)"><strong>New bug submitted</strong></a>
                                 </div>
                             </div>
+                            --}}
                             <!-- END Sidebar Notifications -->
                         </div>
                         <!-- END Sidebar Content -->
@@ -399,15 +408,6 @@
 
                         <!-- Right Header Navigation -->
                         <ul class="nav navbar-nav-custom pull-right">
-                            <!-- Alternative Sidebar Toggle Button -->
-                            <li>
-                                <!-- If you do not want the main sidebar to open when the alternative sidebar is closed, just remove the second parameter: App.sidebar('toggle-sidebar-alt'); -->
-                                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt', 'toggle-other');">
-                                    <i class="gi gi-share_alt"></i>
-                                    <span class="label label-primary label-indicator animation-floating">4</span>
-                                </a>
-                            </li>
-                            <!-- END Alternative Sidebar Toggle Button -->
 
                             <!-- User Dropdown -->
                             <li class="dropdown">
@@ -446,11 +446,8 @@
 
                     <!-- Footer -->
                     <footer class="clearfix">
-                        <div class="pull-right">
-                            Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
-                        </div>
                         <div class="pull-left">
-                            <span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 2.2</a>
+                            <span id="year-copy"></span> &copy; <a href="" target="_blank">{{ COnfig::get('site.name')}}</a>
                         </div>
                     </footer>
                     <!-- END Footer -->
@@ -464,79 +461,19 @@
         <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
         <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
 
-        <!-- User Settings, modal which opens from Settings link (found in top right user menu) and the Cog link (found in sidebar user info) -->
-        <div id="modal-user-settings" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header text-center">
-                        <h2 class="modal-title"><i class="fa fa-pencil"></i> Settings</h2>
-                    </div>
-                    <!-- END Modal Header -->
+        @include('partials.settings')
 
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        <form action="index.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
-                            <fieldset>
-                                <legend>Vital Info</legend>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">Username</label>
-                                    <div class="col-md-8">
-                                        <p class="form-control-static">Admin</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-email">Email</label>
-                                    <div class="col-md-8">
-                                        <input type="email" id="user-settings-email" name="user-settings-email" class="form-control" value="admin@example.com">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-notifications">Email Notifications</label>
-                                    <div class="col-md-8">
-                                        <label class="switch switch-primary">
-                                            <input type="checkbox" id="user-settings-notifications" name="user-settings-notifications" value="1" checked>
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Password Update</legend>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-password">New Password</label>
-                                    <div class="col-md-8">
-                                        <input type="password" id="user-settings-password" name="user-settings-password" class="form-control" placeholder="Please choose a complex one..">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="user-settings-repassword">Confirm New Password</label>
-                                    <div class="col-md-8">
-                                        <input type="password" id="user-settings-repassword" name="user-settings-repassword" class="form-control" placeholder="..and confirm it!">
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="form-group form-actions">
-                                <div class="col-xs-12 text-right">
-                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- END Modal Body -->
-                </div>
-            </div>
-        </div>
-        <!-- END User Settings -->
 
-        <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>!window.jQuery && document.write(decodeURI('%3Cscript src="{{ URL::to('proui') }}/js/vendor/jquery-1.11.1.min.js"%3E%3C/script%3E'));</script>
+        @include('partials.sharemodal')
 
         <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
         <script src="{{ URL::to('proui') }}/js/vendor/bootstrap.min.js"></script>
         <script src="{{ URL::to('proui') }}/js/plugins.js"></script>
         <script src="{{ URL::to('proui') }}/js/app.js"></script>
+        <script src="{{ URL::to('proui') }}/vendor/audioplayer/audioplayer.js"></script>
+        <script src="{{ URL::to('proui') }}/vendor/video-js/video.js"></script>
+
+        @include('layout.js')
+
     </body>
 </html>

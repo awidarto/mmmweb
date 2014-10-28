@@ -928,6 +928,26 @@ class AjaxController extends BaseController {
         }
     }
 
+    public function getGenre()
+    {
+        $q = Input::get('term');
+
+        $qtag = new MongoRegex('/'.$q.'/i');
+
+        $res = Genre::where('title',$qtag)->distinct('title')->get();
+
+        //print_r($res->toArray());
+
+        $result = array();
+
+        foreach($res as $r){
+            $result[] = array('id'=>$r[0],'label'=>$r[0],'value'=>$r[0]);
+        }
+
+        return Response::json($result);
+    }
+
+
     public function getTag()
     {
         $q = Input::get('term');
