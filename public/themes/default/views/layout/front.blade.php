@@ -293,7 +293,7 @@
                         <!-- Sidebar Content -->
                         <div class="sidebar-content">
                             <!-- Brand -->
-                            <a href="index.html" class="sidebar-brand">
+                            <a href="{{ URL::to('/')}}" class="sidebar-brand">
                                 <i class="gi gi-headphones"></i><strong>{{ Config::get('site.name')}}</strong>
                             </a>
                             <!-- END Brand -->
