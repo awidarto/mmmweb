@@ -18,6 +18,15 @@ class MediaController extends AdminController {
 
     }
 
+    public function getMymedia()
+    {
+        return View::make('media.mymedia');
+    }
+
+    public function getMystat()
+    {
+        return View::make('profile.statistic');
+    }
 
     public function getIndex()
     {
