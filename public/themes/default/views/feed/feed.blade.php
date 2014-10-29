@@ -89,6 +89,10 @@
                 $('#feed-refresh').show();
             });
         }
+
+        refreshFeed();
+
+        setInterval(refreshFeed(), 10000);
     });
 </script>
 

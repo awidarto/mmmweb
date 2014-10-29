@@ -4,7 +4,7 @@
                 <a href="#" class="fa fa-bars navbar-toggle off-left visible-xs" data-toggle="collapse" data-target="#hor-menu"></a>
 
                 <div class="brand bg-success width-auto">
-                    <a href="index-2.html" class="navbar-brand text-white">
+                    <a href="{{ URL::to('/')}}" class="navbar-brand text-white">
                         <img src="{{ URL::to('images')}}/mmm-logo.png" alt="mmm-logo" style="margin-top:4px;" />
                     </a>
                 </div>
