@@ -175,10 +175,7 @@
                                                                                 <div class="timeline-top-info bg-gray border-bottom media">
                                                                                     <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/2.jpg" alt="photo" class="media-object" width="35"></a>
                                                                                     <div class="media-body">
-                                                                                        <a href="">Oddiegetah</a> was listening to <a href="" class="text-primary">Keong Racun</a><br />
-                                                                                        <audio preload="auto">
-                                                                                            <source src="http://localhost/mmmweb/public/storage/media/TgeoTpc9ukSusUb/Kansas_-_Romantic_Collection-_More_Gold_[CD2]_-_09._Dust_In_The_Wind.mp3">
-                                                                                        </audio>
+                                                                                        <a href="">Oddiegetah</a> was listening to <a href="" data-source="http://localhost/mmmweb/public/storage/media/TgeoTpc9ukSusUb/Kansas_-_Romantic_Collection-_More_Gold_[CD2]_-_09._Dust_In_The_Wind.mp3" class="text-primary music-link">Keong Racun</a><br />
                                                                                         <div class="timeline-bottom">
                                                                                             <i class="fa fa-clock-o"></i> 2 days ago
                                                                                         </div>

@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/audioplayer/audioplayer.css">
     <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/video-js/video-js.css">
 
+    <link rel="stylesheet" href="{{  URL::to('jplayer') }}/skin/mumomu/jplayer.blue.monday.css">
+
+    <link rel="stylesheet" href="{{  URL::to('/') }}/css/typography.css">
+
         <!--[if lt IE 9]><link rel="stylesheet" href="{{ URL::to('coral') }}/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,6 +48,47 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            var radioPlayer;
+
+            var stream = {
+                title: "ABC Jazz",
+                mp3: "http://listen.radionomy.com/abc-jazz"
+            },
+            ready = false;
+
+            radioPlayer = $("#radio_player").jPlayer({
+                ready: function (event) {
+                    ready = true;
+                    $(this).jPlayer("setMedia", stream);
+                },
+                pause: function() {
+                    $(this).jPlayer("clearMedia");
+                },
+                error: function(event) {
+                    if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                        // Setup the media stream again and play it.
+                        $(this).jPlayer("setMedia", stream).jPlayer("play");
+                    }
+                },
+                swfPath: "{{ URL::to('jplayer') }}/js/jplayer",
+                supplied: "mp3",
+                preload: "none",
+                wmode: "window",
+                useStateClassSkin: true,
+                autoBlur: false,
+                keyEnabled: true
+            });
+
+            $('.music-link').on('click',function(e){
+                console.log($(this).data('source'));
+                var source = $(this).data('source');
+                radioPlayer.jPlayer('setMedia',{
+                    'mp3': source
+                });
+                return false;
+            });
+            function setAudio(audio){
+            }
 
         });
     </script>
@@ -292,9 +337,44 @@
 
                 <!-- Footer -->
         <div id="footer" class="hidden-print">
-
-            <!--  Copyright Line -->
-            <div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase CORAL on ThemeForest</a> - Current version: v1.9.6 / <a target="_blank" href="{{ URL::to('coral') }}/assets/../../CHANGELOG.txt">changelog</a></div>
+            <div id="radio_player" class="jp-jplayer"></div>
+            <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+                <div class="jp-type-single">
+                    <div class="jp-gui jp-interface">
+                        <div class="jp-controls">
+                            <button class="jp-play" role="button" tabindex="0">play</button>
+                            <button class="jp-stop" role="button" tabindex="0">stop</button>
+                        </div>
+                        <div class="jp-progress">
+                            <div class="jp-seek-bar">
+                                <div class="jp-play-bar"></div>
+                            </div>
+                        </div>
+                        <div class="jp-volume-controls">
+                            <button class="jp-mute" role="button" tabindex="0">mute</button>
+                            <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                        </div>
+                        <div class="jp-time-holder">
+                            <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                            <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                            <div class="jp-toggles">
+                                <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jp-details">
+                        <div class="jp-title" aria-label="title">&nbsp;</div>
+                    </div>
+                    <div class="jp-no-solution">
+                        <span>Update Required</span>
+                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                    </div>
+                </div>
+            </div>            <!--  Copyright Line -->
+            <div class="copy">&copy; 2012 - 2014 - MuMoMu - All Rights Reserved.</div>
             <!--  End Copyright Line -->
 
         </div>
@@ -332,11 +412,27 @@
 <script src="{{ URL::to('coral')}}/assets/components/common/gallery/blueimp-gallery/assets/lib/js/blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="{{ URL::to('coral')}}/assets/components/common/gallery/blueimp-gallery/assets/lib/js/jquery.blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="{{ URL::to('coral')}}/assets/components/plugins/image-preview/image-preview.js?v=v1.9.6&sv=v0.0.1"></script>
+
+<!-- graphs -->
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/lib/jquery.flot.resize.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/lib/plugins/jquery.flot.tooltip.min.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/custom/js/flotcharts.common.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-line-2.init.js?v=v1.9.6"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-bars-horizontal.init.js?v=v1.9.6"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/flot/assets/custom/js/flotchart-mixed-1.init.js?v=v1.9.6"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/easy-pie/assets/lib/js/jquery.easy-pie-chart.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/easy-pie/assets/custom/easy-pie.init.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/sparkline/jquery.sparkline.min.js?v=v1.9.6&sv=v0.0.1"></script>
+<script src="{{ URL::to('coral') }}/assets/components/modules/admin/charts/sparkline/sparkline.init.js?v=v1.9.6&sv=v0.0.1"></script>
+
+
 <script src="{{ URL::to('coral')}}/assets/components/core/js/core.init.js?v=v1.9.6"></script>
 <script src="{{ URL::to('coral')}}/assets/components/core/js/animations.init.js?v=v1.9.6"></script>
 
 <script src="{{ URL::to('audiojs/audiojs') }}/audio.min.js"></script>
 <script src="{{ URL::to('proui') }}/vendor/video-js/video.js"></script>
+<script src="{{ URL::to('jplayer') }}/js/jplayer/jquery.jplayer.min.js"></script>
 
 </body>
 </html>

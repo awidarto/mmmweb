@@ -25,12 +25,19 @@ Route::controller('video', 'VideoController');
 Route::controller('upload', 'UploadController');
 Route::controller('ajax', 'AjaxController');
 Route::controller('home', 'HomeController');
-Route::controller('feed','FeedController');
+
+Route::controller('feed', 'FeedController');
+Route::controller('seller', 'SellerController');
+Route::controller('mymumomu', 'MymumomuController');
+Route::controller('settings', 'SettingsController');
+Route::controller('payment', 'PaymentController');
+Route::controller('store', 'StoreController');
+
+
 
 Route::get('/', 'FeedController@getIndex');
 
-Route::get('mymumomu', 'MymumomuController@getIndex');
-Route::get('settings', 'SettingsController@getIndex');
+Route::get('seller', 'SellerController@getDashboard');
 
 
 Route::get('regenerate',function(){

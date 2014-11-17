@@ -28,30 +28,7 @@ class StoreController extends AdminController {
 
     public function getIndex()
     {
-        Options::refresh();
-
-        $this->heads = array(
-            array('Option',array('search'=>true,'sort'=>true ,'attr'=>array('class'=>'span2'))),
-            array('Var Name',array('search'=>true,'sort'=>true ,'attr'=>array('class'=>'span2'))),
-            array('Value',array('search'=>true,'sort'=>true)),
-        );
-
-        //print $this->model->where('docFormat','picture')->get()->toJSON();
-
-        $this->title = 'Option';
-
-        //$this->crumb = Breadcrumb::generate();
-
-        $this->place_action = 'first';
-
-        $this->can_add = false;
-
-        $this->modal_sets = View::make( strtolower( $this->controller_name ).'.modal')->render();
-
-        $this->js_table_event = View::make(strtolower($this->controller_name).'.tableevent')->render();
-
-        return parent::getIndex();
-
+        return View::make('store.index');
     }
 
     public function postIndex()
