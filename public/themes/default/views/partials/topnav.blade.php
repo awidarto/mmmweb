@@ -8,7 +8,7 @@
         <li class="dropdown dropdown-light {{ sa('settings') }}">
             <a href="{{ URL::to('settings')}}" class="dropdown-toggle">Settings</a>
         </li>
-        <li class="dropdown dropdown-light {{ sa('settings') }}">
+        <li class="dropdown dropdown-light {{ sa('seller') }}">
             <a href="{{ URL::to('seller')}}" class="dropdown-toggle">Seller</a>
         </li>
     </ul>

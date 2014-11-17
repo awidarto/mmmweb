@@ -85,6 +85,7 @@
                 radioPlayer.jPlayer('setMedia',{
                     'mp3': source
                 });
+                radioPlayer.jPlayer('play');
                 return false;
             });
             function setAudio(audio){
