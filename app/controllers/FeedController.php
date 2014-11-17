@@ -29,7 +29,7 @@ class FeedController extends AdminController {
     {
         Former::framework($this->form_framework);
 
-        return View::make('feed.feed');
+        return View::make('feed.feeds');
     }
 
     public function getFeed($last = 0)

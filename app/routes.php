@@ -10,94 +10,27 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::controller('inventory', 'InventoryController');
-Route::controller('pos', 'PosController');
-Route::controller('document', 'DocumentController');
-Route::controller('invoices', 'InvoicesController');
-Route::controller('billings', 'BillingsController');
-Route::controller('expenses', 'ExpensesController');
-Route::controller('property', 'PropertyController');
-Route::controller('products', 'ProductsController');
-Route::controller('productcategory', 'ProductcategoryController');
 Route::controller('transaction', 'TransactionController');
-Route::controller('outlet', 'OutletController');
 Route::controller('user', 'UserController');
-Route::controller('agent', 'AgentController');
-Route::controller('buyer', 'BuyerController');
-Route::controller('report', 'ReportController');
-Route::controller('showcase', 'ShowcaseController');
-Route::controller('pages', 'PagesController');
-Route::controller('posts', 'PostsController');
 Route::controller('category', 'CategoryController');
 Route::controller('section', 'SectionController');
-Route::controller('menu', 'MenuController');
-
-Route::controller('event', 'EventController');
-Route::controller('calendar', 'CalendarController');
-
-Route::controller('faq', 'FaqController');
-Route::controller('faqcat', 'FaqcatController');
-
 Route::controller('picture','PictureController');
-
-Route::controller('enquiry', 'EnquiryController');
-
-Route::controller('order', 'OrderController');
-
-Route::controller('newsletter', 'NewsletterController');
-Route::controller('campaign', 'CampaignController');
-Route::controller('contactgroup', 'ContactgroupController');
-
-Route::controller('tenant', 'TenantController');
-Route::controller('unit', 'UnitController');
-Route::controller('unitcategory', 'UnitcategoryController');
-
-Route::controller('complaint', 'ComplaintController');
-
-Route::controller('hr', 'HrController');
-Route::controller('outsource', 'OutsourceController');
-
-Route::controller('brochure', 'BrochureController');
 Route::controller('option', 'OptionController');
-
-Route::controller('glossary', 'GlossaryController');
-
 Route::controller('activity', 'ActivityController');
-
-Route::controller('inprop', 'InpropController');
-
 Route::controller('templates', 'TemplatesController');
-
 Route::controller('uploads', 'UploadsController');
 Route::controller('media', 'MediaController');
 Route::controller('music', 'MusicController');
 Route::controller('video', 'VideoController');
-Route::controller('event', 'EventController');
-
-Route::controller('scanner', 'ScannerController');
-
-Route::controller('stockcheck', 'StockcheckController');
-Route::controller('stockchecklist', 'StockchecklistController');
-Route::controller('dashboard', 'DashboardController');
-
 Route::controller('upload', 'UploadController');
 Route::controller('ajax', 'AjaxController');
-
 Route::controller('home', 'HomeController');
-Route::controller('homeslide', 'HomeslideController');
-
 Route::controller('feed','FeedController');
 
-//Route::get('/', 'ProductsController@getIndex');
 Route::get('/', 'FeedController@getIndex');
 
-
-Route::get('content/pages', 'PagesController@getIndex');
-Route::get('content/posts', 'PostsController@getIndex');
-Route::get('content/category', 'CategoryController@getIndex');
-Route::get('content/section', 'SectionController@getIndex');
-Route::get('content/menu', 'MenuController@getIndex');
-
+Route::get('mymumomu', 'MymumomuController@getIndex');
+Route::get('settings', 'SettingsController@getIndex');
 
 
 Route::get('regenerate',function(){

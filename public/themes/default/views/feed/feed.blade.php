@@ -1,4 +1,4 @@
-@extends('layout.front')
+@extends('layout.coralfront')
 
 @section('content')
 
@@ -65,7 +65,6 @@
     <!-- Second Column -->
     <div class="col-md-6 col-lg-5">
 
-        @include('partials.friends')
     </div>
     <!-- END Second Column -->
 </div>
