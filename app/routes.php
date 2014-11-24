@@ -19,7 +19,7 @@ Route::controller('option', 'OptionController');
 Route::controller('activity', 'ActivityController');
 Route::controller('templates', 'TemplatesController');
 Route::controller('uploads', 'UploadsController');
-Route::controller('media', 'MediaController');
+Route::controller('medialib', 'MedialibController');
 Route::controller('music', 'MusicController');
 Route::controller('video', 'VideoController');
 Route::controller('upload', 'UploadController');

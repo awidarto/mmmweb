@@ -43,8 +43,9 @@ class AjaxController extends BaseController {
 
     }
 
-    public function postFeed($page = 0)
+    public function postFeed()
     {
+
         $media = Media::orderBy('createdDate','desc')->take(10)->skip($page * 10)->get()->toArray();
 
         $stream = '';
@@ -55,72 +56,58 @@ class AjaxController extends BaseController {
         return Response::make($stream);
     }
 
-    public function getMenu()
+    public function postListen()
     {
-        $tree = '[
-                    {"title": "Books & Audible", "expanded": true, "folder": true, "children": [
-                        {"title": "Books", "folder": true, "children": [
-                            {"title": "Books"},
-                            {"title": "Kindle Books"},
-                            {"title": "Books For Study"},
-                            {"title": "Audiobooks"}
-                        ]},
-                        {"title": "Movies, TV, Music, Games", "folder": true, "children": [
-                            {"title": "Music"},
-                            {"title": "MP3 Downloads"},
-                            {"title": "Musical Instruments & DJ"},
-                            {"title": "Film & TV"},
-                            {"title": "Ble-ray"},
-                            {"title": "PC & Video Games"}
-                        ]},
-                        {"title": "Electronics & Computers", "expanded": true, "folder": true, "children": [
-                            {"title": "Electronics", "folder": true, "children": [
-                                {"title": "Camera & Photo"},
-                                {"title": "TV & Home Cinema"},
-                                {"title": "Audio & HiFi"},
-                                {"title": "Sat Nav & Car Electronics"},
-                                {"title": "Phones"},
-                                {"title": "Electronic Accessories"}
-                            ]},
-                            {"title": "Computers", "folder": true, "children": [
-                                {"title": "Laptops"},
-                                {"title": "Tablets"},
-                                {"title": "Computer & Accessories"},
-                                {"title": "Computer Components"},
-                                {"title": "Software"},
-                                {"title": "Printers & Ink"}
-                            ]}
-                        ]}
-                    ]}
-                ]';
+        $type = Input::get('mediatype');
+        $id = Input::get('mediaid');
+        $data = Media::find($id);
 
-        $tree = array(
-                    array('title'=>'Computers', 'folder'=>true, 'expanded'=>true,'children'=>array(
-                            array('title'=>'Laptops'),
-                            array('title'=>'Tablets'),
-                            array('title'=>'Computer & Accessories'),
-                            array('title'=>'Computer Components'),
-                            array('title'=>'Software'),
-                            array('title'=>'Printers & Ink')
-                        )
-                    ),
-                    array('title'=>'Electronics', 'folder'=>true, 'expanded'=>true,'children'=>array(
-                            array('title'=>'Camera & Photo'),
-                            array('title'=>'TV & Home Cinema'),
-                            array('title'=>'Audio & HiFi'),
-                            array('title'=>'Sat Nav & Car Electronics', 'folder'=>true, 'expanded'=>true,'children'=>array(
-                                    array('title'=>'Sat Phones'),
-                                    array('title'=>'GPS Navigator')
-                            ) ),
-                            array('title'=>'Phones'),
-                            array('title'=>'Electronic Accessories')
-                        )
-                    ),
-                );
+        Feedpost::add('listen', $id, array(
+            'mediaTitle'=>$data['title'],
+            'mediaUrl'=>$data['defaultmedia']['fileurl'],
+            'coverUrl'=>$data['defaultpic']['medium_url'],
+            'originatorName'=>Auth::user()->fullname,
+            'comments'=>array() ));
+        return Response::json(array('result'=>'OK'));
+    }
 
-        //print $tree;
+    public function postNewsfeed()
+    {
+        $lastrefresh = Input::get('lastrefresh');
 
-        return Response::json($tree);
+        $mlast = new MongoDate($lastrefresh);
+
+        $media = Feed::where( 'timestamp', '>', $mlast )
+            ->orderBy('timestamp','desc')
+            ->get();
+
+        $stream = '';
+
+        foreach($media as $m){
+            $stream .= View::make('feeddisplay.'.$m['type'])->with('f',$m)->render();
+        }
+
+        print $stream;
+    }
+
+    public function postMyfeed()
+    {
+        $lastrefresh = Input::get('lastrefresh');
+
+        $mlast = new MongoDate($lastrefresh);
+
+        $media = Feed::where( 'timestamp', '>', $mlast )
+            ->where('originatorId',Auth::user()->_id)
+            ->orderBy('timestamp','desc')
+            ->get();
+
+        $stream = '';
+
+        foreach($media as $m){
+            $stream .= View::make('feeddisplay.'.$m['type'])->with('f',$m)->render();
+        }
+
+        print $stream;
     }
 
     public function postShare()

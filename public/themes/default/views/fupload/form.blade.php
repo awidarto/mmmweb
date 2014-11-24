@@ -1,16 +1,15 @@
 {{ HTML::script('js/zeroclipboard/ZeroClipboard.js') }}
 <div class="control-group">
     <div class="controls">
-        <span class="btn btn-success fileinput-button">
-            <i class="icon-plus icon-white"></i>
-            <span>{{ $title }}</span>
-            <!-- The file input field used as target for the file upload widget -->
-            <input id="{{ $element_id }}" type="file" name="files[]" {{ ($multi)?'multiple':''}}  >
-        </span>
+        <div class="fileupload fileupload-new margin-none" data-provides="fileupload">
+            <span class="btn btn-default btn-file">
+                <span class="fileupload-new">{{ $title }}</span>
+                <input id="{{ $element_id }}" type="file" name="files[]" {{ ($multi)?'multiple':''}}  >
+            </span>
+        </div>
         <br />
-        <br />
-        <div id="{{ $element_id }}_progress" class="progress progress-success progress-striped">
-            <div class="bar"></div>
+        <div id="{{ $element_id }}_progress" class="progress progress-mini">
+            <div class="bar progress-bar progress-bar-danger"></div>
         </div>
         <br />
         <span id="loading-pictures" style="display:none;" ><img src="{{URL::to('/') }}/images/loading.gif" />loading existing pictures...</span>

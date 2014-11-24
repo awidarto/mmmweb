@@ -30,8 +30,18 @@ class MymumomuController extends AdminController {
     {
         Options::refresh();
 
+        $media = Media::get();
+        $feed = Feed::where('originatorId',Auth::user()->_id)->orderBy('timestamp','desc')->take(20)->get();
 
-        return View::make('mymumomu.index');
+        $refreshurl = URL::to('ajax/myfeed');
+        $lastrefresh = $feed[0]->timestamp->sec;
+
+        return View::make('mymumomu.index')
+            ->with('refreshurl',$refreshurl)
+            ->with('lastrefresh',$lastrefresh)
+            ->with('media',$media)
+            ->with('feed',$feed);
+
     }
 
     public function postIndex()

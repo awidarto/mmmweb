@@ -92,6 +92,11 @@
                         </div>
                     </div>
                     <div class="col-md-4">
+                        <div class="box-generic innerAll inner-2x">
+                            <a href="{{ URL::to('medialib') }}" class="btn btn-info" style="width:100%;">
+                                <i class="fa fa-cloud-upload"></i> Upload</a>
+                                <p>Upload & manage your music, movie or create an album</p>
+                        </div>
                         <div class="box-generic bg-info innerAll inner-2x">
                             <div class="text-large pull-right">&euro;1000</div>
                             <h4 class="text-white text-medium margin-none">Earnings</h4>

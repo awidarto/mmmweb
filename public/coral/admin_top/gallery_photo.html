@@ -6,13 +6,13 @@
 <!--[if !IE]><!--><html class="footer-sticky navbar-sticky"><!-- <![endif]-->
 <head>
 	<title>CORAL Template (v1.9.6)</title>
-	
+
 	<!-- Meta -->
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	
-	<!-- 
+
+	<!--
 	**********************************************************
 	In development, use the LESS files and the less.js compiler
 	instead of the minified CSS loaded by default.
@@ -22,7 +22,7 @@
 
 		<!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
 	<link rel="stylesheet" href="../assets/css/admin/module.admin.stylesheet-complete.layout_fixed.true.min.css" />
-	
+
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -35,19 +35,19 @@
 <script src="../assets/components/plugins/less-js/less.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/modules/admin/charts/flot/assets/lib/excanvas.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/plugins/browser/ie/ie.prototype.polyfill.js?v=v1.9.6&sv=v0.0.1"></script>	<script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
-	
+
 </head>
 <body class=" menu-right-hidden">
-	
+
 	<!-- Main Container Fluid -->
 	<div class="container-fluid menu-hidden">
 
-		
-				
+
+
 		<!-- Content -->
 		<div id="content">
 
-						
+
 				<div class="navbar hidden-print main navbar-default" role="navigation">
 	<div class="container">
 
@@ -249,7 +249,7 @@
 					<a href="" class="dropdown-toggle"  data-toggle="dropdown"><i class="notif-block fa fa-comments-o"></i><span class="badge badge-primary">7</span></a>
 					<ul class="dropdown-menu chat media-list">
 						<li class="media">
-					        <a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/15.jpg" alt="50x50" width="50"/></a>
+					        <a class="pull-left" href="#"><img class="media-object thumb" src="{{ URL::to('coral')}}/assets/images/people/100/15.jpg" alt="50x50" width="50"/></a>
 							<div class="media-body">
 					        	<span class="label label-default pull-right">5 min</span>
 					            <h5 class="media-heading">Adrian D.</h5>
@@ -257,7 +257,7 @@
 					        </div>
 						</li>
 				      	<li class="media">
-				          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
+				          	<a class="pull-left" href="#"><img class="media-object thumb" src="{{ URL::to('coral')}}/assets/images/people/100/16.jpg" alt="50x50" width="50"/></a>
 							<div class="media-body">
 					          	<span class="label label-default pull-right">2 days</span>
 					            <h5 class="media-heading">Jane B.</h5>
@@ -265,7 +265,7 @@
 					        </div>
 				        </li>
 					    <li class="media">
-				          	<a class="pull-left" href="#"><img class="media-object thumb" src="../assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
+				          	<a class="pull-left" href="#"><img class="media-object thumb" src="{{ URL::to('coral')}}/assets/images/people/100/17.jpg" alt="50x50" width="50"/></a>
 					      	<div class="media-body">
 								<span class="label label-default pull-right">3 days</span>
 					            <h5 class="media-heading">Andrew M.</h5>
@@ -284,7 +284,7 @@
 
 
 
-						
+
 			<div id="menu-top" class="menu-top-inverse">
 	<div class="container">	<ul class="main pull-left">
 		<li class="dropdown">
@@ -338,11 +338,11 @@
 		<li><a href="">Close <i class="fa fa-fw fa-times"></i></a></li>
 	</ul>
 	<ul class="colors pull-right hidden-xs">
-		
+
 				<li class="active"><a href="?module=admin&page=gallery_photo&url_rewrite=&build=&v=v1.9.6&layout_fixed=true&skin=style-default" style="background-color: #eb6a5a" class="no-ajaxify"><span class="hide">style-default</span></a></li>
 				<li><a href="?module=admin&page=gallery_photo&url_rewrite=&build=&v=v1.9.6&layout_fixed=true&skin=green" style="background-color: #87c844" class="no-ajaxify"><span class="hide">green</span></a></li>
 				<li><a href="?module=admin&page=gallery_photo&url_rewrite=&build=&v=v1.9.6&layout_fixed=true&skin=coral" style="background-color: #7eccc2" class="no-ajaxify"><span class="hide">coral</span></a></li>
-		
+
 		<li class="dropdown">
 			<a href="" data-toggle="dropdown" class="dropdown-toggle">
 				<span class="color inverse"></span>
@@ -390,252 +390,253 @@
 
 							<div class="innerAll">
 								<div data-toggle="gridalicious" data-gridalicious-width="280" data-gridalicious-gutter="0">
-	<div class="innerAll inner-2x loading text-center text-medium">
-		<i class="fa fa-fw fa-spinner fa-spin"></i> Loading
-	</div>
-	<div class="loaded">
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/1.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/1.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/2.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/2.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/3.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/3.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/4.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/4.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/5.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/5.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/6.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/6.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/7.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/7.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/8.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/8.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/9.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/9.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/10.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/10.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/11.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/11.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/12.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/12.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/13.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/13.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/14.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/14.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/15.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/15.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/16.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/16.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/17.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/17.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/18.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/18.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/19.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/19.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/20.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/20.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/21.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/21.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/22.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/22.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/23.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/23.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-			<div class="widget widget-heading-simple widget-body-white widget-pinterest">
-		<div class="widget-body padding-none">
-			<a href="../assets/images/people/250/24.jpg" class="thumb" data-gallery>
-				<img src="../assets/images/people/250/24.jpg" alt="photo" />
-			</a>
-			<div class="description col-md-12">
-				<h5 class="text-uppercase">Photo title</h5>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
-		</div>
-	</div>
-		</div>
-</div>
+                                	<div class="innerAll inner-2x loading text-center text-medium">
+                                		<i class="fa fa-fw fa-spinner fa-spin"></i> Loading
+                                	</div>
+                                    	<div class="loaded">
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/1.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/1.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/2.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/2.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>
+                                                    </div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/3.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/3.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/4.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/4.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/5.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/5.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/6.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/6.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/7.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/7.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/8.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/8.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/9.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/9.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                            <div class="widget widget-heading-simple widget-body-white widget-pinterest active">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/10.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/10.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/11.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/11.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/12.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/12.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/13.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/13.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/14.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/14.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest active">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/15.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/15.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                            <div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/16.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/16.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/17.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/17.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/18.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/18.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/19.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/19.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/20.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/20.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/21.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/21.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, consequuntur iure commodi omnis at pariatur quis hic mollitia impedit error.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/22.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/22.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/23.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/23.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                        	<div class="widget widget-heading-simple widget-body-white widget-pinterest">
+                                        		<div class="widget-body padding-none">
+                                        			<a href="{{ URL::to('coral')}}/assets/images/people/250/24.jpg" class="thumb" data-gallery>
+                                        				<img src="{{ URL::to('coral')}}/assets/images/people/250/24.jpg" alt="photo" />
+                                        			</a>
+                                        			<div class="description col-md-12">
+                                        				<h5 class="text-uppercase">Photo title</h5>
+                                        				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>			</div>
+                                        		</div>
+                                        	</div>
+                                		</div>
+                                </div>
 
 
 
@@ -663,30 +664,30 @@
 			</div>
 		</div>
 	</div>
-</div>	
-		
+</div>
+
 		</div>
 		</div>
 		</div>
 		<!-- // Content END -->
-		
+
 		<div class="clearfix"></div>
 		<!-- // Sidebar menu & content wrapper END -->
-		
+
 				<!-- Footer -->
 		<div id="footer" class="hidden-print">
-			
+
 			<!--  Copyright Line -->
 			<div class="copy">&copy; 2012 - 2014 - <a href="http://www.mosaicpro.biz">MosaicPro</a> - All Rights Reserved. <a href="http://themeforest.net/?ref=mosaicpro" target="_blank">Purchase CORAL on ThemeForest</a> - Current version: v1.9.6 / <a target="_blank" href="../assets/../../CHANGELOG.txt">changelog</a></div>
 			<!--  End Copyright Line -->
-	
+
 		</div>
 		<!-- // Footer END -->
-		
-				
+
+
 	</div>
 	<!-- // Main Container Fluid END -->
-	
+
 
 	<!-- Global -->
 	<script data-id="App.Config">
@@ -697,17 +698,17 @@
 		componentsPath = '../assets/components/',
 		layoutApp = false,
 		module = 'admin';
-	
+
 	var primaryColor = '#eb6a5a',
 		dangerColor = '#b55151',
 		successColor = '#609450',
 		infoColor = '#4a8bc2',
 		warningColor = '#ab7a4b',
 		inverseColor = '#45484d';
-	
+
 	var themerPrimaryColor = primaryColor;
 	</script>
-	
+
 	<script src="../assets/components/library/bootstrap/js/bootstrap.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/plugins/nicescroll/jquery.nicescroll.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/plugins/breakpoints/breakpoints.js?v=v1.9.6&sv=v0.0.1"></script>
@@ -718,6 +719,6 @@
 <script src="../assets/components/common/gallery/blueimp-gallery/assets/lib/js/blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/common/gallery/blueimp-gallery/assets/lib/js/jquery.blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>
 <script src="../assets/components/core/js/core.init.js?v=v1.9.6"></script>
-<script src="../assets/components/core/js/animations.init.js?v=v1.9.6"></script>	
+<script src="../assets/components/core/js/animations.init.js?v=v1.9.6"></script>
 </body>
 </html>

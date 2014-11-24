@@ -16,3 +16,9 @@
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-video.js') }}
     {{ HTML::script('js/jquery-fileupload/jquery.fileupload-validate.js') }}
 
+    {{ HTML::script('js/jquery.tagsinput.js') }}
+    {{ HTML::script('js/accounting.min.js')}}
+
+    {{-- HTML::script('js/app.js') --}}
+
+

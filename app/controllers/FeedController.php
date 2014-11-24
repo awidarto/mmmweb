@@ -29,7 +29,15 @@ class FeedController extends AdminController {
     {
         Former::framework($this->form_framework);
 
-        return View::make('feed.feeds');
+        $feed = Feed::orderBy('timestamp','desc')->take(20)->get();
+
+        $refreshurl = URL::to('ajax/newsfeed');
+        $lastrefresh = $feed[0]->timestamp->sec;
+
+        return View::make('feed.feeds')
+            ->with('refreshurl',$refreshurl)
+            ->with('lastrefresh',$lastrefresh)
+            ->with('feed',$feed);
     }
 
     public function getFeed($last = 0)

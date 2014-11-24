@@ -8,7 +8,7 @@
 
                 <!-- Buttons -->
                 <ul class="buttons nav nav-tabs" id="myTab">
-                    <li class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="{{ URL::to('payment') }}" class="btn"> 1. Shipping Details</a></li>
+                    <li class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="{{ URL::to('payment') }}" class="btn">1. Choose Nominal</a></li>
                     <li class="active col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="#" class="btn ">2. Payment</a></li>
                     <li  class="col-md-4 col-xs-12 padding-bottom-none padding-top-none"><a href="{{ URL::to('payment/confirm') }}" class="btn ">3. Confirmation</a></li>
                 </ul>
