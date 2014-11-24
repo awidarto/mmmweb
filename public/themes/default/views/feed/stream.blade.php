@@ -1,4 +1,4 @@
-<ul class="timeline-activity list-unstyled">
+<ul class="timeline-activity list-unstyled play-trigger">
     @foreach($feed as $f)
         @if($f->type == 'upload')
             @include('feeddisplay.upload',array('f'=>$f))

@@ -33,14 +33,37 @@
                 keyEnabled: true
             });
 
+            $('.play-trigger').on('click',function(e){
+                if ($(e.target).is('.music-link')) {
+                    console.log($(e.target).data('source'));
+                    var source = $(e.target).data('source');
+
+                    radioPlayer.jPlayer('setMedia',{
+                        'mp3': source
+                    });
+
+                    $('.jp-title h4').html($(e.target).data('title'));
+
+                    radioPlayer.jPlayer('play');
+
+                    listento($(e.target).data('mediaid'));
+
+                }
+                return false;
+            });
+
             $('.music-link').on('click',function(e){
                 console.log($(this).data('source'));
                 var source = $(this).data('source');
+
                 radioPlayer.jPlayer('setMedia',{
                     'mp3': source
                 });
+
                 $('.jp-title h4').html($(this).data('title'));
+
                 radioPlayer.jPlayer('play');
+
                 listento($(this).data('mediaid'));
                 return false;
             });

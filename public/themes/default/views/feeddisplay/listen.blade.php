@@ -13,21 +13,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="media innerAll margin-none">
-                    <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/8.jpg" alt="photo" class="media-object" width="35"></a>
-                    <div class="media-body">
-                        <a href="" class="strong">Andrew</a> Good Job. Congrats and hope to see more admin templates like this in the future.
-                        <div class="timeline-bottom">
-                            <i class="fa fa-clock-o"></i> 2 days ago
-                        </div>
-                    </div>
-                </div>
-                <div class="media innerAll margin-none bg-gray border-top border-bottom">
-                    <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/2.jpg" alt="photo" width="35" class="media-object"></a>
-                    <div class="media-body">
-                        <a href="" class="strong">mosaicpro</a> Thanks, I  apreciate it!
-                        <div class="timeline-bottom">
-                            <i class="fa fa-clock-o"></i> 5 days ago
+                <div class="comment {{ $f->mediaId }}">
+                    <div class="media innerAll margin-none">
+                        <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/8.jpg" alt="photo" class="media-object" width="35"></a>
+                        <div class="media-body">
+                            <a href="" class="strong">Andrew</a> Good Job. Congrats and hope to see more admin templates like this in the future.
+                            <div class="timeline-bottom">
+                                <i class="fa fa-clock-o"></i> 2 days ago
+                            </div>
                         </div>
                     </div>
                 </div>
