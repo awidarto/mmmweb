@@ -32,7 +32,11 @@ class FeedController extends AdminController {
         $feed = Feed::orderBy('timestamp','desc')->take(20)->get();
 
         $refreshurl = URL::to('ajax/newsfeed');
-        $lastrefresh = $feed[0]->timestamp->sec;
+        if(count($feed) > 0){
+            $lastrefresh = $feed[0]->timestamp->sec;
+        }else{
+            $lastrefresh = time();
+        }
 
         return View::make('feed.feeds')
             ->with('refreshurl',$refreshurl)

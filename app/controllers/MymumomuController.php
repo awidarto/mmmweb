@@ -34,7 +34,11 @@ class MymumomuController extends AdminController {
         $feed = Feed::where('originatorId',Auth::user()->_id)->orderBy('timestamp','desc')->take(20)->get();
 
         $refreshurl = URL::to('ajax/myfeed');
-        $lastrefresh = $feed[0]->timestamp->sec;
+        if(count($feed) > 0){
+            $lastrefresh = $feed[0]->timestamp->sec;
+        }else{
+            $lastrefresh = time();
+        }
 
         return View::make('mymumomu.index')
             ->with('refreshurl',$refreshurl)
