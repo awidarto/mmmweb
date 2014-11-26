@@ -33,13 +33,13 @@
             </div>
         </div>
     </div>
-
-    <div class="form-group form-actions">
-        <div class="col-xs-12 text-right">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-sm btn-primary">Save</button>
-        </div>
+    <!-- Form actions -->
+    <div class="separator top">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check-square-o"></i> Save</button>
+        <button type="button" class="btn btn-default"><i class="fa fa-fw fa-times"></i> Cancel</button>
     </div>
+    <!-- // Form actions END -->
+
 
 {{Former::close()}}
 

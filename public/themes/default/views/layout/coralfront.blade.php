@@ -115,11 +115,11 @@
 
             <div class="user-action visible-xs user-action-btn-navbar pull-right">
 
-                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-2x fa-cloud-upload"></i></a>
+                <a class="btn btn-navbar-right btn-primary" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-2x fa-cloud-upload"></i></a>
 
             </div>
-            <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs hidden-xs">
-                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke input-sm" href="{{ URL::to('logout')}}" class="dropdown-toggle"><i class="fa fa-sign-out"></i></a>
+            <div class="user-action pull-right ">
+                <a class="btn btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('logout')}}" class="dropdown-toggle"><i class="fa fa-sign-out"></i></a>
             </div>
 
             <div class="col-md-3 visible-md visible-lg pull-right padding-none">
@@ -179,7 +179,7 @@
 
             --}}
             <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs hidden-xs">
-                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-cloud-upload"></i> Upload your music</a>
+                <a class="btn btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-cloud-upload"></i> Upload your music</a>
 
             </div>
 

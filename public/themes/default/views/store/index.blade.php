@@ -6,14 +6,20 @@
 <div class="col-md-12">
         <div class="box-generic">
 
-                <h4>Latest</h4>
+            <div class="separator top">
+                <h4>Highlights</h4>
                 @include('partials.gallery',array('media'=>$media))
+            </div>
 
-                <h4>Upload Music / Movie</h4>
+            <div class="separator top">
+                <h4>New Releases</h4>
                 @include('partials.gallery',array('media'=>$media))
+            </div>
 
-                <h4>Create Album</h4>
+            <div class="separator top">
+                <h4>Best Sellers</h4>
                 @include('partials.gallery',array('media'=>$media))
+            </div>
 
         </div>
     </div>

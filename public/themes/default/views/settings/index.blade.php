@@ -147,6 +147,7 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-md-6">
+
                                                             <label for="inputPhone">Phone</label>
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
@@ -180,13 +181,6 @@
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
                                                                 <input type="text" id="inputTwitter" class="form-control" placeholder="mosaicpro" />
-                                                            </div>
-                                                            <div class="separator bottom"></div>
-
-                                                            <label for="inputSkype">Skype ID</label>
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i class="fa fa-skype"></i></span>
-                                                                <input type="text" id="inputSkype" class="form-control" placeholder="mySkypeID" />
                                                             </div>
                                                             <div class="separator bottom"></div>
 
@@ -247,6 +241,7 @@
                                                 <!-- Column -->
                                                 <div class="col-md-6">
 
+                                                    @include('photo.upload')
 
                                                 </div>
                                                 <!-- // Column END -->
@@ -254,6 +249,7 @@
                                                 <!-- Column -->
                                                 <div class="col-md-6">
 
+                                                    @include('photo.cam')
 
                                                 </div>
                                                 <!-- // Column END -->
