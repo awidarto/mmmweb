@@ -157,10 +157,15 @@ class MedialibController extends AdminController {
             $data['defaultmedia'] = '';
         }
 
+        if($data['defaultmedia']['is_video'] == 1){
+            $data['mediatype'] = 'movie';
+        }
+
         $ev = Media::insertGetId($data);
 
         Feedpost::add('upload', $ev, array(
             'mediaTitle'=>$data['title'],
+            'mediaType'=>$data['mediatype'],
             'mediaUrl'=>$data['defaultmedia']['fileurl'],
             'coverUrl'=>$data['defaultpic']['medium_url'],
             'originatorName'=>Auth::user()->fullname,

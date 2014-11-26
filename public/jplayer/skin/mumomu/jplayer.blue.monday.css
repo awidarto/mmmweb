@@ -108,7 +108,7 @@
 
 .jp-controls-holder {
 	clear: both;
-	width:440px;
+	width:550px;
 	margin:0 auto;
 	position: relative;
 	overflow:hidden;
@@ -502,7 +502,7 @@ span.jp-artist {
 }
 
 .jp-jplayer {
-	background-color: #000000;
+	background-color: #FFFFFF;
 }
 
 
@@ -533,7 +533,7 @@ span.jp-artist {
 	right:16px;
 	margin:0;
 	margin-top:10px;
-	width:100px;
+	width:200px;
 }
 
 .jp-toggles button {
@@ -597,7 +597,13 @@ span.jp-artist {
 	background: url("jplayer.blue.monday.jpg") -90px -270px no-repeat;
 }
 
-
+.jp-toggles button.jp-toggle-video,.jp-toggles button.jp-toggle-playlist{
+    margin-left:10px;
+    text-indent: 0px;
+    color:#bbb;
+    font-size: 18px;
+    background-color: transparent;
+}
 /* @end */
 
 /* @group NO SOLUTION error feedback */

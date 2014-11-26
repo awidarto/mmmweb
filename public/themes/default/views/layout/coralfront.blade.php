@@ -56,6 +56,24 @@
         var base = '{{ URL::to('/') }}/';
     </script>
 
+    <style type="text/css">
+        /* centered columns styles */
+        .row-centered {
+            text-align:center;
+        }
+        .col-centered {
+            display:inline-block;
+            float:none;
+            /* reset the text-align */
+            text-align:left;
+            /* inline-block space fix */
+            margin-right:-4px;
+        }
+        .music-link{
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body class=" menu-right-hidden">
 
@@ -102,6 +120,9 @@
 
                 <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-2x fa-cloud-upload"></i></a>
 
+            </div>
+            <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs hidden-xs">
+                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke input-sm" href="{{ URL::to('logout')}}" class="dropdown-toggle"><i class="fa fa-sign-out"></i></a>
             </div>
 
             <div class="col-md-3 visible-md visible-lg pull-right padding-none">
@@ -161,7 +182,7 @@
 
             --}}
             <div class="user-action pull-right menu-right-hidden-xs menu-left-hidden-xs hidden-xs">
-                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-2x fa-cloud-upload"></i> Upload your music</a>
+                <a class="btn btn-sm btn-navbar-right btn-primary btn-stroke" href="{{ URL::to('medialib')}}" class="dropdown-toggle"><i class="fa fa-cloud-upload"></i> Upload your music</a>
 
             </div>
 
@@ -214,8 +235,14 @@
         <!-- // Sidebar menu & content wrapper END -->
 
                 <!-- Footer -->
+        <div class="container" >
+            <div id="footplayer" class="row row-centered" style="position:fixed;bottom:0px;z-index: 20000;" >
+                <div class="col-md-6 col-centered" style="width:480px;" >
+                    @include('partials.mixplayer')
+                </div>
+            </div>
+        </div>
         <div id="footer" class="hidden-print">
-            @include('partials.player')
             <div class="copy">&copy; 2012 - 2014 - MuMoMu - All Rights Reserved.</div>
             <!--  End Copyright Line -->
 
@@ -273,6 +300,7 @@
     <script src="{{ URL::to('audiojs/audiojs') }}/audio.min.js"></script>
     <script src="{{ URL::to('proui') }}/vendor/video-js/video.js"></script>
     <script src="{{ URL::to('jplayer') }}/js/jplayer/jquery.jplayer.min.js"></script>
+    <script src="{{ URL::to('jplayer') }}/js/add-on/jplayer.playlist.min.js"></script>
 
 @include('layout.js')
 

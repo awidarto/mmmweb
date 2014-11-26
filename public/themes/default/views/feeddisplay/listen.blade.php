@@ -6,8 +6,8 @@
                 <div class="timeline-top-info bg-gray border-bottom media">
                     <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/2.jpg" alt="photo" class="media-object" width="35"></a>
                     <div class="media-body">
-                        <a href="">{{ $f->originatorName }}</a> listens to <a href="" class="text-primary music-link" data-source="{{ $f->mediaUrl }}" data-title="{{ $f->mediaTitle }}" data-mediaid="{{ $f->mediaId }}"
-                         >{{ $f->mediaTitle }}</a>
+                        <a href="">{{ $f->originatorName }}</a> listens to <span class="text-primary music-link" data-source="{{ $f->mediaUrl }}" data-title="{{ $f->mediaTitle }}" data-mediaid="{{ $f->mediaId }}" data-mediatype="{{ $f->mediaType }}" data-poster="{{ $f->coverUrl }}"
+                         >{{ $f->mediaTitle }}</span>
                         <div class="timeline-bottom">
                             <i class="fa fa-clock-o"></i> {{ Carbon::createFromTimeStamp($f->timestamp->sec)->diffForHumans( Carbon::now() );}}
                         </div>
