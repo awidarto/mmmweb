@@ -533,7 +533,7 @@ span.jp-artist {
 	right:16px;
 	margin:0;
 	margin-top:10px;
-	width:200px;
+	width:220px;
 }
 
 .jp-toggles button {
@@ -597,7 +597,9 @@ span.jp-artist {
 	background: url("jplayer.blue.monday.jpg") -90px -270px no-repeat;
 }
 
-.jp-toggles button.jp-toggle-video,.jp-toggles button.jp-toggle-playlist{
+.jp-toggles button.jp-toggle-video,
+.jp-toggles button.jp-toggle-radio,
+.jp-toggles button.jp-toggle-playlist{
     margin-left:10px;
     text-indent: 0px;
     color:#bbb;

@@ -77,6 +77,17 @@
 
             });
 
+            $('.jp-toggle-radio').on('click',function(e){
+                var mediaobj = {
+                    'title': 'Radio MuMoMu',
+                    'artist': 'MuMoMu',
+                    'mp3': "http://listen.radionomy.com/1000classicalhits"
+                };
+
+                myPlaylist.setPlaylist([mediaobj]);
+                myPlaylist.play();
+
+            })
 
             function addToPlaylist(e){
                 if ($(e).is('.music-link')) {
@@ -220,6 +231,7 @@
                         <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
                         <button class="jp-toggle-video" role="button" tabindex="0"><i class="fa fa-youtube-play"></i></button>
                         <button class="jp-toggle-playlist" role="button" tabindex="0"><i class="fa fa-list"></i></button>
+                        <button class="jp-toggle-radio" role="button" tabindex="0"><i class="fa fa-signal"></i></button>
                     </div>
                 </div>
                 <div class="jp-details">

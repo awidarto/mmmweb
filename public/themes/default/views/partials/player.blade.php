@@ -4,7 +4,7 @@
 
             var stream = {
                 title: "ABC Jazz",
-                mp3: "http://listen.radionomy.com/abc-jazz"
+                mp3: "http://listen.radionomy.com/1000classicalhits"
             },
             ready = false;
 
