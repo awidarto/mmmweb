@@ -61,6 +61,12 @@
                 addToPlaylist(ev);
             });
 
+            $('a.thumb.music-link').on('click',function(e){
+                var ev = this;
+                console.log(ev);
+                addToPlaylist(ev);
+            });
+
 
             $('.jp-toggle-playlist').on('click',function(){
                 $('.jp-playlist').toggle();
