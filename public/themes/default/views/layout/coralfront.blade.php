@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ URL::to('coral') }}/assets/css/admin/module.admin.stylesheet-complete.layout_fixed.true.min.css" />
     --}}
     -->
-    <link rel="stylesheet/less" href="{{ URL::to('coral') }}/assets/less/admin/module.admin.stylesheet-complete.layout_fixed.true.less" />
+    <link rel="stylesheet/less" href="{{ URL::to('coral') }}/assets/less/admin/module.admin.stylesheet-complete.layout_fixed.true.less?{{ time() }}" />
 
     <link rel="stylesheet" href="{{  URL::to('jplayer') }}/skin/mumomu/jplayer.blue.monday.css">
 
