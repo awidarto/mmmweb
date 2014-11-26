@@ -31,8 +31,8 @@
                             <!-- Widget heading -->
                             <div class="widget-head">
                                 <ul>
-                                    <li class="active"><a class="glyphicons edit" href="#account-details" data-toggle="tab"><i></i>Account details</a></li>
-                                    <li><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>Account settings</a></li>
+                                    <li class="active"><a class="glyphicons edit" href="#account-details" data-toggle="tab"><i></i>Account Details</a></li>
+                                    <li><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>Contact Details</a></li>
                                 </ul>
                             </div>
                             <!-- // Widget heading END -->
@@ -119,9 +119,6 @@
                                             </div>
                                             <!-- // Row END -->
 
-                                            <div class="separator line bottom"></div>
-
-                                            <textarea id="mustHaveId" class="wysihtml5 form-control" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
 
                                             <!-- Form actions -->
                                             <div class="separator top">
@@ -135,47 +132,6 @@
 
                                         <!-- Tab content -->
                                         <div class="tab-pane" id="account-settings">
-
-                                            <!-- Row -->
-                                            <div class="row">
-
-                                                <!-- Column -->
-                                                <div class="col-md-3">
-                                                    <strong>Change password</strong>
-                                                    <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                                <!-- // Column END -->
-
-                                                <!-- Column -->
-                                                <div class="col-md-9">
-                                                    <label for="inputUsername">Username</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="inputUsername" class="form-control" value="john.doe2012" disabled="disabled" />
-                                                        <span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Username can't be changed"><i class="fa fa-question-sign"></i></span>
-                                                    </div>
-                                                    <div class="separator bottom"></div>
-
-                                                    <label for="inputPasswordOld">Old password</label>
-                                                    <div class="input-group">
-                                                        <input type="password" id="inputPasswordOld" class="form-control" value="" placeholder="Leave empty for no change" />
-                                                        <span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Leave empty if you don't wish to change the password"><i class="fa fa-question-sign"></i></span>
-                                                    </div>
-                                                    <div class="separator bottom"></div>
-
-                                                    <label for="inputPasswordNew">New password</label>
-                                                    <input type="password" id="inputPasswordNew" class="form-control" value="" placeholder="Leave empty for no change" />
-                                                    <div class="separator bottom"></div>
-
-                                                    <label for="inputPasswordNew2">Repeat new password</label>
-                                                    <input type="password" id="inputPasswordNew2" class="form-control" value="" placeholder="Leave empty for no change" />
-                                                    <div class="separator bottom"></div>
-                                                </div>
-                                                <!-- // Column END -->
-
-                                            </div>
-                                            <!-- // Row END -->
-
-                                            <div class="separator line bottom"></div>
 
                                             <!-- Row -->
                                             <div class="row">
@@ -265,7 +221,7 @@
                     <!-- // Tab content END -->
 
                     <!-- Tab content -->
-                    <div id="tabPhoto" class="tab-pane active widget-body-regular padding-none border-none reset-components">
+                    <div id="tabPhoto" class="tab-pane innerAll">
                         <!-- Widget -->
                         <div class="widget widget-tabs border-bottom-none">
 
