@@ -36,6 +36,8 @@ class SellerController extends AdminController {
 
     public function getDashboard()
     {
+        Breadcrumbs::addCrumb('Seller',URL::to('seller'));
+        Breadcrumbs::addCrumb('Dashboard',URL::to('seller'));
         return View::make('seller.index');
     }
 

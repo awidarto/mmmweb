@@ -30,6 +30,7 @@ class SettingsController extends AdminController {
     {
         Options::refresh();
 
+        Breadcrumbs::addCrumb('Settings',URL::to('settings'));
 
         return View::make('settings.index');
     }

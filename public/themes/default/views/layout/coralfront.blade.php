@@ -192,11 +192,13 @@
     </div>
 </div>
 <!-- // END navbar -->
+                <div class="container">
+                    {{ Breadcrumbs::render() }}
+                </div>
 
+                <div class="layout-app">
 
-            <div class="layout-app">
-
-            <div class="container">
+                    <div class="container">
                         <!-- row -->
                         <div class="row margin-none">
 

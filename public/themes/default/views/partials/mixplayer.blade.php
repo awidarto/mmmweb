@@ -87,6 +87,9 @@
                 myPlaylist.setPlaylist([mediaobj]);
                 myPlaylist.play();
 
+                $('.jp-jplayer').hide();
+                $('.jp-playlist').show();
+
             })
 
             function addToPlaylist(e){

@@ -28,7 +28,11 @@ class StoreController extends AdminController {
 
     public function getIndex()
     {
-        return View::make('store.index');
+        $media = Media::get();
+
+        Breadcrumbs::addCrumb('Store',URL::to('store'));
+
+        return View::make('store.index')->with('media',$media);
     }
 
     public function postIndex()

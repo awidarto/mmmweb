@@ -31,6 +31,9 @@ class MedialibController extends AdminController {
     public function getIndex()
     {
         $media = Media::get();
+
+        Breadcrumbs::addCrumb('Media Manager',URL::to('medialib'));
+
         return View::make('medialib.upload')->with('media',$media);
     }
 

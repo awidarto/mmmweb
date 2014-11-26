@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- avatar col -->
-    <div class="col-md-2 col-sm-4">
+    <div class="col-md-3 col-sm-4">
         <!-- col-separator.box -->
         <div class="col-separator box col-separator-first reset-components">
             <div class="bg-white">
@@ -28,11 +28,13 @@
             <div class="col-separator-h box"></div>
 
             <ul class="list-group list-group-1 margin-none">
+                {{--
                 <li class="list-group-item border-top-none active"><a href="index.html?lang=en"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-book"></i> Timeline</a></li>
-                <li class="list-group-item"><a href="social_account.html?lang=en"><i class="fa fa-user"></i> My Account</a></li>
                 <li class="list-group-item"><a href="social_messages.html?lang=en"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-envelope"></i> Messages</a></li>
+                --}}
+                <li class="list-group-item"><a href="{{ URL::to('settings')}}"><i class="fa fa-user"></i> My Account</a></li>
                 <li class="list-group-item"><a href="social_friends.html?lang=en"><i class="fa fa-group"></i> Friends</a></li>
-                <li class="list-group-item border-bottom-none"><a href="login.html?lang=en"><i class="fa fa-lock"></i> Logout</a></li>
+                <li class="list-group-item border-bottom-none"><a href="{{ URL::to('logout')}}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
 
         </div>

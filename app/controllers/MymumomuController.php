@@ -40,6 +40,8 @@ class MymumomuController extends AdminController {
             $lastrefresh = time();
         }
 
+        Breadcrumbs::addCrumb('My MuMoMu',URL::to('mymumomu'));
+
         return View::make('mymumomu.index')
             ->with('refreshurl',$refreshurl)
             ->with('lastrefresh',$lastrefresh)
