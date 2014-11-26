@@ -23,9 +23,6 @@
     -->
     <link rel="stylesheet/less" href="{{ URL::to('coral') }}/assets/less/admin/module.admin.stylesheet-complete.layout_fixed.true.less" />
 
-    <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/audioplayer/audioplayer.css">
-    <link rel="stylesheet" href="{{  URL::to('proui') }}/vendor/video-js/video-js.css">
-
     <link rel="stylesheet" href="{{  URL::to('jplayer') }}/skin/mumomu/jplayer.blue.monday.css">
 
     <link rel="stylesheet" href="{{  URL::to('/') }}/css/typography.css">
@@ -299,8 +296,6 @@
     <script src="{{ URL::to('coral')}}/assets/components/core/js/core.init.js?v=v1.9.6"></script>
     <script src="{{ URL::to('coral')}}/assets/components/core/js/animations.init.js?v=v1.9.6"></script>
 
-    <script src="{{ URL::to('audiojs/audiojs') }}/audio.min.js"></script>
-    <script src="{{ URL::to('proui') }}/vendor/video-js/video.js"></script>
     <script src="{{ URL::to('jplayer') }}/js/jplayer/jquery.jplayer.min.js"></script>
     <script src="{{ URL::to('jplayer') }}/js/add-on/jplayer.playlist.min.js"></script>
 
