@@ -279,8 +279,8 @@
     <script src="{{ URL::to('coral')}}/assets/components/plugins/preload/pace/pace.min.js?v=v1.9.6&sv=v0.0.1"></script>
     <script src="{{ URL::to('coral')}}/assets/components/core/js/preload.pace.init.js?v=v1.9.6"></script>
 
-<script src="{{ URL::to('coral')}}/assets/components/common/gallery/gridalicious/assets/lib/jquery.gridalicious.min.js?v=v1.9.6&sv=v0.0.1"></script>
-<script src="{{ URL::to('coral')}}/assets/components/common/gallery/gridalicious/assets/custom/gridalicious.init.js?v=v1.9.6"></script>
+    <script src="{{ URL::to('coral')}}/assets/components/common/gallery/gridalicious/assets/lib/jquery.gridalicious.min.js?v=v1.9.6&sv=v0.0.1"></script>
+    <script src="{{ URL::to('coral')}}/assets/components/common/gallery/gridalicious/assets/custom/gridalicious.init.js?v=v1.9.6"></script>
 
     <script src="{{ URL::to('coral')}}/assets/components/common/gallery/blueimp-gallery/assets/lib/js/blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>
     <script src="{{ URL::to('coral')}}/assets/components/common/gallery/blueimp-gallery/assets/lib/js/jquery.blueimp-gallery.min.js?v=v1.9.6&sv=v0.0.1"></script>

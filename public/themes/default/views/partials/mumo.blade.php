@@ -24,12 +24,14 @@
                 {{ $fupload->id('coverupload')->title('Select Cover')->label('Upload Cover')
                     ->url('upload/cover')
                     ->singlefile(true)
-                    ->prefix('cover')->multi(false)->make() }}
+                    ->prefix('cover')
+                    ->multi(false)->make() }}
 
                 {{ $fupload->id('mediaupload')->title('Select Media')->label('Upload Media')
                     ->url('upload/media')
                     ->singlefile(true)
-                    ->prefix('media')->multi(false)->make() }}
+                    ->prefix('media')
+                    ->multi(false)->make() }}
             </div>
         </div>
     </div>

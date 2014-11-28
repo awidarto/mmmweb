@@ -222,6 +222,7 @@ class UploadController extends Controller {
 
         if($uploadSuccess){
             $item = array(
+                    'ns'=>'cover',
                     'url'=> URL::to('storage/media/'.$rstring.'/'.$filename),
                     'temp_dir'=> $destinationPath,
                     'file_id'=> $rstring,
@@ -329,7 +330,7 @@ class UploadController extends Controller {
                 $thumbnail = View::make('media.video')->with('type',$filemime)->with('source',$file_url)->render();
                 $thumbnail_url = URL::to('images/video.png');
             }else{
-                $thumbnail =
+                $thumbnail = '';
                 $thumbnail_url = URL::to('images/media.png');
             }
 
@@ -350,6 +351,7 @@ class UploadController extends Controller {
 
         if($uploadSuccess){
             $item = array(
+                    'ns'=>'media',
                     'url'=> URL::to('storage/media/'.$rstring.'/'.$filename),
                     'temp_dir'=> $destinationPath,
                     'file_id'=> $rstring,

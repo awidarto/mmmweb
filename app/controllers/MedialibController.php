@@ -32,9 +32,11 @@ class MedialibController extends AdminController {
     {
         $media = Media::get();
 
+        $active = (is_null(Input::get('tab')))?'list':Input::get('tab');
+
         Breadcrumbs::addCrumb('Media Manager',URL::to('medialib'));
 
-        return View::make('medialib.upload')->with('media',$media);
+        return View::make('medialib.upload')->with('media',$media)->with('active',$active);
     }
 
     public function getTabindex()
@@ -108,73 +110,94 @@ class MedialibController extends AdminController {
     {
         $datain = Input::get();
 
-        $data['ownerId'] = Auth::user()->_id;
-        $data['ownerName'] = Auth::user()->fullname;
-        $data['status'] = 'pending';
-        $data['title'] = $datain['title'];
-        $data['artist'] = $datain['artist'];
-        $data['mediatype'] = $datain['type'];
-        $data['createdDate'] = new MongoDate();
-        $data['lastUpdate'] = new MongoDate();
-        $data['album'] = $datain['album'];
-        $data['genre'] = $datain['genre'];
-        $data['tags'] = $datain['tags'];
-        $data['price'] = $datain['price'];
+        $validator = array(
+            'title'=>'required',
+            'artist'=>'required',
+            'genre'=>'required'
+        );
 
 
-        $files = array();
+        $validation = Validator::make($input = $datain, $validator);
 
-        if( isset($datain['file_id']) && count($datain['file_id'])){
+        if($validation->fails()){
 
-            for($i = 0 ; $i < count($datain['thumbnail_url']);$i++ ){
+            return Redirect::to('medialib?tab=upload')->withErrors($validation)->withInput(Input::all());
 
-
-
-                if('cover' == $datain['role'][$i]){
-                    $index = 'defaultpic';
-                }else{
-                    $index = 'defaultmedia';
-                }
-
-                $data[$index]['role'] = $datain['role'][$i];
-                $data[$index]['thumbnail_url'] = $datain['thumbnail_url'][$i];
-                $data[$index]['large_url'] = $datain['large_url'][$i];
-                $data[$index]['medium_url'] = $datain['medium_url'][$i];
-                $data[$index]['full_url'] = $datain['full_url'][$i];
-                $data[$index]['delete_type'] = $datain['delete_type'][$i];
-                $data[$index]['delete_url'] = $datain['delete_url'][$i];
-                $data[$index]['filename'] = $datain['filename'][$i];
-                $data[$index]['filesize'] = $datain['filesize'][$i];
-                $data[$index]['temp_dir'] = $datain['temp_dir'][$i];
-                $data[$index]['filetype'] = $datain['filetype'][$i];
-                $data[$index]['is_image'] = $datain['is_image'][$i];
-                $data[$index]['is_audio'] = $datain['is_audio'][$i];
-                $data[$index]['is_video'] = $datain['is_video'][$i];
-                $data[$index]['fileurl'] = $datain['fileurl'][$i];
-                $data[$index]['file_id'] = $datain['file_id'][$i];
-
-            }
         }else{
 
-            $data['defaultpic'] = '';
-            $data['defaultmedia'] = '';
+
+            $data['ownerId'] = Auth::user()->_id;
+            $data['ownerName'] = Auth::user()->fullname;
+            $data['status'] = 'pending';
+            $data['title'] = $datain['title'];
+            $data['artist'] = $datain['artist'];
+            $data['mediatype'] = $datain['type'];
+            $data['createdDate'] = new MongoDate();
+            $data['lastUpdate'] = new MongoDate();
+            $data['album'] = $datain['album'];
+            $data['genre'] = $datain['genre'];
+            $data['tags'] = $datain['tags'];
+            $data['price'] = $datain['price'];
+
+            $files = array();
+
+            if( isset($datain['file_id']) && count($datain['file_id'])){
+
+                for($i = 0 ; $i < count($datain['thumbnail_url']);$i++ ){
+
+
+
+                    if('cover' == $datain['role'][$i]){
+                        $index = 'defaultpic';
+                    }else{
+                        $index = 'defaultmedia';
+                    }
+
+                    $data[$index]['role'] = $datain['role'][$i];
+                    $data[$index]['thumbnail_url'] = $datain['thumbnail_url'][$i];
+                    $data[$index]['large_url'] = $datain['large_url'][$i];
+                    $data[$index]['medium_url'] = $datain['medium_url'][$i];
+                    $data[$index]['full_url'] = $datain['full_url'][$i];
+                    $data[$index]['delete_type'] = $datain['delete_type'][$i];
+                    $data[$index]['delete_url'] = $datain['delete_url'][$i];
+                    $data[$index]['filename'] = $datain['filename'][$i];
+                    $data[$index]['filesize'] = $datain['filesize'][$i];
+                    $data[$index]['temp_dir'] = $datain['temp_dir'][$i];
+                    $data[$index]['filetype'] = $datain['filetype'][$i];
+                    $data[$index]['is_image'] = $datain['is_image'][$i];
+                    $data[$index]['is_audio'] = $datain['is_audio'][$i];
+                    $data[$index]['is_video'] = $datain['is_video'][$i];
+                    $data[$index]['fileurl'] = $datain['fileurl'][$i];
+                    $data[$index]['file_id'] = $datain['file_id'][$i];
+
+                }
+            }else{
+
+                $data['defaultpic'] = '';
+                $data['defaultmedia'] = '';
+            }
+
+            if($data['defaultmedia']['is_video'] == 1){
+                $data['mediatype'] = 'movie';
+            }
+
+            $ev = Media::insertGetId($data);
+
+            Feedpost::add('upload', $ev, array(
+                'mediaTitle'=>$data['title'],
+                'mediaType'=>$data['mediatype'],
+                'mediaUrl'=>$data['defaultmedia']['fileurl'],
+                'coverUrl'=>$data['defaultpic']['medium_url'],
+                'originatorName'=>Auth::user()->fullname,
+                'comments'=>array() ));
+
+            return Redirect::to('medialib');
+
+
+
         }
 
-        if($data['defaultmedia']['is_video'] == 1){
-            $data['mediatype'] = 'movie';
-        }
 
-        $ev = Media::insertGetId($data);
-
-        Feedpost::add('upload', $ev, array(
-            'mediaTitle'=>$data['title'],
-            'mediaType'=>$data['mediatype'],
-            'mediaUrl'=>$data['defaultmedia']['fileurl'],
-            'coverUrl'=>$data['defaultpic']['medium_url'],
-            'originatorName'=>Auth::user()->fullname,
-            'comments'=>array() ));
-
-        return Redirect::to('medialib');
         //return Response::json($data);
 
     }
