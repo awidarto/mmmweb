@@ -125,7 +125,7 @@ class UploadController extends Controller {
         return Response::JSON(array('status'=>'OK','message'=>'' ,'files'=>$fileitems) );
     }
 
-    public function postCover()
+    public function postCover($ns = 'cover')
     {
         $files = Input::file('files');
 
@@ -222,7 +222,8 @@ class UploadController extends Controller {
 
         if($uploadSuccess){
             $item = array(
-                    'ns'=>'cover',
+                    'ns'=>$ns,
+                    'role'=>'cover',
                     'url'=> URL::to('storage/media/'.$rstring.'/'.$filename),
                     'temp_dir'=> $destinationPath,
                     'file_id'=> $rstring,
@@ -249,7 +250,7 @@ class UploadController extends Controller {
         return Response::JSON(array('status'=>$status,'role'=>'cover' ,'message'=>$message ,'files'=>$fileitems) );
     }
 
-    public function postMedia()
+    public function postMedia($ns = 'media')
     {
         $files = Input::file('files');
 
@@ -351,7 +352,8 @@ class UploadController extends Controller {
 
         if($uploadSuccess){
             $item = array(
-                    'ns'=>'media',
+                    'ns'=>$ns,
+                    'role'=>'media',
                     'url'=> URL::to('storage/media/'.$rstring.'/'.$filename),
                     'temp_dir'=> $destinationPath,
                     'file_id'=> $rstring,

@@ -6,7 +6,7 @@
             @foreach($media as $m)
                 <div class="widget widget-heading-simple widget-body-white widget-pinterest">
                     <div class="widget-body padding-none">
-                        <a data-source="{{ $m->defaultmedia['fileurl'] }}" data-title="{{ $m->title }}" data-mediaid="{{ $m->_id }}" data-mediatype="{{ $m->mediatype }}" data-poster="{{ $m->defaultpic['medium_url'] }}" class="thumb music-link" >
+                        <a data-source="{{ ( $m->mediatype == 'album')?'':$m->defaultmedia['fileurl'] }}" data-title="{{ $m->title }}" data-mediaid="{{ $m->_id }}" data-mediatype="{{ $m->mediatype }}" data-poster="{{ $m->defaultpic['medium_url'] }}" class="thumb music-link" >
                             <img src="{{ $m->defaultpic['medium_url']}}" alt="photo" />
                         </a>
                         <div class="description col-md-12">

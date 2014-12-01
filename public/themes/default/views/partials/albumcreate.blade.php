@@ -1,4 +1,4 @@
-{{Former::open_for_files( URL::to('medialib/albumpost') ,'POST',array('class'=>'','id'=>'upload-form'))}}
+{{Former::open_for_files( URL::to('medialib/album') ,'POST',array('class'=>'','id'=>'upload-form'))}}
 
     <div class="row">
         <div class="col-md-6">
@@ -21,14 +21,16 @@
                 ?>
 
                 {{ $fupload->id('albumcoverupload')->title('Select Cover')->label('Upload Cover')
-                    ->url('upload/cover')
+                    ->url('upload/cover/albumcover')
                     ->singlefile(true)
-                    ->prefix('cover')->multi(false)->make() }}
+                    ->prefix('albumcover')
+                    ->multi(false)->make() }}
 
                 {{ $fupload->id('albummediaupload')->title('Select Media')->label('Upload Media')
-                    ->url('upload/media')
+                    ->url('upload/media/albummedia')
                     ->singlefile(false)
-                    ->prefix('media')->multi(true)->make() }}
+                    ->prefix('albummedia')
+                    ->multi(true)->make() }}
             </div>
         </div>
     </div>
@@ -44,80 +46,6 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
-
-                /*
-                $('#add-music').on('click',function(e){
-                    e.preventDefault();
-                    $('#media-type').val('music');
-                    $('#modal-upload').modal('show');
-                });
-
-                $('#add-movie').on('click',function(e){
-                    e.preventDefault();
-                    $('#media-type').val('video');
-                    $('#modal-upload').modal('show');
-                });
-
-                $('#modal-upload').on('hidden.bs.modal', function (e) {
-                    $('#coverupload_files ul').empty();
-                    $('#coverupload_uploadedform ul').empty();
-                    $('#mediaupload_files ul').empty();
-                    $('#mediaupload_uploadedform ul').empty();
-                })
-
-                $('#upload-form').submit(function(e){
-                    e.preventDefault();
-                    $(this).ajaxSubmit({
-                        url:'{{ URL::to('media/post')}}',
-                        dataType:'json',
-                        success:function(){
-                            $('#modal-upload').modal('hide');
-                        }
-                    })
-                });
-
-                $('.tag_genre').tagsInput({
-                    'autocomplete_url': base + 'ajax/genre',
-                   'height':'100px',
-                   'width':'100%',
-                   'interactive':true,
-                   'onChange' : function(c){
-
-                        },
-                   'onAddTag' : function(t){
-                            console.log(t);
-                        },
-                   'onRemoveTag' : function(t){
-                            console.log(t);
-                        },
-                   'defaultText':'add tag',
-                   'removeWithBackspace' : true,
-                   'minChars' : 0,
-                   'maxChars' : 0, //if not provided there is no limit,
-                   'placeholderColor' : '#666666'
-                });
-
-                $('.tag_keyword').tagsInput({
-                    'autocomplete_url': base + 'ajax/tag',
-                   'height':'100px',
-                   'width':'100%',
-                   'interactive':true,
-                   'onChange' : function(c){
-
-                        },
-                   'onAddTag' : function(t){
-                            console.log(t);
-                        },
-                   'onRemoveTag' : function(t){
-                            console.log(t);
-                        },
-                   'defaultText':'add tag',
-                   'removeWithBackspace' : true,
-                   'minChars' : 0,
-                   'maxChars' : 0, //if not provided there is no limit,
-                   'placeholderColor' : '#666666'
-                });
-
             });
         </script>
         <style type="text/css">

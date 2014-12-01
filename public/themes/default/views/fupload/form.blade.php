@@ -46,6 +46,12 @@
                                 $detailview = 'fupload.detail';
                             }
 
+                            if(isset($v['mediatitle'])){
+                                $mediatitle = $v['mediatitle'];
+                            }else{
+                                $mediatitle = $v['filename'];
+                            }
+
                             $thumb = View::make($detailview)
                                             ->with('filename',$v['filename'])
                                             ->with('thumbnail_url',$v['thumbnail_url'])
@@ -54,6 +60,7 @@
                                             ->with('is_audio',$v['is_audio'])
                                             ->with('is_video',$v['is_video'])
                                             ->with('filetype',$v['filetype'])
+                                            ->with('filetitle',$mediatitle)
                                             ->render();
                             if($k == 'ns' && $v == $prefix){
                                 print $thumb;
@@ -65,7 +72,7 @@
 
                     // display re-populated data from error form
 
-                    if($showold && isset( $allin['thumbnail_url'])){
+                    if($showold && isset( $allin['file_id'])){
 
                         $filename = $allin['filename'];
                         $thumbnail_url = $allin['thumbnail_url'];
@@ -74,6 +81,12 @@
                         $is_audio = $allin['is_audio'];
                         $is_video = $allin['is_video'];
                         $filetype = $allin['filetype'];
+
+                        if(isset($allin['mediatitle'])){
+                            $mediatitle = $allin['mediatitle'];
+                        }else{
+                            $mediatitle = $allin['filename'];
+                        }
 
                         $ns = $allin['ns'];
 
@@ -94,6 +107,7 @@
                                             ->with('is_audio',$is_audio[$t])
                                             ->with('is_video',$is_video[$t])
                                             ->with('filetype',$filetype[$t])
+                                            ->with('filetitle',$mediatitle[$t])
                                             ->render();
                             if($ns[$t] == $prefix){
                                 print $thumb;
@@ -180,6 +194,7 @@
                             $upl .= '<li id="fdel_'.$allin['file_id'][$u].'">';
 
                             $upl .= '<input type="hidden" name="ns[]" value="' . $allin['ns'][$u] . '">';
+                            $upl .= '<input type="hidden" name="role[]" value="' . $allin['role'][$u] . '">';
 
                             $upl .= '<input type="hidden" name="delete_type[]" value="' . $allin['delete_type'][$u] . '">';
                             $upl .= '<input type="hidden" name="delete_url[]" value="' . $allin['delete_url'][$u] . '">';
