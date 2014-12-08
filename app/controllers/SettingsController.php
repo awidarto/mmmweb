@@ -31,23 +31,215 @@ class SettingsController extends AdminController {
         Options::refresh();
 
         Breadcrumbs::addCrumb('Settings',URL::to('settings'));
+        Breadcrumbs::addCrumb('Change Profile',URL::to('settings'));
 
-        return View::make('settings.index');
+        $user = Member::find(Auth::user()->_id);
+
+        $active = (is_null(Input::get('tab')))?'profile':Input::get('tab');
+
+        return View::make('settings.index')->with('user',$user)->with('active',$active);
     }
 
     public function postIndex()
     {
+        $datain = Input::get();
 
-        $this->fields = array(
-            array('label',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true)),
-            array('varname',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true)),
-            array('value',array('kind'=>'text','query'=>'like','pos'=>'both','show'=>true)),
+        $validator = array(
+            'firstname'    => 'required',
+            'lastname'    => 'required',
+            'email'    => 'required|email',
         );
 
-        $this->place_action = 'first';
 
-        return parent::postIndex();
+        $validation = Validator::make($input = $datain, $validator);
+
+        if($validation->fails()){
+
+            return Redirect::to('settings')->withErrors($validation)->withInput(Input::all());
+
+        }else{
+
+            $user = Member::find(Auth::user()->_id);
+
+                foreach($datain as $key=>$val){
+                    $user->{$key} = $val;
+                }
+
+                $user->fullname = $user->firstname.' '.$user->lastname;
+                $user->lastUpdate = new MongoDate();
+
+
+            $user->save();
+
+
+
+            /*
+            $ev = Media::insertGetId($data);
+            Feedpost::add('upload', $ev, array(
+                'mediaTitle'=>$data['title'],
+                'mediaType'=>$data['mediatype'],
+                'mediaUrl'=>$data['defaultmedia']['fileurl'],
+                'coverUrl'=>$data['defaultpic']['medium_url'],
+                'originatorName'=>Auth::user()->fullname,
+                'comments'=>array() ));
+            */
+            return Redirect::to('/');
+
+        }
+
+
     }
+
+    public function getPass()
+    {
+
+        Breadcrumbs::addCrumb('Settings',URL::to('settings'));
+        Breadcrumbs::addCrumb('Change Password',URL::to('settings/pass'));
+
+        $user = Member::find(Auth::user()->_id);
+
+        $active = 'pass';
+
+        return View::make('settings.index')->with('user',$user)->with('active',$active);
+    }
+
+    public function postPass()
+    {
+        $datain = Input::get();
+
+        $validator = array(
+            'password' => 'required|alphaNum|min:3|same:repass'
+        );
+
+        $validation = Validator::make($input = $datain, $validator);
+
+        if($validation->fails()){
+
+            return Redirect::to('settings/pass')->withErrors($validation)->withInput(Input::all());
+
+        }else{
+
+            unset($datain['repass']);
+            $password = Hash::make($datain['password']);
+
+            $user = Member::find(Auth::user()->_id);
+
+            $user->password = $password;
+
+            $user->save();
+
+            /*
+            $ev = Media::insertGetId($data);
+            Feedpost::add('upload', $ev, array(
+                'mediaTitle'=>$data['title'],
+                'mediaType'=>$data['mediatype'],
+                'mediaUrl'=>$data['defaultmedia']['fileurl'],
+                'coverUrl'=>$data['defaultpic']['medium_url'],
+                'originatorName'=>Auth::user()->fullname,
+                'comments'=>array() ));
+            */
+            return Redirect::to('/');
+
+
+
+        }
+
+
+        //return Response::json($data);
+
+    }
+
+
+    public function getPhoto()
+    {
+
+        Breadcrumbs::addCrumb('Settings',URL::to('settings'));
+        Breadcrumbs::addCrumb('Photo',URL::to('settings/photo'));
+
+        $user = Member::find(Auth::user()->_id);
+
+        $active = 'photo';
+
+        return View::make('settings.index')->with('user',$user)->with('active',$active);
+    }
+
+    public function postPhoto()
+    {
+        $datain = Input::get();
+
+        $validator = array(
+
+        );
+
+
+        $validation = Validator::make($input = $datain, $validator);
+
+        if($validation->fails()){
+
+            return Redirect::to('settings/photo')->withErrors($validation)->withInput(Input::all());
+
+        }else{
+
+            $photo = array();
+            $avatar = '';
+
+            if( isset($datain['file_id']) && count($datain['file_id'])){
+
+                for($i = 0 ; $i < count($datain['thumbnail_url']);$i++ ){
+
+                    $photo['role'] = $datain['role'][$i];
+                    $photo['thumbnail_url'] = $datain['thumbnail_url'][$i];
+                    $photo['large_url'] = $datain['large_url'][$i];
+                    $photo['medium_url'] = $datain['medium_url'][$i];
+                    $photo['full_url'] = $datain['full_url'][$i];
+                    $photo['delete_type'] = $datain['delete_type'][$i];
+                    $photo['delete_url'] = $datain['delete_url'][$i];
+                    $photo['filename'] = $datain['filename'][$i];
+                    $photo['filesize'] = $datain['filesize'][$i];
+                    $photo['temp_dir'] = $datain['temp_dir'][$i];
+                    $photo['filetype'] = $datain['filetype'][$i];
+                    $photo['is_image'] = $datain['is_image'][$i];
+                    $photo['is_audio'] = $datain['is_audio'][$i];
+                    $photo['is_video'] = $datain['is_video'][$i];
+                    $photo['fileurl'] = $datain['fileurl'][$i];
+                    $photo['file_id'] = $datain['file_id'][$i];
+
+                    $avatar = $photo['full_url'];
+
+                }
+            }
+
+            $user = Member::find(Auth::user()->_id);
+
+            $user->photo = $photo;
+            $user->avatar = $avatar;
+
+            $user->save();
+
+
+
+            /*
+            $ev = Media::insertGetId($data);
+            Feedpost::add('upload', $ev, array(
+                'mediaTitle'=>$data['title'],
+                'mediaType'=>$data['mediatype'],
+                'mediaUrl'=>$data['defaultmedia']['fileurl'],
+                'coverUrl'=>$data['defaultpic']['medium_url'],
+                'originatorName'=>Auth::user()->fullname,
+                'comments'=>array() ));
+            */
+            return Redirect::to('/');
+
+
+
+        }
+
+
+        //return Response::json($data);
+
+    }
+
+
 
     public function getAdd(){
         //Breadcrumb::addBreadcrumb('New Payable', 'add');

@@ -1,14 +1,34 @@
 @extends('layout.coralfront')
 
 @section('content')
+    <style type="text/css">
+        a.update-photo{
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            font-size: 24px;
+            color: transparent;
+        }
+
+        a.update-photo:hover{
+            color: white;
+        }
+
+
+    </style>
     <!-- avatar col -->
     <div class="col-md-3 col-sm-4">
         <!-- col-separator.box -->
         <div class="col-separator box col-separator-first reset-components">
             <div class="bg-white">
-                <div class="profile-avatar">
+                <div class="profile-avatar" style="position:relative;">
+                    <a class="update-photo" href="{{ URL::to('settings/photo') }}"><i class="fa fa-edit" ></i></a>
                     <div class="text-center">
-                        <img src="{{ URL::to('coral')}}/assets/images/people/775/avatar.jpg" class="img-responsive img-clean" />
+                        @if(isset(Auth::user()->avatar) && Auth::user()->avatar != '')
+                        <img src="{{ Auth::user()->avatar }}" class="img-responsive img-clean" />
+                        @else
+                            <img src="{{ URL::to('coral')}}/assets/images/people/775/avatar.jpg" class="img-responsive img-clean" />
+                        @endif
                     </div>
                 </div>
 
@@ -203,11 +223,6 @@
                             </div>
                             <!-- // END col -->
 
-    <!-- col -->
-    <div class="col-sm-12 col-md-3 col-lg-2">
-        @include('partials.friends')
-    </div>
-    <!-- // END col -->
 
 
 @stop

@@ -300,11 +300,14 @@ $(document).ready(function(){
 
                 $.each(data.result.files, function (index, file) {
 
+
                     @if($prefix == '')
                         {{ View::make('fupload.jsdetail') }}
                     @else
                         {{ View::make($prefix.'.jsdetail') }}
                     @endif
+
+                    console.log(thumb);
 
                     @if($singlefile == true)
                         $('#{{ $element_id }}_files ul').html(thumb);
@@ -354,7 +357,7 @@ $(document).ready(function(){
                     });
 
                 });
-                $('audio').audioPlayer();
+                //$('audio').audioPlayer();
                 //videojs(document.getElementsByClassName('video-js')[0], {}, function(){});
             }else{
                 alert(data.result.message)

@@ -63,8 +63,7 @@
                     <div id="login-alt-container">
                         <!-- Title -->
                         <h1 class="push-top-bottom">
-                            <i class="gi gi-flash"></i> <strong>{{ Config::get('site.name')}}</strong><br>
-                            <small>Welcome to {{ Config::get('site.name')}}</small>
+                            Welcome to {{ Config::get('site.name')}}
                         </h1>
                         <!-- END Title -->
 
@@ -73,7 +72,7 @@
 
                         <!-- Footer -->
                         <footer class="text-muted push-top-bottom">
-                            <small><span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 2.2</a></small>
+                            <small><span id="year-copy"></span> &copy; <a href="{{ URL::to('/') }}" target="_blank">{{ Config::get('site.name');}}</a></small>
                         </footer>
                         <!-- END Footer -->
                     </div>

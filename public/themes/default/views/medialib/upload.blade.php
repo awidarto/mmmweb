@@ -2,16 +2,6 @@
 
 @section('content')
 
-<?php
-    function at($tab, $active){
-        if($tab == $active){
-            return 'active';
-        }else{
-            return '';
-        }
-    }
-?>
-
 <!-- col -->
 <div class="col-md-12">
         <div class="box-generic">
@@ -19,7 +9,7 @@
         <!-- Tabs Heading -->
         <div class="tabsbar">
             <ul>
-                <li class="glyphicons albums tab-stacked {{ at('list',$active) }}"><a href="{{ URL::to('medialib') }}" data-toggle="tab"><i></i> <span>My Media</span></a></li>
+                <li class="glyphicons albums tab-stacked {{ at('list',$active) }}"><a href="{{ URL::to('medialib') }}"><i></i> <span>My Media</span></a></li>
                 <li class="glyphicons circle_plus tab-stacked {{ at('upload',$active) }}"><a href="{{ URL::to('medialib/upload') }}"><i></i> <span>Add Music / Movie</span></a></li>
                 <li class="glyphicons folder_plus tab-stacked {{ at('createalbum',$active) }}"><a href="{{ URL::to('medialib/album') }}"><i></i> <span>Create Album</span></a></li>
             </ul>

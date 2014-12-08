@@ -553,3 +553,11 @@ function sa($item){
         return '';
     }
 }
+
+function at($tab, $active){
+    if($tab == $active){
+        return 'active';
+    }else{
+        return '';
+    }
+}
