@@ -13,9 +13,9 @@ class FeedController extends \BaseController {
 	public function index()
 	{
 		//
-        $lastrefresh = Input::get('lastrefresh');
+        $lastrefresh = \Input::get('lastrefresh');
 
-        $mlast = new MongoDate($lastrefresh);
+        $mlast = new \MongoDate($lastrefresh);
 
         $media = \Feed::where( 'timestamp', '>', $mlast )
             ->orderBy('timestamp','desc')
