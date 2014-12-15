@@ -44,9 +44,9 @@ Route::group(array('prefix' => 'api/v1'), function (){
     Route::put('/auth/login', 'Api\AuthController@login');
     Route::post('/auth/logout', 'Api\AuthController@logout');
     Route::put('/auth/logout', 'Api\AuthController@logout');
-    Route::resource('location', 'LocationapiController');
-    Route::resource('rack', 'RackapiController');
-    Route::resource('asset', 'AssetapiController');
+    Route::resource('feed', 'FeedController');
+    Route::resource('like', 'LikeController');
+    Route::resource('comment', 'CommentController');
 });
 
 
