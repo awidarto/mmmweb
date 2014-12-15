@@ -33,6 +33,22 @@ Route::controller('settings', 'SettingsController');
 Route::controller('payment', 'PaymentController');
 Route::controller('store', 'StoreController');
 
+/*
+ * @author juntriaji
+ * Route for API
+ */
+
+Route::group(array('prefix' => 'api/v1'), function (){
+    Route::get('/auth', 'Api\AuthController@index');
+    Route::post('/auth/login', 'Api\AuthController@login');
+    Route::put('/auth/login', 'Api\AuthController@login');
+    Route::post('/auth/logout', 'Api\AuthController@logout');
+    Route::put('/auth/logout', 'Api\AuthController@logout');
+    Route::resource('location', 'LocationapiController');
+    Route::resource('rack', 'RackapiController');
+    Route::resource('asset', 'AssetapiController');
+});
+
 
 
 Route::get('/', 'FeedController@getIndex');
