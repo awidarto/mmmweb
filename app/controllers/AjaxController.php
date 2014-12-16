@@ -63,6 +63,7 @@ class AjaxController extends BaseController {
         $data = Media::find($id);
 
         Feedpost::add('listen', $id, array(
+            'message'=>Auth::user()->fullname.' listens to '.$data['title'],
             'mediaTitle'=>$data['title'],
             'mediaType'=>$data['mediatype'],
             'mediaUrl'=>$data['defaultmedia']['fileurl'],
