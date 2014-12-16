@@ -139,6 +139,7 @@ class MedialibController extends AdminController {
             $ev = Media::insertGetId($data);
 
             Feedpost::add('upload', $ev, array(
+                'message'=>Auth::user()->fullname.' uploads a '.$data['mediatype'],
                 'mediaTitle'=>$data['title'],
                 'mediaType'=>$data['mediatype'],
                 'mediaUrl'=>$data['defaultmedia']['fileurl'],
@@ -266,6 +267,7 @@ class MedialibController extends AdminController {
             $eva = Media::insertGetId($data);
 
             Feedpost::add('upload', $eva, array(
+                'message'=>Auth::user()->fullname.' uploads an album',
                 'mediaTitle'=>$data['title'],
                 'mediaType'=>'album',
                 'mediaUrl'=>$data['media'],

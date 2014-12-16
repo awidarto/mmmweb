@@ -21,6 +21,21 @@ class FeedController extends \BaseController {
             ->orderBy('timestamp','desc')
             ->get();
 
+        for($i = 0; $i < count($media);$i++){
+
+            $media[$i]->extId = $media[$i]->_id;
+
+            if(isset($media[$i]->message) == false){
+                $media[$i]->message = '';
+            }
+
+            unset($media[$i]->_id);
+            unset($media[$i]->_token);
+            unset($media[$i]->timestamp);
+            unset($media[$i]->comments);
+
+        }
+
         return Response::json($media->toArray());
 	}
 
