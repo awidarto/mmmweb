@@ -25,9 +25,19 @@ class FeedController extends \BaseController {
 
             $media[$i]->extId = $media[$i]->_id;
 
+            $u = \Member::find($media[$i]->originatorId);
+
             if(isset($media[$i]->message) == false){
                 $media[$i]->message = '';
             }
+
+            if(isset($u->avatar) && $u->avatar != ''){
+                $media[$i]->originatorAvatar = $u->avatar;
+            }else{
+                $media[$i]->originatorAvatar = 'default';
+            }
+
+            //print $media[$i]->originatorAvatar;
 
             unset($media[$i]->_id);
             unset($media[$i]->_token);
