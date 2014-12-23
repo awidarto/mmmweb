@@ -112,6 +112,19 @@ class AjaxController extends BaseController {
         print $stream;
     }
 
+    public function postComment()
+    {
+        $in = Input::get();
+
+        $evid = $in['evid'];
+
+        $comment = $in['comment'];
+
+        $event = Feed::find($evid);
+
+
+    }
+
     public function postShare()
     {
         $data = Input::get();

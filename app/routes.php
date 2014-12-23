@@ -46,7 +46,7 @@ Route::group(array('prefix' => 'api/v1'), function (){
     Route::put('/auth/logout', 'Api\AuthController@logout');
     Route::resource('feed', 'Api\FeedController');
     Route::resource('like', 'Api\LikeController');
-    Route::resource('comment', 'Api\CommentController');
+    Route::get('comment/{feedId}', 'Api\CommentController@getFeed');
 });
 
 

@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="comment {{ $f->mediaId }}">
+                <div class="comment {{ $f->mediaId }}" id="commentlist_{{ $f->_id }}">
                     <div class="media innerAll margin-none">
                         <a class="pull-left" href="#"><img src="{{ URL::to('coral')}}/assets/images/people/80/8.jpg" alt="photo" class="media-object" width="35"></a>
                         <div class="media-body">
@@ -26,9 +26,9 @@
                 </div>
                 <div class="innerAll">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Comment here..."/>
-                        <div class="input-group-addon">
-                            <a href="#"><i class="fa fa-share-square"></i></a>
+                        <input class="form-control" id="comment_{{ $f->_id }}" placeholder="Comment here..."/>
+                        <div class="input-group-addon comment-submit" data-id="{{ $f->_id }}">
+                            <i class="fa fa-share-square comment-submit" data-id="{{ $f->_id }}"></i>
                         </div>
                     </div>
                 </div>

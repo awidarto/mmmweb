@@ -43,5 +43,31 @@
             refreshTimeline();
         },10000);
 
+        $('.timeline-activity').on('click',function(e){
+            if($(e.target).is('.comment-submit')){
+                var evid = $(e.target).data('id');
+
+                console.log(evid);
+
+                var comment = $( '#comment_' + evid ).val();
+                console.log(comment);
+
+                if(comment != ''){
+                    $.post('{{ URL::to('ajax/comment')}}',
+                        {
+                            evid:evid,
+                            comment:comment
+                        },
+                        function(data){
+                            if(data.result == 'OK'){
+                                $('#commentlist_' + evid).prepend(comment);
+                            }
+                        },
+                        'json');
+                }
+
+            }
+        });
+
     });
 </script>

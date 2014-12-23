@@ -12,12 +12,16 @@ class CommentController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	
+
 	public function index()
 	{
-		
+
 	}
-	
+
+    public function getFeed($feedId)
+    {
+
+    }
 
 
 	/**
@@ -41,12 +45,12 @@ class CommentController extends \BaseController {
 	 */
 	public function store()
 	{
-		$itemid = Input::get('itemid'); 
-		$itemtype = Input::get('itemtype'); 
-		$userid = Input::get('userid'); 
-		$usercomment = Input::get('comment'); 
-		$key = Input::get('key'); 
-		
+		$itemid = Input::get('itemid');
+		$itemtype = Input::get('itemtype');
+		$userid = Input::get('userid');
+		$usercomment = Input::get('comment');
+		$key = Input::get('key');
+
 		$retVal = array('status' => 'ERR', 'msg' => 'Invalid Session');
 
 		try {
@@ -60,7 +64,7 @@ class CommentController extends \BaseController {
 				$retVal = array('status' => 'ERR', 'msg' => 'Invalid item.');
 				return Response::json($retVal);
 			}
-			
+
 			$comment = new \Comments();
 			$comment->itemid = $itemid;
 			$comment->itemtype = $itemtype;
@@ -69,12 +73,12 @@ class CommentController extends \BaseController {
 			$comment->save();
 			$retVal = array('status' => 'OK');
 			return Response::json($retVal);
-			
+
 		}
 		catch (ModelNotFoundException $e)
 		{
 		}
-		
+
 	}
 
 
@@ -89,11 +93,11 @@ class CommentController extends \BaseController {
 	{
 		//
 		$retVal = array('status' => 'ERR', 'msg' => 'Invalid Session');
-		
+
 		try {
 			$user = \Member::where('session_key', '=', $key)->exists();
 			if(!$user) return Response::json($retVal);
-			
+
 			$comment = \Comments::where('itemid', '=', $itemId)->get();
 			if($comment->count() > 0)
 			{
@@ -107,10 +111,10 @@ class CommentController extends \BaseController {
 		}
 		catch (ModelNotFoundException $e)
 		{
-				
+
 		}
 	}
-	
+
 
 	/**
 	 * Show the form for editing the specified resource.
