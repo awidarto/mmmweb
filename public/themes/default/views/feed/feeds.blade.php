@@ -14,6 +14,10 @@
             color: white;
         }
 
+        .comment-submit{
+            cursor: pointer;
+        }
+
 
     </style>
     <!-- avatar col -->

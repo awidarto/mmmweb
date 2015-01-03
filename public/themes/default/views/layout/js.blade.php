@@ -19,6 +19,8 @@
     {{ HTML::script('js/jquery.tagsinput.js') }}
     {{ HTML::script('js/accounting.min.js')}}
 
+    {{ HTML::script('js/moment.min.js')}}
+
     {{-- HTML::script('js/app.js') --}}
 
 

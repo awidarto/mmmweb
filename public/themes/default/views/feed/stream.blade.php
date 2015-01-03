@@ -44,26 +44,38 @@
         },10000);
 
         $('.timeline-activity').on('click',function(e){
+
             if($(e.target).is('.comment-submit')){
                 var evid = $(e.target).data('id');
 
                 console.log(evid);
 
                 var comment = $( '#comment_' + evid ).val();
+
                 console.log(comment);
 
+
                 if(comment != ''){
+                    console.log(evid + ' : ' + comment);
                     $.post('{{ URL::to('ajax/comment')}}',
                         {
-                            evid:evid,
+                            itemid:evid,
                             comment:comment
                         },
                         function(data){
                             if(data.result == 'OK'){
+                                var c = data.comment;
+
+                                var comment = @include('feeddisplay.commentjs');
+
                                 $('#commentlist_' + evid).prepend(comment);
+                            }else{
+                                alert('You must be logged in to comment');
                             }
                         },
                         'json');
+                }else{
+                    alert('What are you trying to say ?');
                 }
 
             }

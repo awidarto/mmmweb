@@ -116,13 +116,26 @@ class AjaxController extends BaseController {
     {
         $in = Input::get();
 
-        $evid = $in['evid'];
+        $itemid = $in['itemid'];
 
         $comment = $in['comment'];
 
-        $event = Feed::find($evid);
+        if(isset(Auth::user()->_id)){
 
+            $uid = Auth::user()->_id;
 
+            $comment = Feedpost::putComment($uid, $itemid, $comment);
+            $comment['avatar'] = Feedpost::getAvatar($uid);
+            $comment['commenter'] = Feedpost::getUserName($uid);
+            return Response::json(array(
+                    'result'=>'OK',
+                    'comment'=>$comment
+                ));
+        }else{
+            return Response::json(array(
+                    'result'=>'ERR::NOAUTH'
+                ));
+        }
     }
 
     public function postShare()
