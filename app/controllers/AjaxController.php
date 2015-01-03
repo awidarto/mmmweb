@@ -75,9 +75,12 @@ class AjaxController extends BaseController {
 
     public function postNewsfeed()
     {
+
         $lastrefresh = Input::get('lastrefresh');
 
-        $mlast = new MongoDate($lastrefresh);
+        $l = Carbon::createFromTimeStamp($lastrefresh, 'Asia/Jakarta')->toDateTimeString();
+
+        $mlast = new MongoDate(strtotime($l));
 
         $media = Feed::where( 'timestamp', '>', $mlast )
             ->orderBy('timestamp','desc')
@@ -110,6 +113,35 @@ class AjaxController extends BaseController {
         }
 
         print $stream;
+    }
+
+    public function postLike()
+    {
+        $in = Input::get();
+
+        $itemid = $in['itemid'];
+
+        $mode = $in['mode'];
+
+        if(isset(Auth::user()->_id)){
+
+            $uid = Auth::user()->_id;
+
+            Feedpost::like($mode, $uid, $itemid);
+
+            $count = Feedpost::getLikeCount($itemid);
+
+            return Response::json(array('result'=>'OK', 'count'=>$count));
+
+        }else{
+
+            return Response::json(array(
+                    'result'=>'ERR::NOAUTH'
+                ));
+
+        }
+
+
     }
 
     public function postComment()

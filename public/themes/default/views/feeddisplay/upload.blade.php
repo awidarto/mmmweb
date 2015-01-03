@@ -11,6 +11,17 @@
                         <div class="timeline-bottom">
                             <i class="fa fa-clock-o"></i> {{ Carbon::createFromTimeStamp($f->timestamp->sec)->diffForHumans();}}
                         </div>
+                        <div class="like">
+                            <?php
+                                if(Feedpost::likes(Auth::user()->_id, $f->id)){
+                                    $cls = 'fa-heart';
+                                }else{
+                                    $cls = 'fa-heart-o';
+                                }
+                            ?>
+                            <i class="fa {{$cls}} like-toggle" data-id="{{ $f->_id }}" ></i> <span class="badge"><span id="like_{{ $f->_id }}" >{{ Feedpost::getLikeCount($f->id) }}</span> likes</span>
+                        </div>
+
                     </div>
                 </div>
                 <div class="comment {{ $f->mediaId }}" id="commentlist_{{ $f->_id }}">

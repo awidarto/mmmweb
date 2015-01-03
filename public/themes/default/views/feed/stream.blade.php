@@ -44,6 +44,34 @@
         },10000);
 
         $('.timeline-activity').on('click',function(e){
+            if($(e.target).is('.like-toggle')){
+                var evid = $(e.target).data('id');
+                var mode = 'inc';
+                if( $(e.target).hasClass('fa-heart') ){
+                    $(e.target).removeClass('fa-heart');
+                    $(e.target).addClass('fa-heart-o');
+                    mode = 'dec';
+                }else{
+                    $(e.target).removeClass('fa-heart-o');
+                    $(e.target).addClass('fa-heart');
+                    mode = 'inc';
+                }
+
+                console.log(evid);
+
+                $.post('{{ URL::to('ajax/like') }}',
+                    {
+                        mode:mode,
+                        itemid:evid
+                    } ,
+                    function(data) {
+                        if(data.result == 'OK'){
+                            $('#like_' + evid).html(data.count);
+                        }
+                    },
+                    'json');
+
+            }
 
             if($(e.target).is('.comment-submit')){
                 var evid = $(e.target).data('id');

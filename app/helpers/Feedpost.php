@@ -33,12 +33,20 @@ class Feedpost{
         return $m->fullname;
     }
 
+    public static function like($mode,$uid, $itemid){
+        if($mode == 'inc'){
+            Like::insert( array('uid'=>$uid, 'itemid'=>$itemid ) );
+        }else{
+            Like::where('uid',$uid)->where('itemid',$itemid)->delete();
+        }
+    }
+
     public static function likes($uid, $itemid){
         $c = Like::where('uid',$uid)->where('itemid',$itemid)->count();
-        if($c > 0){
-            return true;
-        }else{
+        if($c == 0){
             return false;
+        }else{
+            return true;
         }
     }
 
@@ -57,7 +65,7 @@ class Feedpost{
     }
 
     public static function getComments($itemid){
-        return Comment::where('itemid',$itemid)->get();
+        return Comment::where('itemid',$itemid)->orderBy('createdDate','desc')->get();
     }
 
     public static function getLikeCount($itemid){

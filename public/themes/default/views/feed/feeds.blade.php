@@ -18,6 +18,25 @@
             cursor: pointer;
         }
 
+        .like-toggle{
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .timeline-activity li .timeline-top-info i.like-toggle{
+            color: red;
+            vertical-align: top;
+        }
+
+        .like{
+            margin-top: 8px;
+        }
+
+        .like-count{
+            font-size: 11px;
+            vertical-align: baseline;
+            margin-left: 6px;
+        }
 
     </style>
     <!-- avatar col -->
