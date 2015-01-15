@@ -33,9 +33,14 @@ class Feedpost{
         return $m->fullname;
     }
 
-    public static function like($mode,$uid, $itemid){
+    public static function like($mode,$uid, $itemid, $type = 'feed'){
         if($mode == 'inc'){
-            Like::insert( array('uid'=>$uid, 'itemid'=>$itemid ) );
+            $mediaid = '';
+            if($type == 'feed'){
+                $feed = Feed::find($itemid);
+                $mediaid = $feed->mediaId;
+            }
+            Like::insert( array('uid'=>$uid, 'itemid'=>$itemid, 'itemType'=>$type, 'mediaId'=>$mediaid ) );
         }else{
             Like::where('uid',$uid)->where('itemid',$itemid)->delete();
         }
@@ -50,13 +55,21 @@ class Feedpost{
         }
     }
 
-    public static function putComment($uid, $itemid, $comment){
+    public static function putComment($uid, $itemid, $comment, $type = 'feed'){
         $createdDate = new MongoDate();
         $lastUpdate = new MongoDate();
+
+        $mediaid = '';
+        if($type == 'feed'){
+            $feed = Feed::find($itemid);
+            $mediaid = $feed->mediaId;
+        }
 
         $commentId = Comment::insertGetId(array(
                 'uid'=>$uid,
                 'itemid'=>$itemid,
+                'mediaId'=>$mediaid,
+                'itemType'=>$type,
                 'comment'=>$comment,
                 'createdDate'=>$createdDate,
                 'lastUpdate'=>$lastUpdate

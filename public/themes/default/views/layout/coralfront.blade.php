@@ -27,6 +27,8 @@
 
     <link rel="stylesheet" href="{{  URL::to('/') }}/css/typography.css">
 
+    {{ HTML::style('css/mumomu.css') }}
+
     {{ HTML::style('css/jquery.tagsinput.css') }}
 
         <!--[if lt IE 9]><link rel="stylesheet" href="{{ URL::to('coral') }}/assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->

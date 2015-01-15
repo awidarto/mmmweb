@@ -59,11 +59,20 @@ class AjaxController extends BaseController {
     public function postListen()
     {
         $type = Input::get('mediatype');
+        $title = Input::get('mediatitle');
         $id = Input::get('mediaid');
-        $data = Media::find($id);
+        $msg = Input::get('message');
+        if($id == ''){
+            $data['title'] = $title;
+            $data['defaultmedia']['fileurl'] = '';
+            $data['defaultpic']['medium_url'] = '';
+            $data['mediatype'] = 'music';
+        }else{
+            $data = Media::find($id);
+        }
 
         Feedpost::add('listen', $id, array(
-            'message'=>Auth::user()->fullname.' listens to '.$data['title'],
+            'message'=>($msg != '')?$msg:'',
             'mediaTitle'=>$data['title'],
             'mediaType'=>$data['mediatype'],
             'mediaUrl'=>$data['defaultmedia']['fileurl'],
@@ -72,6 +81,67 @@ class AjaxController extends BaseController {
             'comments'=>array() ));
         return Response::json(array('result'=>'OK'));
     }
+
+    public function postShareplaylist()
+    {
+        $title = Input::get('playlisttitle');
+        $msg = Input::get('message');
+        $medialist = Input::get('medialist');
+        $id = Input::get('playlistid');
+
+
+        if($id == ''){
+            $playlist = array(
+                    'title'=>$title,
+                    'message'=>$msg,
+                    'ownerId'=>Auth::user()->_id,
+                    'ownerName'=>Auth::user()->fullname,
+                    'media'=>$medialist
+                );
+
+            $pid = Playlist::insertGetId($playlist);
+
+        }else{
+            $pid = $id;
+        }
+
+        if(count($medialist) > 0){
+            $first = Media::find($medialist[0]);
+            $coverUrl = $first['defaultpic']['medium_url'];
+        }else{
+            $coverUrl = '';
+        }
+
+        Feedpost::add('playlist', $id, array(
+            'message'=>($msg != '')?$msg:'',
+            'mediaTitle'=>$title,
+            'mediaType'=>'playlist',
+            'mediaUrl'=>$pid,
+            'coverUrl'=>$coverUrl,
+            'originatorName'=>Auth::user()->fullname,
+            'comments'=>array() ));
+        return Response::json(array('result'=>'OK'));
+    }
+
+    public function postSaveplaylist()
+    {
+        $title = Input::get('playlisttitle');
+        $msg = Input::get('message');
+        $medialist = Input::get('medialist');
+
+        $playlist = array(
+                'title'=>$title,
+                'message'=>$msg,
+                'ownerId'=>Auth::user()->_id,
+                'ownerName'=>Auth::user()->fullname,
+                'media'=>$medialist
+            );
+
+        $pid = Playlist::insertGetId($playlist);
+
+        return Response::json(array('result'=>'OK', 'id'=>$pid));
+    }
+
 
     public function postNewsfeed()
     {
@@ -99,7 +169,9 @@ class AjaxController extends BaseController {
     {
         $lastrefresh = Input::get('lastrefresh');
 
-        $mlast = new MongoDate($lastrefresh);
+        $l = Carbon::createFromTimeStamp($lastrefresh, 'Asia/Jakarta')->toDateTimeString();
+
+        $mlast = new MongoDate(strtotime($l));
 
         $media = Feed::where( 'timestamp', '>', $mlast )
             ->where('originatorId',Auth::user()->_id)
@@ -1095,6 +1167,25 @@ class AjaxController extends BaseController {
 
         foreach($res as $r){
             $result[] = array('id'=>$r['_id']->__toString(),'value'=>$r['fullname'],'email'=>$r['email'],'label'=>$r['fullname'].' ( '.$r['email'].' )');
+        }
+
+        return Response::json($result);
+    }
+
+    public function getMedia()
+    {
+        $q = Input::get('term');
+
+        $user = new Media();
+        $query = new MongoRegex('/'.$q.'/i');
+
+        $res = Media::where('title', 'regex', $query)
+                ->orWhere('artist', 'regex', $query)->get();
+
+        $result = array();
+
+        foreach($res as $r){
+            $result[] = array('id'=>$r['_id'],'value'=>$r['title'].' ( '.$r['artist'].' )','mediatype'=>$r['mediatype'],'pic'=>$r['defaultpic.thumbnail_url'],'label'=>$r['title'].' ( '.$r['artist'].' )');
         }
 
         return Response::json($result);

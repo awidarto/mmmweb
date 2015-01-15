@@ -8,6 +8,7 @@
                     <div class="media-body">
                         <a href="">{{ $f->originatorName }}</a> uploading <a href="" class="text-primary music-link" data-source="{{ ( $f->mediaType == 'album')?'':$f->mediaUrl }}" data-title="{{ $f->mediaTitle }}"  data-mediaid="{{ $f->mediaId }}" data-mediaid="{{ $f->mediaId }}" data-mediatype="{{ $f->mediaType }}" data-poster="{{ $f->coverUrl }}"
                          >{{ $f->mediaTitle }}</a>
+                         <img class="pull-right" src="{{$f->coverUrl}}" alt="" style="width:90px;height:auto;"/>
                         <div class="timeline-bottom">
                             <i class="fa fa-clock-o"></i> {{ Carbon::createFromTimeStamp($f->timestamp->sec)->diffForHumans();}}
                         </div>
@@ -34,9 +35,9 @@
                 </div>
                 <div class="innerAll">
                     <div class="input-group">
-                        <input class="form-control" id="comment_{{ $f->_id }}" placeholder="Comment here..."/>
+                        <input class="form-control" id="comment_{{ $f->_id }}" placeholder=""/>
                         <div class="input-group-addon comment-submit" data-id="{{ $f->_id }}">
-                            <i class="fa fa-share-square comment-submit" data-id="{{ $f->_id }}"></i>
+                            <i class="fa fa-share comment-submit" data-id="{{ $f->_id }}"></i>
                         </div>
                     </div>
                 </div>

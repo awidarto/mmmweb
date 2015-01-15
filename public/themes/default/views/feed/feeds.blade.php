@@ -11,32 +11,14 @@
         }
 
         a.update-photo:hover{
-            color: white;
+            color: #aaa;
         }
 
-        .comment-submit{
-            cursor: pointer;
+        ol li{
+            text-align: left;
+            line-height: 35px;
         }
 
-        .like-toggle{
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .timeline-activity li .timeline-top-info i.like-toggle{
-            color: red;
-            vertical-align: top;
-        }
-
-        .like{
-            margin-top: 8px;
-        }
-
-        .like-count{
-            font-size: 11px;
-            vertical-align: baseline;
-            margin-left: 6px;
-        }
 
     </style>
     <!-- avatar col -->
@@ -139,18 +121,164 @@
 
                                                             <div class="tab-pane active" id="listeningTab">
                                                                 <div class="share">
-                                                                    <textarea class="form-control" rows="2" placeholder="Im' listening to..."></textarea>
-
-                                                                    <a class="btn btn-primary btn-sm">Share <i class="fa fa-arrow-circle-o-right"></i></a>
+                                                                    <textarea id="listen_say" class="form-control" rows="2" placeholder="Say something about"></textarea>
+                                                                    <input type="text" class="form-control auto_media" id="listen_search" placeholder="search title, artist" />
+                                                                    <div id="listen_result">
+                                                                        <div id="listen_title"></div>
+                                                                        <img class="pull-right" src="" id="listen_pic" />
+                                                                        <input type="hidden" id="listen_id" />
+                                                                        <input type="hidden" id="listen_type" />
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                    <a class="btn btn-primary btn-sm" id="listen_share" >Share <i class="fa fa-arrow-circle-o-right"></i></a>
+                                                                    <span id="sharing_indicator" style="display:none">sharing...</span>
                                                                 </div>
+                                                                <script type="text/javascript">
+                                                                    $(document).ready(function(){
+                                                                        var base = '{{ URL::to('/')}}/';
+
+                                                                        $('.auto_media').autocomplete({
+                                                                            source: base + 'ajax/media',
+                                                                            select: function(event, ui){
+                                                                                $('#listen_title').html(ui.item.value);
+                                                                                $('#listen_type').html(ui.item.mediatype);
+
+                                                                                $('img#listen_pic').attr('src',ui.item.pic);
+                                                                                $('#listen_id').val(ui.item.id);
+                                                                            }
+                                                                        });
+
+                                                                        $('#listen_share').on('click',function(){
+                                                                            var title;
+                                                                            var mediaid;
+                                                                            var msg = $('#listen_say').val();
+                                                                            var mediatype = $('#listen_type').val();
+
+                                                                            if($('#listen_title').html() == ''){
+                                                                                title = $('#listen_search').val();
+                                                                                mediaid = '';
+                                                                            }else{
+                                                                                title = $('#listen_title').html();
+                                                                                mediaid = $('#listen_id').val();
+                                                                            }
+
+                                                                            $('#sharing_indicator').show();
+                                                                            $.post(base + 'ajax/listen',
+                                                                                {
+                                                                                    message:msg,
+                                                                                    mediaid:mediaid,
+                                                                                    mediatitle:title,
+                                                                                    mediatype:mediatype
+                                                                                },
+                                                                                function(data) {
+                                                                                    if(data.result == 'OK'){
+                                                                                        $('#listen_title').html('');
+                                                                                        $('#listen_id').val('');
+                                                                                        $('img#listen_pic').attr('src','');
+                                                                                        $('#listen_search').val('');
+                                                                                    }
+                                                                                    $('#sharing_indicator').hide();
+                                                                                    refreshTimeline();
+                                                                                },
+                                                                            'json');
+
+                                                                        });
+
+                                                                    });
+                                                                </script>
                                                             </div>
                                                             <div class="tab-pane innerAll text-center" id="playlistTab">
                                                                 <div class="share">
-                                                                    <textarea class="form-control" rows="2" placeholder="Search title, artists or album"></textarea>
+                                                                    <textarea id="playlist_say" class="form-control" rows="2" placeholder="Say something about"></textarea>
 
-                                                                    <a class="btn btn-primary btn-sm">Save <i class="fa fa-save"></i></a>
-                                                                    <a class="btn btn-primary btn-sm">Share <i class="fa fa-arrow-circle-o-right"></i></a>
+                                                                    <input type="text" class="form-control " id="playlist_title" placeholder="name your playlist" />
+
+                                                                    <input type="text" class="form-control auto_playlist_media" id="playlist_search" placeholder="search title, artist" />
+                                                                    <div id="playlist_result">
+                                                                        <ol id="playlist_list"></ol>
+                                                                    </div>
+                                                                    <input type="hidden" id="playlist-id" value="" />
+                                                                    <div class="clearfix"></div>
+
+                                                                    <a id="playlist-save" class="btn btn-primary btn-sm">Save <i class="fa fa-save"></i></a>
+                                                                    <a id="playlist-cancel" class="btn btn-primary btn-sm">Cancel <i class="fa fa-times-circle-o"></i></a>
+                                                                    <a id="playlist-share" class="btn btn-primary btn-sm">Share <i class="fa fa-arrow-circle-o-right"></i></a>
+                                                                    <span id="playlist_process_indicator" style="display:none">processing...</span>
                                                                 </div>
+                                                                <script type="text/javascript">
+                                                                    $(document).ready(function($) {
+
+                                                                        $('.auto_playlist_media').autocomplete({
+                                                                            source: base + 'ajax/media',
+                                                                            select: function(event, ui){
+                                                                                var pitem = '<li data-id=' + ui.item.id + ' >' + ui.item.value + '</li>';
+                                                                                $('ol#playlist_list').prepend(pitem);
+                                                                                $(this).val('');
+                                                                                return false;
+                                                                            }
+                                                                        });
+
+                                                                        $('#playlist-save').on('click',function(){
+                                                                            var title = $('#playlist_title').val();
+                                                                            var msg = $('#playlist_say').val();
+                                                                            var medialist = [];
+                                                                            $('ol#playlist_list li').each(function(el){
+                                                                                medialist.push($(this).data('id'));
+                                                                            });
+
+                                                                            $('#playlist_process_indicator').show();
+                                                                            $.post(base + 'ajax/saveplaylist',
+                                                                                {
+                                                                                    message:msg,
+                                                                                    playlisttitle:title,
+                                                                                    medialist:medialist
+                                                                                },
+                                                                                function(data) {
+                                                                                    if(data.result == 'OK'){
+                                                                                        $('#playlist-id').val(data.id);
+                                                                                        alert('Playlist Saved');
+                                                                                    }
+                                                                                    $('#playlist_process_indicator').hide();
+                                                                                    refreshTimeline();
+                                                                                },
+                                                                            'json');
+
+
+                                                                        });
+
+                                                                        $('#playlist-share').on('click',function(){
+                                                                            var title = $('#playlist_title').val();
+                                                                            var msg = $('#playlist_say').val();
+                                                                            var playlistid = $('#playlist-id').val();
+                                                                            var medialist = [];
+                                                                            $('ol#playlist_list li').each(function(el){
+                                                                                medialist.push($(this).data('id'));
+                                                                            });
+
+                                                                            $('#playlist_process_indicator').show();
+                                                                            $.post(base + 'ajax/shareplaylist',
+                                                                                {
+                                                                                    message:msg,
+                                                                                    playlisttitle:title,
+                                                                                    medialist:medialist,
+                                                                                    playlistid:playlistid
+                                                                                },
+                                                                                function(data) {
+                                                                                    if(data.result == 'OK'){
+                                                                                        $('#playlist-id').val(data.id);
+                                                                                        alert('Playlist Saved & Shared');
+                                                                                    }
+                                                                                    $('#playlist_process_indicator').hide();
+                                                                                    refreshTimeline();
+                                                                                },
+                                                                            'json');
+
+
+                                                                        });
+
+
+                                                                    });
+                                                                </script>
                                                             </div>
 
                                                         </div>
