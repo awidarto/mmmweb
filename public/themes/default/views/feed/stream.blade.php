@@ -1,9 +1,27 @@
+<style type="text/css">
+    ol.playlist{
+        margin-right: 0px;
+    }
+
+    ol.playlist li{
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px 0px;
+        border:none;
+    }
+
+</style>
+
 <ul class="timeline-activity list-unstyled play-trigger">
     @foreach($feed as $f)
         @if($f->type == 'upload')
             @include('feeddisplay.upload',array('f'=>$f))
         @elseif($f->type == 'listen')
             @include('feeddisplay.listen',array('f'=>$f))
+        @elseif($f->type == 'playlist')
+            @include('feeddisplay.playlist',array('f'=>$f))
+        @elseif($f->type == 'album')
+            @include('feeddisplay.album',array('f'=>$f))
         @endif
     @endforeach
 </ul>

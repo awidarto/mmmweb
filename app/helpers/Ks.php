@@ -57,5 +57,21 @@ class Ks {
         $roi = ((12*$prop['monthlyRental']) - $prop['tax'] - $prop['insurance'] - ( (12*$prop['monthlyRental']) / 10 )) / $prop['listingPrice'];
         return number_format( $roi * 100, 1,'.',',');
     }
+
+    public static function medialist($list){
+        $media = Media::whereIn('_id',$list)->get();
+
+        $medialist = array();
+        foreach ($list as $v) {
+            foreach($media as $m){
+                if($m['_id'] == $v){
+                    $medialist[$v] = $m;
+                }
+            }
+        }
+
+        return $medialist;
+
+    }
 }
 

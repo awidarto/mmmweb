@@ -118,6 +118,7 @@ class AjaxController extends BaseController {
             'mediaType'=>'playlist',
             'mediaUrl'=>$pid,
             'coverUrl'=>$coverUrl,
+            'media'=>$medialist,
             'originatorName'=>Auth::user()->fullname,
             'comments'=>array() ));
         return Response::json(array('result'=>'OK'));
