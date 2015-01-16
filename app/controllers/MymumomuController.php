@@ -30,7 +30,12 @@ class MymumomuController extends AdminController {
     {
         Options::refresh();
 
-        $media = Media::get();
+        $mediaowned = Ownership::where('userId',Auth::user()->_id)->get();
+
+        $media = array();
+        foreach($mediaowned as $md){
+            $media[] = Ks::getMedia($md->mediaId);
+        }
         $feed = Feed::where('originatorId',Auth::user()->_id)->orderBy('timestamp','desc')->take(20)->get();
 
         $refreshurl = URL::to('ajax/myfeed');

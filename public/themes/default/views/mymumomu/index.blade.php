@@ -61,11 +61,11 @@
                 <!-- col-separator -->
         <div class="col-separator border-none" style="background-color:transparent !important;">
             <div class="box-generic bg-info innerAll inner-2x">
-                <div class="text-large pull-right">&euro;1000</div>
+                <div class="text-large pull-right">{{ Ks::getAvailableCredit() }}</div>
                 <h4 class="text-white text-medium margin-none">Wallet</h4>
                 <h5 class="text-white">Current points</h5>
                 <div class="separator"></div>
-                <a href="{{ URL::to('payment')}}" class="btn btn-primary">Buy points</a>
+                <a href="{{ URL::to('buy/point')}}" class="btn btn-primary">Buy points</a>
             </div>
         </div>
 

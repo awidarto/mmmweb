@@ -33,6 +33,8 @@ Route::controller('settings', 'SettingsController');
 Route::controller('payment', 'PaymentController');
 Route::controller('store', 'StoreController');
 
+Route::controller('buy', 'BuyController');
+
 /*
  * @author juntriaji
  * Route for API
@@ -55,6 +57,17 @@ Route::get('/', 'FeedController@getIndex');
 
 Route::get('seller', 'SellerController@getDashboard');
 
+Route::get('gv/{amt?}',function($amt){
+    for($i = 0; $i < 100; $i++){
+        $voucher = array(
+                'value'=>$amt,
+                'code'=>strtolower(str_random(10)),
+                'status'=>'available',
+                'createdDate'=>new MongoDate()
+            );
+        Voucher::insert($voucher);
+    }
+});
 
 Route::get('regenerate',function(){
     $property = new Property();

@@ -14,6 +14,7 @@
 
 .like{
     margin-top: 8px;
+    display: inline-block;
 }
 
 .like-count{
@@ -21,6 +22,26 @@
     vertical-align: baseline;
     margin-left: 6px;
 }
+
+.buy{
+    margin-top: 8px;
+    display: inline-block;
+    margin-left: 35px;
+}
+
+.buy-button{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+div.buy a.buy-button{
+    color: #555;
+}
+
+a.buy-button:hover{
+    color: red !important;
+}
+
 
 div.input-group-addon.comment-submit{
     padding-top: 2px;

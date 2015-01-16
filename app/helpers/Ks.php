@@ -73,5 +73,48 @@ class Ks {
         return $medialist;
 
     }
+
+    public static function getMedia($mediaId)
+    {
+        return Media::find($mediaId);
+    }
+
+    public static function addCredit($amt){
+        $credit = array(
+                'userId'=>Auth::user()->_id,
+                'amount'=> new MongoInt32($amt),
+                'createdDate'=>new MongoDate()
+            );
+        $cid = Credit::insertGetId($credit);
+        return $cid;
+    }
+
+    public static function getAvailableCredit(){
+        $tc = Credit::where('userId',Auth::user()->_id)->sum('amount');
+        $ts = Credittrx::where('userId',Auth::user()->_id)->where('trxStatus','paid')->sum('amount');
+
+        return $tc - $ts;
+    }
+
+    public static function spendCredit($amt, $mediaId, $trxStatus = null, $trxId = null){
+        $trxId = (is_null($trxId))?str_random(12):$trxId;
+        $trxStatus = (is_null($trxStatus))?'paid':$trxStatus;
+        $credit = array(
+                'userId'=>Auth::user()->_id,
+                'mediaId'=> $mediaId,
+                'trx_id'=>$trxId,
+                'trxStatus'=>$trxStatus,
+                'amount'=> new MongoInt32($amt),
+                'createdDate'=>new MongoDate()
+            );
+        $cid = Credittrx::insertGetId($credit);
+        return array( $cid, $trxId );
+    }
+
+    public static function updateCredittrx($trxStatus, $trxId){
+        $res = Credittrx::where('trxId', $trxId)->update( array('trxStatus'=>$trxStatus) );
+        return $res;
+    }
+
 }
 
