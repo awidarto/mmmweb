@@ -87,7 +87,20 @@ class BuyController extends AdminController {
         if($voucher){
             $voucher->status = 'sold';
             $voucher->buyerId = Auth::user()->_id;
+            $voucher->buyerName = Auth::user()->fullname;
             $voucher->save();
+
+            $topup = array(
+                'userId'=>Auth::user()->_id,
+                'userName'=>Auth::user()->fullname,
+                'amount'=> new MongoInt32($voucher->value),
+                'createdDate'=>new MongoDate(),
+                'payment'=>'voucher',
+                'status'=>'paid',
+                'noteId'=>$voucher->_id
+            );
+
+            Topup::insert($topup);
 
             Ks::addCredit($voucher->value);
 
