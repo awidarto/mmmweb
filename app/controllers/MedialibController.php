@@ -192,7 +192,7 @@ class MedialibController extends AdminController {
 
             $files = array();
 
-            print_r($datain);
+            //print_r($datain);
 
             //die();
 
